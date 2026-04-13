@@ -1,0 +1,97 @@
+/* button.scss */
+.strokeButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: inherit;
+  font-weight: 500;
+  font-size: 17px;
+  padding: 12px 20px;
+  color: #0E1D21;
+  background: rgb(255 255 255);
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  position: relative;
+  letter-spacing: 0.05em;
+  transition: all 0.2s;
+  box-shadow: 0px 0px 10px 0px #000000ad, 0px 0px 10px 0px #00000000, inset 0px 0px 10px 0px #9b9b9b38;
+
+
+  svg {
+    margin-right: 8px;
+    width: 25px;
+  }
+
+  &:hover {
+
+    &::before,
+    &::after {
+      height: 60%;
+    }
+  }
+
+  &:active {
+    transform: scale(0.95);
+  }
+
+  &::before,
+  &::after {
+    content: "";
+    width: 4px;
+    height: 40%;
+    position: absolute;
+    transition: all 0.2s;
+  }
+
+  &::before {
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    left: 0;
+  }
+
+  &::after {
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    right: 0;
+  }
+
+  &.success {
+
+    &::before,
+    &::after {
+      background-color: #00b685;
+    }
+
+    &:hover::before,
+    &:hover::after {
+      box-shadow: 0 0 12px 4px #00845f, 0 0 12px 4px #7affc5, 0 0 12px 4px rgba(0, 255, 180, 0.8);
+    }
+  }
+
+  &.danger {
+
+    &::before,
+    &::after {
+      background-color: #E53935;
+    }
+
+    &:hover::before,
+    &:hover::after {
+      box-shadow: 0 0 12px 4px #B71C1C, 0 0 12px 4px #FF8A80, 0 0 12px 4px rgba(255, 90, 90, 0.8);
+    }
+  }
+
+  &.info {
+
+    &::before,
+    &::after {
+      background-color: #00C4CC;
+    }
+
+    &:hover::before,
+    &:hover::after {
+      box-shadow: 0 0 12px 4px #00939A, 0 0 12px 4px #9FF9FF,  0 0 12px 4px rgba(0, 220, 230, 0.8);
+    }
+  }
+}

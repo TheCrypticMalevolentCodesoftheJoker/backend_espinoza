@@ -1,0 +1,41 @@
+@use 'sass:map';
+
+@font-face {
+    font-family: 'Nosifer';
+    src: url('../fonts/Nosifer.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Montserrat';
+    src: url('../fonts/Montserrat.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Roboto';
+    src: url('../fonts/Roboto.ttf') format('truetype');
+}
+
+/***************************************************************************************
+-------------------------------------   Fuentes   --------------------------------------
+***************************************************************************************/
+$fonts: (
+  title: 'Nosifer',
+  subtitle: 'Montserrat',
+  text: 'Roboto'
+);
+@function fonts($name) {
+  @return map.get($fonts, $name);
+}
+
+/***************************************************************************************
+-------------------------------------   Colores   --------------------------------------
+***************************************************************************************/
+$colors: (
+  primary: #0fdfee,
+  danger: #ff3b3b,
+  warning: #ffb703,
+  dark: #74859e
+);
+@function colors($name) {
+  @return map.get($colors, $name);
+}

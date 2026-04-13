@@ -1,0 +1,15 @@
+/* BASE */
+@import './base/reset';
+@import './base/scrollbar';
+/* LAYOUTS */
+@import './layouts/app-layout';
+
+/* PARTIALS */
+@import './partials/header';
+@import './partials/sidebar';
+@import './partials/footer';
+
+/* COMPONENTS */
+@import './components/badges/status';
+@import './components/alerts/toast';
+@import './components/buttons/strokeButton';

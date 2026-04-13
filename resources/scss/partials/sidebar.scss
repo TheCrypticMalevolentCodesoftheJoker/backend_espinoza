@@ -1,0 +1,12 @@
+.app-sidebar {
+    background-color: aquamarine;
+    width: calc(100% - 85%);
+    height: 100vh;
+
+    &__list {
+        background-color: green;
+        overflow-x: hidden;
+        overflow-y: auto;
+        height: 30vh;
+    }
+}

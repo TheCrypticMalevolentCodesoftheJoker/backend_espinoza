@@ -1,0 +1,15 @@
+@use '../variables';
+
+body {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: row;
+    font-family: variables.fonts(text);
+    background-color: variables.colors(dark);
+    overflow: hidden;
+}
+main {
+    width: calc(85% - 0%);
+    height: 100vh;
+}
