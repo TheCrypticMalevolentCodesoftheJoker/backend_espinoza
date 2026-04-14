@@ -1,3 +1,11 @@
-footer{
-    background-color: rgb(5, 38, 77);
+footer {
+  background-color: rgba(142, 148, 158, 0.308);
+  padding: 0.75rem 1rem;
+  text-align: center;
+
+  p {
+    margin: 0;
+    font-size: 0.9rem;
+    opacity: 0.8;
+  }
 }

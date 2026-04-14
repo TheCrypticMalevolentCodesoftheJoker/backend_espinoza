@@ -12,34 +12,46 @@
     :message="session('alert')['message']" />
 @endif
 
-<a href="{{ route('category.index') }}">Volver</a>
+<section class="category-form-section">
 
-<form action="{{ route('category.store') }}" method="POST">
-    @csrf
-    <input
-        type="text"
-        name="name"
-        value="{{ old('name') }}"
-        autocomplete="off"
-        placeholder="Nombre">
+    <a class="category-form__link" href="{{ route('category.index') }}">
+        Volver
+    </a>
 
-    @error('name')
-    <div class="text-red-500">
-        {{ $message }}
-    </div>
-    @enderror
+    <form class="category-form" action="{{ route('category.store') }}" method="POST">
+        @csrf
 
-    @error('domain')
-    <div class="text-red-500">
-        <strong>Errores de dominio</strong>
-        {{ $message }}
-    </div>
-    @enderror
+        <div class="category-form__group">
+            <input
+                class="category-form__input"
+                type="text"
+                name="name"
+                value="{{ old('name') }}"
+                autocomplete="off"
+                placeholder="Nombre">
+        </div>
 
-    <x-buttons.strokeButton type="submit" variant="success">
-        Registrar
-    </x-buttons.strokeButton>
+        @error('name')
+        <div class="category-form__error">
+            {{ $message }}
+        </div>
+        @enderror
 
-</form>
+        @error('domain')
+        <div class="category-form__error">
+            <strong>Errores de dominio</strong>
+            {{ $message }}
+        </div>
+        @enderror
+
+        <div class="category-form__actions">
+            <x-buttons.strokeButton class="category-form__button" type="submit" variant="success">
+                Registrar
+            </x-buttons.strokeButton>
+        </div>
+
+    </form>
+
+</section>
 
 @endsection

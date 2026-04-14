@@ -3,5 +3,5 @@
 @section('header_title', 'Dasboard')
 
 @section('content')
-<h1>Soy el DASHBOARD</h1>
+<h1>DASHBOARD</h1>
 @endsection

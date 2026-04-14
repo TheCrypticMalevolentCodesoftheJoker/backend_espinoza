@@ -1,7 +1,42 @@
 .app-header {
-    background-color: rgba(142, 148, 158, 0.308);
+  background-color: rgba(142, 148, 158, 0.308);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.75rem 1rem;
+
+  &__left {
     display: flex;
-    flex-direction: row;
-    justify-content: space-between;
     align-items: center;
+  }
+
+  &__title {
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin: 0;
+  }
+
+  &__right {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  &__notification,
+  &__user,
+  &__logout {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0.4rem;
+    border-radius: 6px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &:hover {
+      background: rgba(0, 0, 0, 0.1);
+    }
+  }
 }
