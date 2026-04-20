@@ -10,7 +10,7 @@ return new class extends Migration
     {
         Schema::create('tbl_image', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('product_id')->constrained('tbl_product')->onDelete('restrict');
+            $table->foreignId('product_id')->constrained('tbl_product')->cascadeOnDelete();
             $table->string('url', 255);
             $table->string('type', 20);
             $table->timestamps();

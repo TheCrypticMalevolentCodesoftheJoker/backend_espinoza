@@ -7,7 +7,20 @@
                 <a href="{{ route('dashboard') }}" class="app-sidebar__link">Dashboard</a>
             </li>
             <li class="app-sidebar__item">
-                <a href="{{ route('category.index') }}" class="app-sidebar__link">Categorias</a>
+                <a href="{{ route('category.index') }}" class="app-sidebar__link">
+                    Categorías
+                </a>
+            </li>
+
+            <li class="app-sidebar__item">
+                <a href="{{ route('brand.index') }}" class="app-sidebar__link">
+                    Marcas
+                </a>
+            </li>
+            <li class="app-sidebar__item">
+                <a href="{{ route('product.index') }}" class="app-sidebar__link">
+                    Productos
+                </a>
             </li>
         </ul>
     </nav>

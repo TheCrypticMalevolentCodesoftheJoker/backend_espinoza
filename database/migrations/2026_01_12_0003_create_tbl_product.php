@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('name', 100);
             $table->text('description')->nullable();
             $table->string('unit_measure', 100);
-            $table->integer('stock')->default(0);
+            $table->integer('stock');
             $table->boolean('status');
             $table->timestamps();
         });

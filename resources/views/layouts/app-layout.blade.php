@@ -13,8 +13,13 @@
     <main>
         @include('partials.header')
         @yield('content')
-        @include('partials.footer')
     </main>
+    @if (session('alert'))
+    <x-alerts.toast
+        :variant="session('alert')['variant']"
+        :code="session('alert')['code']"
+        :message="session('alert')['message']" />
+    @endif
 </body>
 
 </html>

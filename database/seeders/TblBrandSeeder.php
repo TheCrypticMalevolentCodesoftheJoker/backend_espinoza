@@ -2,7 +2,7 @@
 
 namespace Database\Seeders;
 
-use App\Models\TblBrand;
+use App\Modules\Catalog\Brand\Infrastructure\Persistence\Eloquent\Models\TblBrand;
 use Illuminate\Database\Seeder;
 
 class TblBrandSeeder extends Seeder

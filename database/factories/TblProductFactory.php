@@ -3,8 +3,8 @@
 namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
-use App\Models\TblBrand;
-use App\Models\TblCategory;
+use App\Modules\Catalog\Brand\Infrastructure\Persistence\Eloquent\Models\TblBrand;
+use App\Modules\Catalog\Category\Infrastructure\Persistence\Eloquent\Models\TblCategory;
 
 class TblProductFactory extends Factory
 {

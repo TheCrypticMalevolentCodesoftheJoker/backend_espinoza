@@ -6,6 +6,8 @@ return [
     //-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_//
     //-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_  MODULOS  -_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-//
     //-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_//
-    
-    App\Modules\Administration\Infrastructure\Providers\AdministrationServiceProvider::class,
+
+    App\Modules\Catalog\Category\Infrastructure\Providers\CategoryServiceProvider::class,
+    App\Modules\Catalog\Brand\Infrastructure\Providers\BrandServiceProvider::class,
+    App\Modules\Catalog\Product\Infrastructure\Providers\ProductServiceProvider::class,
 ];
