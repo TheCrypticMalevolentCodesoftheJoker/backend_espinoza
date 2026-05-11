@@ -1,0 +1,121 @@
+@use "../abstracts/fonts" as f;
+@use "sass:map";
+
+/* =========================
+   WRAPPER & ANIMATIONS
+========================= */
+
+.toast-wrapper {
+  position: fixed;
+  bottom: 2vh;
+  right: 2vh;
+  z-index: 99999;
+  opacity: 0;
+  transform: translateX(100%) translateY(20px) scale(0.9);
+  transition:
+    opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+    filter 0.4s ease;
+  pointer-events: auto;
+
+  &.show {
+    opacity: 1;
+    transform: translate(0) scale(1);
+  }
+
+  &.hide {
+    opacity: 0;
+    transform: translateX(40px) scale(0.95);
+    filter: blur(8px);
+    pointer-events: none;
+  }
+}
+
+/* =========================
+   TOAST STYLING
+========================= */
+
+.toast {
+  position: relative;
+  display: flex;
+  align-items: center;
+  min-width: 320px;
+  max-width: 420px;
+  padding: 1.25rem 1.5rem 1.25rem 2.2rem;
+  border-radius: 20px 40px 0px 20px;
+  background: rgba(255, 255, 255, 0.92);
+  box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.63);
+  overflow: hidden;
+
+  &::before {
+    content: "";
+    position: absolute;
+    left: 0.75rem;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 6px;
+    height: 60%;
+    border-radius: 10px;
+    background: var(--accent, #ef4444);
+    transition: background 0.3s ease;
+  }
+
+  /* CONFIGURACIÓN DE COLORES POR CÓDIGO */
+  &.code-200,
+  &.code-201 {
+    --accent: #10b981;
+  }
+  &.code-422 {
+    --accent: #f59e0b;
+  }
+  &.code-default,
+  &.code-500,
+  &.code-503 {
+    --accent: #ef4444;
+  }
+}
+
+/* =========================
+   ELEMENTOS INTERNOS
+========================= */
+
+.toast-content {
+  flex: 1;
+}
+
+.toast-title {
+  display: block;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--accent, #ef4444);
+  margin-bottom: 0.15rem;
+  font-family: map.get(f.$fonts, subtitle);
+}
+
+.toast-msg {
+  margin: 0;
+  font-size: 0.9rem;
+  line-height: 1.4;
+  color: #4b5563;
+  font-family: map.get(f.$fonts, text);
+}
+
+.toast-close {
+  margin-left: 1.25rem;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  font-size: 1.6rem;
+  line-height: 1;
+  color: #9ca3af;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+
+  &:hover {
+    color: #1f2937;
+    transform: scale(1.15);
+  }
+
+  &:active {
+    transform: scale(0.95);
+  }
+}

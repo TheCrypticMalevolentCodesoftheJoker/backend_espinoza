@@ -1,0 +1,11 @@
+@use "sass:map";
+
+$colors: (
+  primary-dark: rgb(15, 26, 40),
+  primary: #35577d,
+  background: #eef2f7,
+);
+
+@function color($name) {
+  @return map.get($colors, $name);
+}

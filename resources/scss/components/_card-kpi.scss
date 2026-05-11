@@ -1,0 +1,113 @@
+@use "../abstracts/colors" as c;
+@use "../abstracts/fonts" as f;
+
+/* =========================================================
+   BASE KPI CONTAINER
+========================================================= */
+
+.kpis {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 15px;
+  padding: 20px 0px 20px 0px;
+}
+
+/* =========================================================
+   MIXIN BASE KPI VARIANTE
+========================================================= */
+
+@mixin kpi-card-base($color) {
+  .kpi-card__icon {
+    background: rgba($color, 0.15);
+
+    svg {
+      color: $color;
+    }
+  }
+
+  .kpi-card__value {
+    color: $color;
+  }
+}
+
+/* =========================================================
+   KPI CARD BASE
+========================================================= */
+
+.kpi-card {
+  background: white;
+  padding: 15px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  border-radius: 8px;
+  gap: 15px;
+  flex: 1;
+  box-shadow: 0 2px 20px rgb(0 0 0 / 68%);
+
+  /* =====================================================
+     ICON
+  ===================================================== */
+
+  .kpi-card__icon {
+    padding: 10px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    svg {
+      width: 20px;
+      height: 20px;
+      display: block;
+      stroke-width: 2.5px;
+    }
+  }
+
+  /* =====================================================
+     CONTENT
+  ===================================================== */
+
+  .kpi-card__content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 4px;
+
+    .kpi-card__title {
+      font-family: f.font(subtitle);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: rgb(15 26 40 / 65%);
+      margin: 0;
+      line-height: 1;
+    }
+
+    .kpi-card__value {
+      font-family: f.font(title);
+      font-size: 32px;
+      font-weight: normal;
+      margin: 0;
+      line-height: 1;
+      color: rgb(15, 26, 40);
+      letter-spacing: -0.5px;
+    }
+  }
+}
+
+/* =========================================================
+   VARIANTS
+========================================================= */
+.kpi-card--total {
+  @include kpi-card-base(rgb(15, 26, 40));
+}
+.kpi-card--active {
+  @include kpi-card-base(#158806);
+}
+.kpi-card--inactive {
+  @include kpi-card-base(#e04747);
+}

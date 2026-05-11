@@ -1,0 +1,180 @@
+@use "../abstracts/colors" as c;
+@use "../abstracts/fonts" as f;
+@use "sass:map";
+
+/* =========================================================
+   HEADER & TITLES
+========================================================= */
+.form-standard-wrapper {
+  flex: 1;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  overflow: auto;
+  padding: 10px;
+
+  .form-standard__header {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .form-standard__title {
+      font-family: f.font(subtitle);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      font-size: 18px;
+      font-weight: 700;
+      color: rgb(15, 26, 40);
+    }
+  }
+
+  /* =========================================================
+   FORM GROUPS & LABELS
+========================================================= */
+
+  .form-standard {
+    width: 100%;
+    max-width: 800px;
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .form-standard__group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    width: 100%;
+
+    .form-standard__label {
+      font-family: f.font(subtitle);
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      color: rgb(15, 26, 40);
+      padding-left: 4px;
+    }
+  }
+
+  /* =========================================================
+   SECTIONS & GRID
+  ========================================================= */
+
+  .form-standard__section {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 15px 0;
+    border-bottom: 1px solid #f1f5f9;
+
+    &:last-of-type {
+      border-bottom: none;
+    }
+  }
+
+  .form-standard__section-title {
+    font-family: f.font(subtitle);
+    font-size: 14px;
+    font-weight: 700;
+    color: rgb(15, 26, 40);
+    border-left: 4px solid rgb(15, 26, 40);
+    padding-left: 12px;
+    margin-bottom: 5px;
+  }
+
+  .form-standard__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+
+    &--2 {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    &--3 {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+  .form-standard__input {
+    width: 100%;
+    padding: 0.9rem 1.1rem;
+    font-family: f.font(text);
+    font-size: 0.95rem;
+    color: #1e293b;
+    background: #f8fafc;
+    border: 1.5px solid #e2e8f0;
+    border-radius: 12px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    outline: none;
+
+    &::placeholder {
+      color: #94a3b8;
+    }
+
+    &:focus {
+      background: #ffffff;
+      border-color: rgb(15, 26, 40);
+      box-shadow: 0 0 0 4px rgba(15, 26, 40, 0.08);
+      transform: translateY(-1px);
+    }
+
+    &.select,
+    &[type="date"] {
+      cursor: pointer;
+      appearance: none;
+      background-repeat: no-repeat;
+      background-position: right 1rem center;
+      background-size: 1.1rem;
+      padding-right: 2.8rem;
+    }
+
+    &.form-standard__textarea {
+      min-height: 120px;
+      resize: vertical;
+      line-height: 1.5;
+    }
+  }
+
+  /* =========================================================
+   VALIDATION & ERRORS
+========================================================= */
+
+  .form-standard__error {
+    font-family: f.font(text);
+    font-size: 12px;
+    font-weight: 500;
+    color: #ef4444;
+    letter-spacing: 0.5px;
+    animation: form-error-in 0.3s ease-out;
+  }
+
+  @keyframes form-error-in {
+    from {
+      opacity: 0;
+      transform: translateY(-5px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* =========================================================
+   ACTIONS & BUTTONS
+========================================================= */
+
+  .form-standard__actions {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    align-items: center;
+  }
+}

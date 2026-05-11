@@ -1,0 +1,92 @@
+@use "../abstracts/colors" as c;
+@use "../abstracts/fonts" as f;
+
+.panel-sidebar {
+  width: 20%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: rgb(15, 26, 40);
+  z-index: 100;
+
+  .panel-sidebar__brand {
+    height: 8vh;
+    padding: 0px 12px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 20px;
+
+    .panel-sidebar__logo-icon {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      svg {
+        display: block;
+        width: 25px;
+        height: 25px;
+        color: white;
+      }
+    }
+
+    .panel-sidebar__brand-text {
+      h1 {
+        font-family: f.font(title);
+        color: white;
+        font-size: 15px;
+        font-weight: normal;
+        letter-spacing: 2px;
+      }
+    }
+  }
+
+  .panel-sidebar__body {
+    flex: 1;
+    padding: 5px 12px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    .panel-sidebar__group {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+
+      .panel-sidebar__heading {
+        font-family: f.font(subtitle);
+        font-size: 11px;
+        font-weight: 800;
+        text-transform: uppercase;
+        color: white;
+        letter-spacing: 1.5px;
+      }
+      .panel-sidebar__menu {
+        list-style: none;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+
+        .panel-sidebar__item {
+          width: 100%;
+        }
+      }
+    }
+  }
+
+  .panel-sidebar__footer {
+    height: 10vh;
+    padding: 0px 12px;
+    border-top: 1px solid rgba(171, 171, 171, 0.1882352941);
+    display: flex;
+    align-items: center;
+
+    form {
+      width: 100%;
+    }
+  }
+}

@@ -1,0 +1,26 @@
+@use "sass:map";
+
+@font-face {
+  font-family: "Nosifer";
+  src: url("../../fonts/Nosifer.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Montserrat";
+  src: url("../../fonts/Montserrat.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Roboto";
+  src: url("../../fonts/Roboto.ttf") format("truetype");
+}
+
+$fonts: (
+  title: "Nosifer",
+  subtitle: "Montserrat",
+  text: "Roboto",
+);
+
+@function font($name) {
+  @return map.get($fonts, $name);
+}

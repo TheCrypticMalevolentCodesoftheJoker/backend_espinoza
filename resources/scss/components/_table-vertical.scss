@@ -1,0 +1,76 @@
+@use "../abstracts/colors" as c;
+@use "../abstracts/fonts" as f;
+
+.data_table-vertical {
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  overflow: auto;
+}
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+.data-table-vertical__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  .data-table-vertical__title {
+    font-family: f.font(subtitle);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 18px;
+    font-weight: 700;
+    color: rgb(15, 26, 40);
+  }
+}
+
+/* =========================================================
+   TABLE
+========================================================= */
+
+.data-table-vertical__table {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: f.font(text);
+  background: white;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
+}
+
+.data-table-vertical__table tr {
+  border-bottom: 1px solid rgba(15, 26, 40, 0.212);
+}
+
+.data-table-vertical__table th {
+  width: 200px;
+  text-align: left;
+  padding: 12px;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: white;
+  background: rgb(15, 26, 40);
+}
+
+.data-table-vertical__table td {
+  text-align: center;
+  padding: 12px;
+  font-size: 13px;
+  color: rgb(15, 26, 40);
+}
+
+/* =========================================================
+   ACTIONS
+========================================================= */
+.table-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}

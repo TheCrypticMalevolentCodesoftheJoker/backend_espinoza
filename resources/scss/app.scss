@@ -1,0 +1,41 @@
+/* =========================
+   BASE STYLES
+   Reset y estilos globales
+========================= */
+@use "./base/reset";
+@use "./base/scrollbar";
+
+/* =========================
+   UI COMPONENTS
+   Elementos reutilizables
+========================= */
+@use "./components/toast";
+@use "./components/surface-button";
+@use "./components/stroke-button";
+@use "./components/card-kpi";
+@use "./components/table-horizontal";
+@use "./components/table-vertical";
+@use "./components/status";
+@use "./components/form";
+
+/* =========================
+   LAYOUTS
+   Estructura general de páginas
+========================= */
+@use "./layouts/app-layout";
+@use "./layouts/guest-layout";
+
+/* =========================
+   MODULES
+   Funcionalidades por dominio
+========================= */
+
+/* Auth */
+@use "./modules/auth/login";
+
+/* =========================
+   PARTIALS
+   Componentes de interfaz global
+========================= */
+@use "./partials/sidebar";
+@use "./partials/header";
