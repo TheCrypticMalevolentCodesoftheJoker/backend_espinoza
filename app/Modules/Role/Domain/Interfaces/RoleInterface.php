@@ -7,25 +7,18 @@ use App\Modules\Role\Domain\Entities\RoleEntity;
 interface RoleInterface
 {
     //--------------------------------------------------------------------------
-    // OPERACIONES DE LECTURA
+    // CONSULTAS -> Métodos de lectura de roles
     //--------------------------------------------------------------------------
     public function findAll(): array;
+
+    public function findActive(): array;
 
     public function findById(int $id): ?RoleEntity;
 
     public function findByName(string $name): ?RoleEntity;
 
-    //----------------------------------------------------------------------
-    // KPIs / AGREGACIONES
-    //----------------------------------------------------------------------
-    public function countAll(): int;
-
-    public function countActive(): int;
-
-    public function countInactive(): int;
-
     //--------------------------------------------------------------------------
-    // OPERACIONES DE ESCRITURA
+    // PERSISTENCIA -> Métodos de escritura y eliminación de roles
     //--------------------------------------------------------------------------
     public function save(RoleEntity $role): void;
 

@@ -2,7 +2,7 @@
 
 namespace App\Modules\User\Application\Mappers;
 
-use App\Modules\User\Application\DTOs\UserRoleDTO;
+use App\Modules\User\Application\DTOs\Read\UserRoleDTO;
 
 class UserRoleMapper
 {

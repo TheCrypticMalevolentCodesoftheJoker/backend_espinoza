@@ -3,52 +3,48 @@
 namespace App\Modules\Role\Domain\Entities;
 
 use App\Modules\Role\Domain\ValueObjects\RoleName;
-use App\Modules\Role\Domain\ValueObjects\RoleDescription;
 
 class RoleEntity
 {
     private function __construct(
         private int $id,
         private RoleName $name,
-        private RoleDescription $description,
         private bool $status,
         private ?\DateTime $createdAt,
         private ?\DateTime $updatedAt,
     ) {}
 
-    /*--------------------------------------------------------------------------
-    MÉTODOS DE CREACIÓN
-    --------------------------------------------------------------------------*/
-    public static function create(RoleName $name, RoleDescription $description): self
+    //--------------------------------------------------------------------------
+    // CREACIÓN -> Instanciar una nueva entidad
+    //--------------------------------------------------------------------------
+    public static function create(RoleName $name): self
     {
         return new self(
             id: 0,
             name: $name,
-            description: $description,
             status: true,
             createdAt: null,
             updatedAt: null,
         );
     }
 
-    /*--------------------------------------------------------------------------
-    MÉTODOS DE RECONSTRUCCIÓN
-    --------------------------------------------------------------------------*/
-    public static function reconstitute(int $id, RoleName $name, RoleDescription $description, bool $status, ?\DateTime $createdAt, ?\DateTime $updatedAt): self
+    //--------------------------------------------------------------------------
+    // RECONSTRUCCIÓN -> Reconstituir entidad desde base de datos
+    //--------------------------------------------------------------------------
+    public static function reconstitute(int $id, RoleName $name, bool $status, ?\DateTime $createdAt, ?\DateTime $updatedAt): self
     {
         return new self(
             id: $id,
             name: $name,
-            description: $description,
             status: $status,
             createdAt: $createdAt,
             updatedAt: $updatedAt,
         );
     }
 
-    /*--------------------------------------------------------------------------
-    MÉTODOS DE CONSULTA (Getters)
-    --------------------------------------------------------------------------*/
+    //--------------------------------------------------------------------------
+    // CONSULTAS -> Getters de la entidad
+    //--------------------------------------------------------------------------
 
     public function getId(): int
     {
@@ -57,10 +53,6 @@ class RoleEntity
     public function getName(): string
     {
         return $this->name->value();
-    }
-    public function getDescription(): ?string
-    {
-        return $this->description->value();
     }
     public function getStatus(): bool
     {
@@ -77,17 +69,12 @@ class RoleEntity
         return $this->updatedAt;
     }
 
-    /*--------------------------------------------------------------------------
-    MÉTODOS DE COMPORTAMIENTO
-    --------------------------------------------------------------------------*/
+    //--------------------------------------------------------------------------
+    // COMPORTAMIENTO -> Lógica de dominio de la entidad
+    //--------------------------------------------------------------------------
     public function changeName(RoleName $name): void
     {
         $this->name = $name;
-    }
-
-    public function changeDescription(RoleDescription $description): void
-    {
-        $this->description = $description;
     }
 
     public function activate(): void
@@ -100,4 +87,3 @@ class RoleEntity
         $this->status = false;
     }
 }
-

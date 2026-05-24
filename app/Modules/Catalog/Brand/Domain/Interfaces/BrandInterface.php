@@ -7,25 +7,18 @@ use App\Modules\Catalog\Brand\Domain\Entities\BrandEntity;
 interface BrandInterface
 {
     //--------------------------------------------------------------------------
-    // OPERACIONES DE LECTURA
+    // CONSULTAS -> Métodos de lectura de marcas
     //--------------------------------------------------------------------------
     public function findAll(): array;
+
+    public function findActive(): array;
 
     public function findById(int $id): ?BrandEntity;
 
     public function findByName(string $name): ?BrandEntity;
 
-    //----------------------------------------------------------------------
-    // KPIs / AGREGACIONES
-    //----------------------------------------------------------------------
-    public function countAll(): int;
-
-    public function countActive(): int;
-
-    public function countInactive(): int;
-
     //--------------------------------------------------------------------------
-    // OPERACIONES DE ESCRITURA
+    // PERSISTENCIA -> Métodos de escritura y eliminación de marcas
     //--------------------------------------------------------------------------
     public function save(BrandEntity $brand): void;
 

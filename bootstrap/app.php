@@ -1,10 +1,11 @@
 <?php
 
+use App\Shared\Responses\ApiResponse;
 use Illuminate\Foundation\Application;
 use App\Shared\Exceptions\BusinessAppException;
-use App\Shared\Exceptions\ValidationAppException;
 use Illuminate\Foundation\Configuration\Exceptions;
 use Illuminate\Foundation\Configuration\Middleware;
+use Illuminate\Validation\ValidationException;
 
 return Application::configure(basePath: dirname(__DIR__))
     ->withRouting(
@@ -17,23 +18,45 @@ return Application::configure(basePath: dirname(__DIR__))
     })
     ->withExceptions(function (Exceptions $exceptions): void {
         // --------------------------------------------------
-        // 🌍 DOMAIN / APP ERRORS
+        // DOMAIN
         // --------------------------------------------------
         $exceptions->render(function (BusinessAppException $e) {
-            return back()->with('notification', $e->toAlert());
-        });
-        // --------------------------------------------------
-        // 🧾 FORM ERRORS
-        // --------------------------------------------------
-        $exceptions->render(function (ValidationAppException $e) {
-            return back()->withErrors($e->errors())->withInput();
+            return ApiResponse::error(
+                statusCode: $e->getStatusCode(),
+                errorCode: $e->getErrorCode(),
+                message: $e->getMessage(),
+            );
         });
 
         // --------------------------------------------------
-        // 💥 FALLBACK
+        // AUTHENTICATION
+        // --------------------------------------------------
+        $exceptions->render(function (\Illuminate\Auth\AuthenticationException $e) {
+            throw new \App\Modules\Auth\Domain\Exceptions\TokenExpiredOrInvalidException();
+        });
+
+        // --------------------------------------------------
+        // VALIDATION
+        // --------------------------------------------------
+        $exceptions->render(function (ValidationException $e) {
+            return ApiResponse::error(
+                statusCode: 422,
+                errorCode: 'VALIDATION_ERROR',
+                message: 'Error de validación.',
+                data: $e->errors()
+            );
+        });
+
+        // --------------------------------------------------
+        // FALLBACK
         // --------------------------------------------------
         $exceptions->render(function (Throwable $e) {
-            return false;
+
+            return ApiResponse::error(
+                statusCode: 500,
+                errorCode: 'SERVER_ERROR',
+                message: 'Error interno del servidor.'
+            );
         });
     })
     ->create();

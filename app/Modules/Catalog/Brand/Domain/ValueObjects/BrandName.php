@@ -2,7 +2,7 @@
 
 namespace App\Modules\Catalog\Brand\Domain\ValueObjects;
 
-use App\Shared\Exceptions\ValidationAppException;
+use Illuminate\Validation\ValidationException;
 
 class BrandName
 {
@@ -12,18 +12,22 @@ class BrandName
     {
         $normalized = trim($name);
 
+        //--------------------------------------------------------------------------
+        // REGLA DE DOMINIO -> No puede estar vacío
+        //--------------------------------------------------------------------------
         if ($normalized === '') {
-            throw new ValidationAppException(
-                field: 'name',
-                message: 'El nombre de la marca no puede estar vacío.'
-            );
+            throw ValidationException::withMessages([
+                'name' => 'El nombre de la marca no puede estar vacío.'
+            ]);
         }
 
+        //--------------------------------------------------------------------------
+        // REGLA DE DOMINIO -> Solo caracteres válidos
+        //--------------------------------------------------------------------------
         if (!preg_match('/^[\pL\s\-_]+$/u', $normalized)) {
-            throw new ValidationAppException(
-                field: 'name',
-                message: 'El nombre de la marca solo debe contener letras.'
-            );
+            throw ValidationException::withMessages([
+                'name' => 'El nombre de la marca solo puede contener letras, espacios, guiones y guiones bajos.'
+            ]);
         }
 
         $this->value = $normalized;

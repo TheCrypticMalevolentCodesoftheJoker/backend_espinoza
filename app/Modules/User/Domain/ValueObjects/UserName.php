@@ -2,7 +2,7 @@
 
 namespace App\Modules\User\Domain\ValueObjects;
 
-use App\Shared\Exceptions\ValidationAppException;
+use Illuminate\Validation\ValidationException;
 
 class UserName
 {
@@ -12,18 +12,22 @@ class UserName
     {
         $normalized = trim($name);
 
+        //--------------------------------------------------------------------------
+        // REGLA DE DOMINIO -> No puede estar vacío
+        //--------------------------------------------------------------------------
         if ($normalized === '') {
-            throw new ValidationAppException(
-                field: 'name',
-                message: 'El nombre de la usuario no puede estar vacío.'
-            );
+            throw ValidationException::withMessages([
+                'name' => 'El nombre del usuario no puede estar vacío.'
+            ]);
         }
 
+        //--------------------------------------------------------------------------
+        // REGLA DE DOMINIO -> Solo caracteres válidos (letras, espacios, guiones)
+        //--------------------------------------------------------------------------
         if (!preg_match('/^[\pL\s\-_]+$/u', $normalized)) {
-            throw new ValidationAppException(
-                field: 'name',
-                message: 'El nombre de la usuario solo debe contener letras.'
-            );
+            throw ValidationException::withMessages([
+                'name' => 'El nombre del usuario solo debe contener letras.'
+            ]);
         }
 
         $this->value = $normalized;

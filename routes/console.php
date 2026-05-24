@@ -1,66 +1,166 @@
 <?php
 
-use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Artisan;
 
-Artisan::command('models', function () {
-    $this->info('✨ Eliminando modelos antiguos en app/Models...');
-    $modelsPath = app_path('Models');
-    if (File::exists($modelsPath)) {
-        $files = File::files($modelsPath);
-        foreach ($files as $file) {
-            File::delete($file);
-        }
+// ======================================================
+// CACHE / OPTIMIZE
+// ======================================================
+Artisan::command('borrarCache', function () {
+
+    $this->newLine();
+    $this->info('🚀 Iniciando optimización del sistema...');
+
+    // --------------------------------------------------
+    // CLEAR
+    // --------------------------------------------------
+    $this->info('🧹 Limpiando caches antiguas...');
+
+    $this->call('optimize:clear');
+
+    // --------------------------------------------------
+    // CONFIG
+    // --------------------------------------------------
+    $this->info('⚙ Generando config cache...');
+
+    $this->call('config:cache');
+
+    // --------------------------------------------------
+    // ROUTES
+    // --------------------------------------------------
+    $this->info('🛣 Generando route cache...');
+
+    try {
+
+        $this->call('route:cache');
+    } catch (Throwable $e) {
+
+        $this->warn('⚠ Error route cache');
+        $this->line($e->getMessage());
     }
 
-    $this->info('✨ Aplicando migraciones desde cero...');
-    Artisan::call('migrate:fresh');
+    // --------------------------------------------------
+    // VIEWS
+    // --------------------------------------------------
+    $this->info('🖼 Generando view cache...');
 
-    $this->info('✨ Generando modelos con Reliese...');
-    Artisan::call('code:models');
+    $this->call('view:cache');
 
-    $this->info('✨ Agregando "use HasFactory;" a cada modelo...');
-    $modelFiles = File::files($modelsPath);
-    foreach ($modelFiles as $file) {
-        $contents = File::get($file);
+    // --------------------------------------------------
+    // EVENTS
+    // --------------------------------------------------
+    $this->info('📦 Generando event cache...');
 
-        if (!str_contains($contents, 'HasFactory')) {
-            $contents = str_replace(
-                'use Illuminate\Database\Eloquent\Model;',
-                "use Illuminate\Database\Eloquent\Model;\nuse Illuminate\Database\Eloquent\Factories\HasFactory;",
-                $contents
-            );
+    $this->call('event:cache');
 
-            $contents = preg_replace_callback(
-                '/class (\w+) extends Model\s*\{/',
-                function ($matches) {
-                    return $matches[0] . "\n    use HasFactory;";
-                },
-                $contents,
-                1
-            );
-            File::put($file, $contents);
-        }
+    // --------------------------------------------------
+    // APPLICATION CACHE
+    // --------------------------------------------------
+    $this->info('💾 Limpiando application cache...');
+
+    try {
+
+        $this->call('cache:clear');
+    } catch (Throwable $e) {
+
+        $this->warn('⚠ Error cache clear');
+        $this->line($e->getMessage());
     }
-    $this->info('✅ Proceso finalizado exitosamente.');
-})->purpose('Reinicia la base de datos, aplica migraciones, regenera modelos y agrega HasFactory.');
 
+    // --------------------------------------------------
+    // PACKAGE DISCOVERY
+    // --------------------------------------------------
+    $this->info('🔍 Descubriendo paquetes...');
+
+    $this->call('package:discover');
+
+    // --------------------------------------------------
+    // FINAL
+    // --------------------------------------------------
+    $this->newLine();
+
+    $this->warn('👉 Ejecuta si es necesario:');
+    $this->line('composer dump-autoload -o');
+
+    if (app()->isProduction()) {
+
+        $this->info('🌎 Entorno PRODUCCIÓN');
+    } else {
+
+        $this->info('🖥 Entorno LOCAL');
+    }
+
+    $this->info('✅ Sistema optimizado correctamente.');
+})->purpose('Optimiza y limpia caches');
+
+// ======================================================
+// RESET DATABASE
+// ======================================================
 Artisan::command('borrarData', function () {
-    $this->info('✨ Aplicando migraciones desde cero...');
-    Artisan::call('migrate:fresh');
 
-    $this->info('✅ Datos borrados exitosamente.');
-})->purpose('Migraciones.');
+    $this->newLine();
 
+    if (app()->isProduction()) {
+
+        $this->error('❌ No permitido en producción.');
+        return;
+    }
+
+    $this->info('🗑 Eliminando base de datos...');
+
+    $this->call('migrate:fresh');
+
+    $this->info('✅ Base de datos reiniciada.');
+})->purpose('Reinicia la base de datos');
+
+// ======================================================
+// SEEDERS
+// ======================================================
 Artisan::command('cargarData', function () {
-    $this->info('✨ Cargando datos de prueba...');
-    Artisan::call('db:seed');
-    
-    $this->info('✅ Datos cargados exitosamente.');
-})->purpose('Seeders.');
 
-Artisan::command('router', function () {
-    $this->info("\n📌 Listado de rutas cargadas:\n");
-    $this->call('route:list');
-    
-})->describe('Rputer.');
+    $this->newLine();
+
+    $this->info('🌱 Ejecutando seeders...');
+
+    $this->call('db:seed', [
+        '--force' => true,
+    ]);
+
+    $this->info('✅ Datos cargados correctamente.');
+})->purpose('Ejecuta seeders');
+
+// ======================================================
+// FULL RESET
+// ======================================================
+Artisan::command('reiniciarSistema', function () {
+
+    $this->newLine();
+
+    if (app()->isProduction()) {
+
+        $this->error('❌ No permitido en producción.');
+        return;
+    }
+
+    $this->info('🚀 Reiniciando sistema completo...');
+
+    // --------------------------------------------------
+    // MIGRATIONS
+    // --------------------------------------------------
+    $this->call('migrate:fresh');
+
+    // --------------------------------------------------
+    // SEEDERS
+    // --------------------------------------------------
+    $this->call('db:seed', [
+        '--force' => true,
+    ]);
+
+    // --------------------------------------------------
+    // CACHE
+    // --------------------------------------------------
+    $this->call('borrarCache');
+
+    $this->newLine();
+
+    $this->info('🎉 Sistema reiniciado correctamente.');
+})->purpose('Reinicia DB, seeders y cache');

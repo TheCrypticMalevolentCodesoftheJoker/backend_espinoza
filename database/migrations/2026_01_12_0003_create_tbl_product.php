@@ -15,7 +15,6 @@ return new class extends Migration
             $table->foreignId('brand_id')->constrained('tbl_brand')->onDelete('restrict');
             $table->string('name', 100);
             $table->text('description')->nullable();
-            $table->string('unit_measure', 100);
             $table->string('length', 50);
             $table->string('width', 50);
             $table->string('thickness', 50);

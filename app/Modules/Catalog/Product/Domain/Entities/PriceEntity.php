@@ -2,7 +2,7 @@
 
 namespace App\Modules\Catalog\Product\Domain\Entities;
 
-use App\Modules\Catalog\Product\Domain\ValueObjects\PriceAmount;
+use App\Modules\Catalog\Product\Domain\ValueObjects\Price\PriceAmount;
 
 class PriceEntity
 {
@@ -10,19 +10,19 @@ class PriceEntity
         private int $id,
         private int $productId,
         private PriceAmount $amount,
-        private \DateTime $startDate,
-        private ?\DateTime $endDate,
+        private string $startDate,
+        private ?string $endDate,
         private bool $status,
     ) {}
 
     //--------------------------------------------------------------------------
-    // MÉTODOS DE CREACIÓN
+    // CREACIÓN -> Instanciar un nuevo precio
     //--------------------------------------------------------------------------
     public static function create(
         int $productId,
         PriceAmount $amount,
-        \DateTime $startDate,
-        ?\DateTime $endDate = null,
+        string $startDate,
+        ?string $endDate = null,
     ): self {
         return new self(
             id: 0,
@@ -35,14 +35,14 @@ class PriceEntity
     }
 
     //--------------------------------------------------------------------------
-    // MÉTODOS DE RECONSTRUCCIÓN
+    // RECONSTRUCCIÓN -> Reconstituir precio desde base de datos
     //--------------------------------------------------------------------------
     public static function reconstitute(
         int $id,
         int $productId,
         PriceAmount $amount,
-        \DateTime $startDate,
-        ?\DateTime $endDate,
+        string $startDate,
+        ?string $endDate,
         bool $status,
     ): self {
         return new self(
@@ -56,13 +56,30 @@ class PriceEntity
     }
 
     //--------------------------------------------------------------------------
-    // MÉTODOS DE CONSULTA (GETTERS)
+    // CONSULTAS -> Getters de la entidad
     //--------------------------------------------------------------------------
-    public function getId(): int { return $this->id; }
-    public function getProductId(): int { return $this->productId; }
-    public function getAmount(): float { return $this->amount->value(); }
-    public function getStartDate(): \DateTime { return $this->startDate; }
-    public function getEndDate(): ?\DateTime { return $this->endDate; }
-    public function getStatus(): bool { return $this->status; }
+    public function getId(): int
+    {
+        return $this->id;
+    }
+    public function getProductId(): int
+    {
+        return $this->productId;
+    }
+    public function getAmount(): float
+    {
+        return $this->amount->value();
+    }
+    public function getStartDate(): string
+    {
+        return $this->startDate;
+    }
+    public function getEndDate(): ?string
+    {
+        return $this->endDate;
+    }
+    public function getStatus(): bool
+    {
+        return $this->status;
+    }
 }
-

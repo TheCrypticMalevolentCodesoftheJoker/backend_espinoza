@@ -13,7 +13,6 @@ return new class extends Migration
             $table->foreignId('product_id')->constrained('tbl_product')->cascadeOnDelete();
             $table->string('url', 255);
             $table->string('type', 20);
-            $table->timestamps();
         });
     }
 

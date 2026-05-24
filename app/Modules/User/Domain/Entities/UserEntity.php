@@ -20,9 +20,9 @@ class UserEntity
         private ?\DateTime $updatedAt,
     ) {}
 
-    /*--------------------------------------------------------------------------
-    MÉTODOS DE CREACIÓN
-    --------------------------------------------------------------------------*/
+    //--------------------------------------------------------------------------
+    // CREACIÓN -> Instanciar una nueva entidad
+    //--------------------------------------------------------------------------
     public static function create(UserRoleId $roleId, UserName $name, UserEmail $email, UserPassword $password): self
     {
         return new self(
@@ -37,9 +37,9 @@ class UserEntity
         );
     }
 
-    /*--------------------------------------------------------------------------
-    MÉTODOS DE RECONSTRUCCIÓN
-    --------------------------------------------------------------------------*/
+    //--------------------------------------------------------------------------
+    // RECONSTRUCCIÓN -> Reconstituir entidad desde base de datos
+    //--------------------------------------------------------------------------
     public static function reconstitute(int $id, UserRoleId $roleId, UserName $name, UserEmail $email, UserPassword $password, bool $status, ?\DateTime $createdAt, ?\DateTime $updatedAt): self
     {
         return new self(
@@ -54,9 +54,9 @@ class UserEntity
         );
     }
 
-    /*--------------------------------------------------------------------------
-    MÉTODOS DE CONSULTA (Getters)
-    --------------------------------------------------------------------------*/
+    //--------------------------------------------------------------------------
+    // CONSULTAS -> Getters de la entidad
+    //--------------------------------------------------------------------------
 
     public function getId(): int
     {
@@ -93,9 +93,9 @@ class UserEntity
         return $this->updatedAt;
     }
 
-    /*--------------------------------------------------------------------------
-    MÉTODOS DE COMPORTAMIENTO
-    --------------------------------------------------------------------------*/
+    //--------------------------------------------------------------------------
+    // COMPORTAMIENTO -> Lógica de dominio de la entidad
+    //--------------------------------------------------------------------------
     public function changeRole(UserRoleId $roleId): void
     {
         $this->roleId = $roleId;

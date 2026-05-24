@@ -1,7 +1,7 @@
 <?php return array (
   'broadcasting' => 
   array (
-    'default' => 'log',
+    'default' => 'null',
     'connections' => 
     array (
       'reverb' => 
@@ -92,7 +92,7 @@
     'driver' => 'bcrypt',
     'bcrypt' => 
     array (
-      'rounds' => '12',
+      'rounds' => 12,
       'verify' => true,
       'limit' => NULL,
     ),
@@ -160,13 +160,13 @@
       20 => 'Illuminate\\Translation\\TranslationServiceProvider',
       21 => 'Illuminate\\Validation\\ValidationServiceProvider',
       22 => 'Illuminate\\View\\ViewServiceProvider',
-      23 => 'App\\Providers\\AppServiceProvider',
-      24 => 'App\\Modules\\Role\\Infrastructure\\Providers\\RoleServiceProvider',
+      23 => 'App\\Modules\\Role\\Infrastructure\\Providers\\RoleServiceProvider',
+      24 => 'App\\Modules\\User\\Infrastructure\\Providers\\UserServiceProvider',
       25 => 'App\\Modules\\Auth\\Infrastructure\\Providers\\AuthServiceProvider',
-      26 => 'App\\Modules\\User\\Infrastructure\\Providers\\UserServiceProvider',
-      27 => 'App\\Modules\\Catalog\\Category\\Infrastructure\\Providers\\CategoryServiceProvider',
-      28 => 'App\\Modules\\Catalog\\Brand\\Infrastructure\\Providers\\BrandServiceProvider',
-      29 => 'App\\Modules\\Catalog\\Product\\Infrastructure\\Providers\\ProductServiceProvider',
+      26 => 'App\\Modules\\Catalog\\Category\\Infrastructure\\Providers\\CategoryServiceProvider',
+      27 => 'App\\Modules\\Catalog\\Brand\\Infrastructure\\Providers\\BrandServiceProvider',
+      28 => 'App\\Modules\\Catalog\\Product\\Infrastructure\\Providers\\ProductServiceProvider',
+      29 => 'App\\Modules\\Analytics\\Infrastructure\\Providers\\AnalyticsServiceProvider',
     ),
     'aliases' => 
     array (
@@ -222,7 +222,7 @@
   array (
     'defaults' => 
     array (
-      'guard' => 'web',
+      'guard' => 'sanctum',
       'passwords' => 'users',
     ),
     'guards' => 
@@ -232,13 +232,18 @@
         'driver' => 'session',
         'provider' => 'users',
       ),
+      'sanctum' => 
+      array (
+        'driver' => 'sanctum',
+        'provider' => 'users',
+      ),
     ),
     'providers' => 
     array (
       'users' => 
       array (
         'driver' => 'eloquent',
-        'model' => 'App\\Modules\\User\\Infrastructure\\Persistence\\Eloquent\\Models\\TblUser',
+        'model' => 'App\\Modules\\User\\Infrastructure\\Persistence\\Models\\TblUser',
       ),
     ),
     'passwords' => 
@@ -313,8 +318,8 @@
       'dynamodb' => 
       array (
         'driver' => 'dynamodb',
-        'key' => '',
-        'secret' => '',
+        'key' => NULL,
+        'secret' => NULL,
         'region' => 'us-east-1',
         'table' => 'cache',
         'endpoint' => NULL,
@@ -492,10 +497,10 @@
       's3' => 
       array (
         'driver' => 's3',
-        'key' => '',
-        'secret' => '',
-        'region' => 'us-east-1',
-        'bucket' => '',
+        'key' => NULL,
+        'secret' => NULL,
+        'region' => NULL,
+        'bucket' => NULL,
         'url' => NULL,
         'endpoint' => NULL,
         'use_path_style_endpoint' => false,
@@ -513,7 +518,7 @@
     'default' => 'stack',
     'deprecations' => 
     array (
-      'channel' => NULL,
+      'channel' => 'null',
       'trace' => false,
     ),
     'channels' => 
@@ -548,7 +553,7 @@
         'url' => NULL,
         'username' => 'Laravel Log',
         'emoji' => ':boom:',
-        'level' => 'debug',
+        'level' => 'critical',
         'replace_placeholders' => true,
       ),
       'papertrail' => 
@@ -617,7 +622,7 @@
         'scheme' => NULL,
         'url' => NULL,
         'host' => '127.0.0.1',
-        'port' => '2525',
+        'port' => 2525,
         'username' => NULL,
         'password' => NULL,
         'timeout' => NULL,
@@ -673,7 +678,7 @@
     'from' => 
     array (
       'address' => 'hello@example.com',
-      'name' => 'Espiniza S.A.C.',
+      'name' => 'Example',
     ),
     'markdown' => 
     array (
@@ -681,6 +686,9 @@
       'paths' => 
       array (
         0 => 'D:\\Proyectos\\Espinoza\\backend\\resources\\views/vendor/mail',
+      ),
+      'extensions' => 
+      array (
       ),
     ),
   ),
@@ -746,7 +754,7 @@
   ),
   'queue' => 
   array (
-    'default' => 'sync',
+    'default' => 'database',
     'connections' => 
     array (
       'sync' => 
@@ -774,8 +782,8 @@
       'sqs' => 
       array (
         'driver' => 'sqs',
-        'key' => '',
-        'secret' => '',
+        'key' => NULL,
+        'secret' => NULL,
         'prefix' => 'https://sqs.us-east-1.amazonaws.com/your-account-id',
         'queue' => 'default',
         'suffix' => NULL,
@@ -821,6 +829,30 @@
       'table' => 'failed_jobs',
     ),
   ),
+  'sanctum' => 
+  array (
+    'stateful' => 
+    array (
+      0 => 'localhost',
+      1 => 'localhost:3000',
+      2 => '127.0.0.1',
+      3 => '127.0.0.1:8000',
+      4 => '::1',
+      5 => '127.0.0.1:8000',
+    ),
+    'guard' => 
+    array (
+      0 => 'web',
+    ),
+    'expiration' => 60,
+    'token_prefix' => '',
+    'middleware' => 
+    array (
+      'authenticate_session' => 'Laravel\\Sanctum\\Http\\Middleware\\AuthenticateSession',
+      'encrypt_cookies' => 'Illuminate\\Cookie\\Middleware\\EncryptCookies',
+      'validate_csrf_token' => 'Illuminate\\Foundation\\Http\\Middleware\\ValidateCsrfToken',
+    ),
+  ),
   'services' => 
   array (
     'postmark' => 
@@ -833,8 +865,8 @@
     ),
     'ses' => 
     array (
-      'key' => '',
-      'secret' => '',
+      'key' => NULL,
+      'secret' => NULL,
       'region' => 'us-east-1',
     ),
     'slack' => 
@@ -863,7 +895,7 @@
     ),
     'cookie' => 'espiniza-sac-session',
     'path' => '/',
-    'domain' => '127.0.0.1',
+    'domain' => NULL,
     'secure' => NULL,
     'http_only' => true,
     'same_site' => 'lax',
@@ -881,5 +913,6 @@
     array (
       0 => 'App\\Nova',
     ),
+    'trust_project' => 'always',
   ),
 );

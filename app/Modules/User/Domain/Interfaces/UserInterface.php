@@ -7,7 +7,7 @@ use App\Modules\User\Domain\Entities\UserEntity;
 interface UserInterface
 {
     //--------------------------------------------------------------------------
-    // OPERACIONES DE LECTURA
+    // CONSULTAS -> Métodos de lectura de usuarios
     //--------------------------------------------------------------------------
     public function findAll(): array;
 
@@ -15,17 +15,8 @@ interface UserInterface
 
     public function findByEmail(string $email): ?UserEntity;
 
-    //----------------------------------------------------------------------
-    // KPIs / AGREGACIONES
-    //----------------------------------------------------------------------
-    public function countAll(): int;
-
-    public function countActive(): int;
-
-    public function countInactive(): int;
-
     //--------------------------------------------------------------------------
-    // OPERACIONES DE ESCRITURA
+    // PERSISTENCIA -> Métodos de escritura y eliminación de usuarios
     //--------------------------------------------------------------------------
     public function save(UserEntity $user): void;
 

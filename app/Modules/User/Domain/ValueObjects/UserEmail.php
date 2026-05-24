@@ -2,7 +2,7 @@
 
 namespace App\Modules\User\Domain\ValueObjects;
 
-use App\Shared\Exceptions\ValidationAppException;
+use Illuminate\Validation\ValidationException;
 
 class UserEmail
 {
@@ -12,18 +12,22 @@ class UserEmail
     {
         $normalized = trim($email);
 
+        //--------------------------------------------------------------------------
+        // REGLA DE DOMINIO -> No puede estar vacío
+        //--------------------------------------------------------------------------
         if ($normalized === '') {
-            throw new ValidationAppException(
-                field: 'email',
-                message: 'El email del usuario no puede estar vacío.'
-            );
+            throw ValidationException::withMessages([
+                'email' => 'El email del usuario no puede estar vacío.'
+            ]);
         }
 
+        //--------------------------------------------------------------------------
+        // REGLA DE DOMINIO -> Formato de email válido
+        //--------------------------------------------------------------------------
         if (!filter_var($normalized, FILTER_VALIDATE_EMAIL)) {
-            throw new ValidationAppException(
-                field: 'email',
-                message: 'El email no tiene un formato válido.'
-            );
+            throw ValidationException::withMessages([
+                'email' => 'El email no tiene un formato válido.'
+            ]);
         }
 
         $this->value = $normalized;

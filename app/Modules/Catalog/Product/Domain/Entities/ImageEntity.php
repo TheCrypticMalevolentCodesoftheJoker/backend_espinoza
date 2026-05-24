@@ -2,39 +2,63 @@
 
 namespace App\Modules\Catalog\Product\Domain\Entities;
 
-use App\Modules\Catalog\Product\Domain\ValueObjects\ImageType;
+use App\Modules\Catalog\Product\Domain\ValueObjects\Image\ImageType;
 
 class ImageEntity
 {
     private function __construct(
         private int $id,
         private int $productId,
-        private string $path,
+        private string $url,
         private ImageType $type,
     ) {}
 
     //--------------------------------------------------------------------------
-    // MÉTODOS DE CREACIÓN
+    // CREACIÓN -> Instanciar una nueva imagen
     //--------------------------------------------------------------------------
-    public static function create(int $productId, string $path, ImageType $type): self
+    public static function create(int $productId, string $url, ImageType $type): self
     {
-        return new self(id: 0, productId: $productId, path: $path, type: $type);
+        return new self(
+            id: 0,
+            productId: $productId,
+            url: $url,
+            type: $type
+        );
     }
 
     //--------------------------------------------------------------------------
-    // MÉTODOS DE RECONSTRUCCIÓN
+    // RECONSTRUCCIÓN -> Reconstituir imagen desde base de datos
     //--------------------------------------------------------------------------
-    public static function reconstitute(int $id, int $productId, string $path, ImageType $type): self
+    public static function reconstitute(int $id, int $productId, string $url, ImageType $type): self
     {
-        return new self(id: $id, productId: $productId, path: $path, type: $type);
+        return new self(
+            id: $id,
+            productId: $productId,
+            url: $url,
+            type: $type
+        );
     }
 
     //--------------------------------------------------------------------------
-    // MÉTODOS DE CONSULTA (GETTERS)
+    // CONSULTAS -> Getters de la entidad
     //--------------------------------------------------------------------------
-    public function getId(): int { return $this->id; }
-    public function getProductId(): int { return $this->productId; }
-    public function getPath(): string { return $this->path; }
-    public function getType(): string { return $this->type->value(); }
+    public function getId(): int
+    {
+        return $this->id;
+    }
+
+    public function getProductId(): int
+    {
+        return $this->productId;
+    }
+
+    public function getUrl(): string
+    {
+        return $this->url;
+    }
+
+    public function getType(): ImageType
+    {
+        return $this->type;
+    }
 }
-

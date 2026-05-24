@@ -10,11 +10,11 @@ class LogoutUseCase
         private readonly AuthInterface $authInterface
     ) {}
 
+    //--------------------------------------------------------------------------
+    // EJECUTAR CASO DE USO -> Cerrar sesión
+    //--------------------------------------------------------------------------
     public function execute(): void
     {
         $this->authInterface->logout();
-
-        session()->invalidate();
-        session()->regenerateToken();
     }
 }

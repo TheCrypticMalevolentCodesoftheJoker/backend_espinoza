@@ -6,18 +6,19 @@ abstract class BusinessAppException extends \Exception
 {
     public function __construct(
         protected int $statusCode = 500,
-        protected string $errorCode = 'APP_ERROR',
+        protected string $errorCode = 'NOT_FOUND',
         string $message = 'Error en la aplicación.'
     ) {
         parent::__construct($message);
     }
 
-    public function toAlert(): array
+    public function getStatusCode(): int
     {
-        return [
-            'statusCode' => $this->statusCode,
-            'errorCode' => $this->errorCode,
-            'message' => $this->getMessage(),
-        ];
+        return $this->statusCode;
+    }
+
+    public function getErrorCode(): string
+    {
+        return $this->errorCode;
     }
 }

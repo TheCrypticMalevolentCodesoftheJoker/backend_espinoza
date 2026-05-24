@@ -2,7 +2,7 @@
 
 namespace App\Modules\User\Domain\ValueObjects;
 
-use App\Shared\Exceptions\ValidationAppException;
+use Illuminate\Validation\ValidationException;
 
 class UserRoleId
 {
@@ -10,11 +10,13 @@ class UserRoleId
 
     public function __construct(int $roleId)
     {
+        //--------------------------------------------------------------------------
+        // REGLA DE DOMINIO -> El ID debe ser válido (mayor a cero)
+        //--------------------------------------------------------------------------
         if ($roleId <= 0) {
-            throw new ValidationAppException(
-                field: 'role_id',
-                message: 'El rol seleccionado no es válido.'
-            );
+            throw ValidationException::withMessages([
+                'roleId' => 'El rol seleccionado no es válido.'
+            ]);
         }
 
         $this->value = $roleId;

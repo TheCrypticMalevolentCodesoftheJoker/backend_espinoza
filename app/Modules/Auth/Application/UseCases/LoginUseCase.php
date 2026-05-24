@@ -12,17 +12,17 @@ class LoginUseCase
         private readonly AuthInterface $authInterface
     ) {}
 
-    public function execute(LoginDTO $loginDTO): void
+    //--------------------------------------------------------------------------
+    // EJECUTAR CASO DE USO -> Iniciar sesión
+    //--------------------------------------------------------------------------
+    public function execute(LoginDTO $loginDTO): string
     {
-        $credentials = [
-            'email' => $loginDTO->email,
-            'password' => $loginDTO->password,
-        ];
+        $token = $this->authInterface->login($loginDTO->email, $loginDTO->password);
 
-        if (!$this->authInterface->attempt($credentials, $loginDTO->remember)) {
+        if (!$token) {
             throw new InvalidCredentialsException();
         }
 
-        session()->regenerate();
+        return $token;
     }
 }

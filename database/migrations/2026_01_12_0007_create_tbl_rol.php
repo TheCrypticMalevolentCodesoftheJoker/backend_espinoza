@@ -11,7 +11,6 @@ return new class extends Migration
         Schema::create('tbl_rol', function (Blueprint $table) {
             $table->id();
             $table->string('name', 80);
-            $table->text('description')->nullable();
             $table->boolean('status');
             $table->timestamps();
         });

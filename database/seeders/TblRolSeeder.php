@@ -3,7 +3,7 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
-use App\Modules\Role\Infrastructure\Persistence\Eloquent\Models\TblRol;
+use App\Modules\Role\Infrastructure\Persistence\Models\TblRol;
 
 class TblRolSeeder extends Seeder
 {
@@ -17,7 +17,6 @@ class TblRolSeeder extends Seeder
             ['id' => 1],
             [
                 'name' => 'Administrador',
-                'description' => 'Acceso total al sistema',
                 'status' => true,
             ]
         );

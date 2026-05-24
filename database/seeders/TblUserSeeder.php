@@ -3,8 +3,8 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
-use App\Modules\User\Infrastructure\Persistence\Eloquent\Models\TblUser;
-use App\Modules\Role\Infrastructure\Persistence\Eloquent\Models\TblRol;
+
+use App\Modules\User\Infrastructure\Persistence\Models\TblUser;
 use Illuminate\Support\Facades\Hash;
 
 class TblUserSeeder extends Seeder

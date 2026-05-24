@@ -2,7 +2,7 @@
 
 namespace App\Modules\Role\Domain\ValueObjects;
 
-use App\Shared\Exceptions\ValidationAppException;
+use Illuminate\Validation\ValidationException;
 
 class RoleName
 {
@@ -12,18 +12,22 @@ class RoleName
     {
         $normalized = trim($name);
 
+        //--------------------------------------------------------------------------
+        // REGLA DE DOMINIO -> No puede estar vacío del todo
+        //--------------------------------------------------------------------------
         if ($normalized === '') {
-            throw new ValidationAppException(
-                field: 'name',
-                message: 'El nombre de la categoría no puede estar vacío.'
-            );
+            throw ValidationException::withMessages([
+                'name' => 'El nombre del rol no puede estar vacío.'
+            ]);
         }
 
+        //--------------------------------------------------------------------------
+        // REGLA DE DOMINIO -> Solo caracteres alfabéticos y símbolos permitidos
+        //--------------------------------------------------------------------------
         if (!preg_match('/^[\pL\s\-_]+$/u', $normalized)) {
-            throw new ValidationAppException(
-                field: 'name',
-                message: 'El nombre de la categoría solo debe contener letras.'
-            );
+            throw ValidationException::withMessages([
+                'name' => 'El nombre del rol solo puede contener letras, espacios, guiones y guiones bajos.'
+            ]);
         }
 
         $this->value = $normalized;

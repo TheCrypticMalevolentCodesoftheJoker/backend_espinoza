@@ -14,9 +14,9 @@ class CategoryEntity
         private ?\DateTime $updatedAt,
     ) {}
 
-    /*--------------------------------------------------------------------------
-    MÉTODOS DE CREACIÓN
-    --------------------------------------------------------------------------*/
+    //--------------------------------------------------------------------------
+    // CREACIÓN -> Instanciar una nueva entidad
+    //--------------------------------------------------------------------------
     public static function create(CategoryName $name): self
     {
         return new self(
@@ -28,9 +28,9 @@ class CategoryEntity
         );
     }
 
-    /*--------------------------------------------------------------------------
-    MÉTODOS DE RECONSTRUCCIÓN
-    --------------------------------------------------------------------------*/
+    //--------------------------------------------------------------------------
+    // RECONSTRUCCIÓN -> Reconstituir entidad desde base de datos
+    //--------------------------------------------------------------------------
     public static function reconstitute(int $id, CategoryName $name, bool $status, ?\DateTime $createdAt, ?\DateTime $updatedAt): self
     {
         return new self(
@@ -42,9 +42,9 @@ class CategoryEntity
         );
     }
 
-    /*--------------------------------------------------------------------------
-    MÉTODOS DE CONSULTA (Getters)
-    --------------------------------------------------------------------------*/
+    //--------------------------------------------------------------------------
+    // CONSULTAS -> Getters de la entidad
+    //--------------------------------------------------------------------------
 
     public function getId(): int
     {
@@ -69,9 +69,9 @@ class CategoryEntity
         return $this->updatedAt;
     }
 
-    /*--------------------------------------------------------------------------
-    MÉTODOS DE COMPORTAMIENTO
-    --------------------------------------------------------------------------*/
+    //--------------------------------------------------------------------------
+    // COMPORTAMIENTO -> Lógica de dominio de la entidad
+    //--------------------------------------------------------------------------
     public function rename(CategoryName $name): void
     {
         $this->name = $name;

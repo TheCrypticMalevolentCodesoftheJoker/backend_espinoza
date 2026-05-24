@@ -3,8 +3,7 @@
 namespace App\Modules\Auth\Infrastructure\Providers;
 
 use App\Modules\Auth\Domain\Interfaces\AuthInterface;
-use App\Modules\Auth\Infrastructure\Persistence\Eloquent\Repositories\EloquentAuthRepository;
-use Illuminate\Support\Facades\View;
+use App\Modules\Auth\Infrastructure\Persistence\Repositories\EloquentAuthRepository;
 use Illuminate\Support\ServiceProvider;
 
 class AuthServiceProvider extends ServiceProvider
@@ -18,11 +17,10 @@ class AuthServiceProvider extends ServiceProvider
     {
         $router = app('router');
 
-        $router->middleware(['web'])
+        $router->prefix('api')
+            ->middleware(['api'])
             ->group(function () {
-                $this->loadRoutesFrom(__DIR__ . '/../../Presentation/Http/Routes/router.php');
+                $this->loadRoutesFrom(__DIR__ . '/../../Presentation/Routes/router.php');
             });
-
-        View::addNamespace('auth', __DIR__ . '/../../Presentation/UI/Views');
     }
 }
