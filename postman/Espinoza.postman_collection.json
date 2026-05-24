@@ -25,15 +25,13 @@
               }
             },
             "url": {
-              "raw": "http://127.0.0.1:8000/api/admin/login",
-              "protocol": "http",
+              "raw": "https://espinoza-api.crythion.com/api/admin/login",
+              "protocol": "https",
               "host": [
-                "127",
-                "0",
-                "0",
-                "1"
+                "espinoza-api",
+                "crythion",
+                "com"
               ],
-              "port": "8000",
               "path": [
                 "api",
                 "admin",
@@ -55,15 +53,13 @@
               }
             ],
             "url": {
-              "raw": "http://127.0.0.1:8000/api/admin/logout",
-              "protocol": "http",
+              "raw": "https://espinoza-api.crythion.com/api/admin/logout",
+              "protocol": "https",
               "host": [
-                "127",
-                "0",
-                "0",
-                "1"
+                "espinoza-api",
+                "crythion",
+                "com"
               ],
-              "port": "8000",
               "path": [
                 "api",
                 "admin",
@@ -90,15 +86,13 @@
               }
             ],
             "url": {
-              "raw": "http://127.0.0.1:8000/api/rol",
-              "protocol": "http",
+              "raw": "https://espinoza-api.crythion.com/api/rol",
+              "protocol": "https",
               "host": [
-                "127",
-                "0",
-                "0",
-                "1"
+                "espinoza-api",
+                "crythion",
+                "com"
               ],
-              "port": "8000",
               "path": [
                 "api",
                 "rol"
@@ -119,15 +113,13 @@
               }
             ],
             "url": {
-              "raw": "http://127.0.0.1:8000/api/rol/active",
-              "protocol": "http",
+              "raw": "https://espinoza-api.crythion.com/api/rol/active",
+              "protocol": "https",
               "host": [
-                "127",
-                "0",
-                "0",
-                "1"
+                "espinoza-api",
+                "crythion",
+                "com"
               ],
-              "port": "8000",
               "path": [
                 "api",
                 "rol",
@@ -149,15 +141,13 @@
               }
             ],
             "url": {
-              "raw": "http://127.0.0.1:8000/api/rol/1",
-              "protocol": "http",
+              "raw": "https://espinoza-api.crythion.com/api/rol/1",
+              "protocol": "https",
               "host": [
-                "127",
-                "0",
-                "0",
-                "1"
+                "espinoza-api",
+                "crythion",
+                "com"
               ],
-              "port": "8000",
               "path": [
                 "api",
                 "rol",
@@ -182,15 +172,13 @@
               }
             },
             "url": {
-              "raw": "http://127.0.0.1:8000/api/rol",
-              "protocol": "http",
+              "raw": "https://espinoza-api.crythion.com/api/rol",
+              "protocol": "https",
               "host": [
-                "127",
-                "0",
-                "0",
-                "1"
+                "espinoza-api",
+                "crythion",
+                "com"
               ],
-              "port": "8000",
               "path": [
                 "api",
                 "rol"
@@ -214,15 +202,13 @@
               }
             },
             "url": {
-              "raw": "http://127.0.0.1:8000/api/rol/1",
-              "protocol": "http",
+              "raw": "https://espinoza-api.crythion.com/api/rol/1",
+              "protocol": "https",
               "host": [
-                "127",
-                "0",
-                "0",
-                "1"
+                "espinoza-api",
+                "crythion",
+                "com"
               ],
-              "port": "8000",
               "path": [
                 "api",
                 "rol",
@@ -238,15 +224,13 @@
             "method": "PATCH",
             "header": [],
             "url": {
-              "raw": "http://127.0.0.1:8000/api/rol/1/activate",
-              "protocol": "http",
+              "raw": "https://espinoza-api.crythion.com/api/rol/1/activate",
+              "protocol": "https",
               "host": [
-                "127",
-                "0",
-                "0",
-                "1"
+                "espinoza-api",
+                "crythion",
+                "com"
               ],
-              "port": "8000",
               "path": [
                 "api",
                 "rol",
@@ -263,15 +247,13 @@
             "method": "PATCH",
             "header": [],
             "url": {
-              "raw": "http://127.0.0.1:8000/api/rol/1/deactivate",
-              "protocol": "http",
+              "raw": "https://espinoza-api.crythion.com/api/rol/1/deactivate",
+              "protocol": "https",
               "host": [
-                "127",
-                "0",
-                "0",
-                "1"
+                "espinoza-api",
+                "crythion",
+                "com"
               ],
-              "port": "8000",
               "path": [
                 "api",
                 "rol",
@@ -297,15 +279,13 @@
               }
             },
             "url": {
-              "raw": "http://127.0.0.1:8000/api/rol/2",
-              "protocol": "http",
+              "raw": "https://espinoza-api.crythion.com/api/rol/2",
+              "protocol": "https",
               "host": [
-                "127",
-                "0",
-                "0",
-                "1"
+                "espinoza-api",
+                "crythion",
+                "com"
               ],
-              "port": "8000",
               "path": [
                 "api",
                 "rol",
@@ -332,15 +312,13 @@
               }
             ],
             "url": {
-              "raw": "http://127.0.0.1:8000/api/users",
-              "protocol": "http",
+              "raw": "https://espinoza-api.crythion.com/api/users",
+              "protocol": "https",
               "host": [
-                "127",
-                "0",
-                "0",
-                "1"
+                "espinoza-api",
+                "crythion",
+                "com"
               ],
-              "port": "8000",
               "path": [
                 "api",
                 "users"
@@ -361,15 +339,13 @@
               }
             ],
             "url": {
-              "raw": "http://127.0.0.1:8000/api/users/1",
-              "protocol": "http",
+              "raw": "https://espinoza-api.crythion.com/api/users/1",
+              "protocol": "https",
               "host": [
-                "127",
-                "0",
-                "0",
-                "1"
+                "espinoza-api",
+                "crythion",
+                "com"
               ],
-              "port": "8000",
               "path": [
                 "api",
                 "users",
@@ -400,15 +376,13 @@
               }
             },
             "url": {
-              "raw": "http://127.0.0.1:8000/api/users",
-              "protocol": "http",
+              "raw": "https://espinoza-api.crythion.com/api/users",
+              "protocol": "https",
               "host": [
-                "127",
-                "0",
-                "0",
-                "1"
+                "espinoza-api",
+                "crythion",
+                "com"
               ],
-              "port": "8000",
               "path": [
                 "api",
                 "users"
@@ -438,15 +412,13 @@
               }
             },
             "url": {
-              "raw": "http://127.0.0.1:8000/api/users/2",
-              "protocol": "http",
+              "raw": "https://espinoza-api.crythion.com/api/users/2",
+              "protocol": "https",
               "host": [
-                "127",
-                "0",
-                "0",
-                "1"
+                "espinoza-api",
+                "crythion",
+                "com"
               ],
-              "port": "8000",
               "path": [
                 "api",
                 "users",
@@ -468,15 +440,13 @@
               }
             ],
             "url": {
-              "raw": "http://127.0.0.1:8000/api/users/2/activate",
-              "protocol": "http",
+              "raw": "https://espinoza-api.crythion.com/api/users/2/activate",
+              "protocol": "https",
               "host": [
-                "127",
-                "0",
-                "0",
-                "1"
+                "espinoza-api",
+                "crythion",
+                "com"
               ],
-              "port": "8000",
               "path": [
                 "api",
                 "users",
@@ -499,15 +469,13 @@
               }
             ],
             "url": {
-              "raw": "http://127.0.0.1:8000/api/users/2/deactivate",
-              "protocol": "http",
+              "raw": "https://espinoza-api.crythion.com/api/users/2/deactivate",
+              "protocol": "https",
               "host": [
-                "127",
-                "0",
-                "0",
-                "1"
+                "espinoza-api",
+                "crythion",
+                "com"
               ],
-              "port": "8000",
               "path": [
                 "api",
                 "users",
@@ -530,15 +498,13 @@
               }
             ],
             "url": {
-              "raw": "http://127.0.0.1:8000/api/users/2",
-              "protocol": "http",
+              "raw": "https://espinoza-api.crythion.com/api/users/2",
+              "protocol": "https",
               "host": [
-                "127",
-                "0",
-                "0",
-                "1"
+                "espinoza-api",
+                "crythion",
+                "com"
               ],
-              "port": "8000",
               "path": [
                 "api",
                 "users",
@@ -559,15 +525,13 @@
             "method": "GET",
             "header": [],
             "url": {
-              "raw": "http://127.0.0.1:8000/api/catalog/brand",
-              "protocol": "http",
+              "raw": "https://espinoza-api.crythion.com/api/catalog/brand",
+              "protocol": "https",
               "host": [
-                "127",
-                "0",
-                "0",
-                "1"
+                "espinoza-api",
+                "crythion",
+                "com"
               ],
-              "port": "8000",
               "path": [
                 "api",
                 "catalog",
@@ -583,15 +547,13 @@
             "method": "GET",
             "header": [],
             "url": {
-              "raw": "http://127.0.0.1:8000/api/catalog/brand/active",
-              "protocol": "http",
+              "raw": "https://espinoza-api.crythion.com/api/catalog/brand/active",
+              "protocol": "https",
               "host": [
-                "127",
-                "0",
-                "0",
-                "1"
+                "espinoza-api",
+                "crythion",
+                "com"
               ],
-              "port": "8000",
               "path": [
                 "api",
                 "catalog",
@@ -608,15 +570,13 @@
             "method": "GET",
             "header": [],
             "url": {
-              "raw": "http://127.0.0.1:8000/api/catalog/brand/1",
-              "protocol": "http",
+              "raw": "https://espinoza-api.crythion.com/api/catalog/brand/1",
+              "protocol": "https",
               "host": [
-                "127",
-                "0",
-                "0",
-                "1"
+                "espinoza-api",
+                "crythion",
+                "com"
               ],
-              "port": "8000",
               "path": [
                 "api",
                 "catalog",
@@ -648,15 +608,13 @@
               }
             },
             "url": {
-              "raw": "http://127.0.0.1:8000/api/catalog/brand",
-              "protocol": "http",
+              "raw": "https://espinoza-api.crythion.com/api/catalog/brand",
+              "protocol": "https",
               "host": [
-                "127",
-                "0",
-                "0",
-                "1"
+                "espinoza-api",
+                "crythion",
+                "com"
               ],
-              "port": "8000",
               "path": [
                 "api",
                 "catalog",
@@ -681,15 +639,13 @@
               }
             },
             "url": {
-              "raw": "http://127.0.0.1:8000/api/catalog/brand/1",
-              "protocol": "http",
+              "raw": "https://espinoza-api.crythion.com/api/catalog/brand/1",
+              "protocol": "https",
               "host": [
-                "127",
-                "0",
-                "0",
-                "1"
+                "espinoza-api",
+                "crythion",
+                "com"
               ],
-              "port": "8000",
               "path": [
                 "api",
                 "catalog",
@@ -706,15 +662,13 @@
             "method": "PATCH",
             "header": [],
             "url": {
-              "raw": "http://127.0.0.1:8000/api/catalog/brand/1/activate",
-              "protocol": "http",
+              "raw": "https://espinoza-api.crythion.com/api/catalog/brand/1/activate",
+              "protocol": "https",
               "host": [
-                "127",
-                "0",
-                "0",
-                "1"
+                "espinoza-api",
+                "crythion",
+                "com"
               ],
-              "port": "8000",
               "path": [
                 "api",
                 "catalog",
@@ -732,15 +686,13 @@
             "method": "PATCH",
             "header": [],
             "url": {
-              "raw": "http://127.0.0.1:8000/api/catalog/brand/1/deactivate",
-              "protocol": "http",
+              "raw": "https://espinoza-api.crythion.com/api/catalog/brand/1/deactivate",
+              "protocol": "https",
               "host": [
-                "127",
-                "0",
-                "0",
-                "1"
+                "espinoza-api",
+                "crythion",
+                "com"
               ],
-              "port": "8000",
               "path": [
                 "api",
                 "catalog",
@@ -758,15 +710,13 @@
             "method": "DELETE",
             "header": [],
             "url": {
-              "raw": "http://127.0.0.1:8000/api/catalog/brand/2",
-              "protocol": "http",
+              "raw": "https://espinoza-api.crythion.com/api/catalog/brand/2",
+              "protocol": "https",
               "host": [
-                "127",
-                "0",
-                "0",
-                "1"
+                "espinoza-api",
+                "crythion",
+                "com"
               ],
-              "port": "8000",
               "path": [
                 "api",
                 "catalog",
@@ -788,15 +738,13 @@
             "method": "GET",
             "header": [],
             "url": {
-              "raw": "http://127.0.0.1:8000/api/catalog/category",
-              "protocol": "http",
+              "raw": "https://espinoza-api.crythion.com/api/catalog/category",
+              "protocol": "https",
               "host": [
-                "127",
-                "0",
-                "0",
-                "1"
+                "espinoza-api",
+                "crythion",
+                "com"
               ],
-              "port": "8000",
               "path": [
                 "api",
                 "catalog",
@@ -812,15 +760,13 @@
             "method": "GET",
             "header": [],
             "url": {
-              "raw": "http://127.0.0.1:8000/api/catalog/category/active",
-              "protocol": "http",
+              "raw": "https://espinoza-api.crythion.com/api/catalog/category/active",
+              "protocol": "https",
               "host": [
-                "127",
-                "0",
-                "0",
-                "1"
+                "espinoza-api",
+                "crythion",
+                "com"
               ],
-              "port": "8000",
               "path": [
                 "api",
                 "catalog",
@@ -837,15 +783,13 @@
             "method": "GET",
             "header": [],
             "url": {
-              "raw": "http://127.0.0.1:8000/api/catalog/category/1",
-              "protocol": "http",
+              "raw": "https://espinoza-api.crythion.com/api/catalog/category/1",
+              "protocol": "https",
               "host": [
-                "127",
-                "0",
-                "0",
-                "1"
+                "espinoza-api",
+                "crythion",
+                "com"
               ],
-              "port": "8000",
               "path": [
                 "api",
                 "catalog",
@@ -877,15 +821,13 @@
               }
             },
             "url": {
-              "raw": "http://127.0.0.1:8000/api/catalog/category",
-              "protocol": "http",
+              "raw": "https://espinoza-api.crythion.com/api/catalog/category",
+              "protocol": "https",
               "host": [
-                "127",
-                "0",
-                "0",
-                "1"
+                "espinoza-api",
+                "crythion",
+                "com"
               ],
-              "port": "8000",
               "path": [
                 "api",
                 "catalog",
@@ -910,15 +852,13 @@
               }
             },
             "url": {
-              "raw": "http://127.0.0.1:8000/api/catalog/category/1",
-              "protocol": "http",
+              "raw": "https://espinoza-api.crythion.com/api/catalog/category/1",
+              "protocol": "https",
               "host": [
-                "127",
-                "0",
-                "0",
-                "1"
+                "espinoza-api",
+                "crythion",
+                "com"
               ],
-              "port": "8000",
               "path": [
                 "api",
                 "catalog",
@@ -935,15 +875,13 @@
             "method": "PATCH",
             "header": [],
             "url": {
-              "raw": "http://127.0.0.1:8000/api/catalog/category/1/activate",
-              "protocol": "http",
+              "raw": "https://espinoza-api.crythion.com/api/catalog/category/1/activate",
+              "protocol": "https",
               "host": [
-                "127",
-                "0",
-                "0",
-                "1"
+                "espinoza-api",
+                "crythion",
+                "com"
               ],
-              "port": "8000",
               "path": [
                 "api",
                 "catalog",
@@ -961,15 +899,13 @@
             "method": "PATCH",
             "header": [],
             "url": {
-              "raw": "http://127.0.0.1:8000/api/catalog/category/1/deactivate",
-              "protocol": "http",
+              "raw": "https://espinoza-api.crythion.com/api/catalog/category/1/deactivate",
+              "protocol": "https",
               "host": [
-                "127",
-                "0",
-                "0",
-                "1"
+                "espinoza-api",
+                "crythion",
+                "com"
               ],
-              "port": "8000",
               "path": [
                 "api",
                 "catalog",
@@ -987,15 +923,13 @@
             "method": "DELETE",
             "header": [],
             "url": {
-              "raw": "http://127.0.0.1:8000/api/catalog/category/2",
-              "protocol": "http",
+              "raw": "https://espinoza-api.crythion.com/api/catalog/category/2",
+              "protocol": "https",
               "host": [
-                "127",
-                "0",
-                "0",
-                "1"
+                "espinoza-api",
+                "crythion",
+                "com"
               ],
-              "port": "8000",
               "path": [
                 "api",
                 "catalog",
@@ -1017,15 +951,13 @@
             "method": "GET",
             "header": [],
             "url": {
-              "raw": "http://127.0.0.1:8000/api/catalog/product",
-              "protocol": "http",
+              "raw": "https://espinoza-api.crythion.com/api/catalog/product",
+              "protocol": "https",
               "host": [
-                "127",
-                "0",
-                "0",
-                "1"
+                "espinoza-api",
+                "crythion",
+                "com"
               ],
-              "port": "8000",
               "path": [
                 "api",
                 "catalog",
@@ -1041,15 +973,13 @@
             "method": "GET",
             "header": [],
             "url": {
-              "raw": "http://127.0.0.1:8000/api/catalog/product/12",
-              "protocol": "http",
+              "raw": "https://espinoza-api.crythion.com/api/catalog/product/12",
+              "protocol": "https",
               "host": [
-                "127",
-                "0",
-                "0",
-                "1"
+                "espinoza-api",
+                "crythion",
+                "com"
               ],
-              "port": "8000",
               "path": [
                 "api",
                 "catalog",
@@ -1081,15 +1011,13 @@
               }
             },
             "url": {
-              "raw": "http://127.0.0.1:8000/api/catalog/product",
-              "protocol": "http",
+              "raw": "https://espinoza-api.crythion.com/api/catalog/product",
+              "protocol": "https",
               "host": [
-                "127",
-                "0",
-                "0",
-                "1"
+                "espinoza-api",
+                "crythion",
+                "com"
               ],
-              "port": "8000",
               "path": [
                 "api",
                 "catalog",
@@ -1114,15 +1042,13 @@
               }
             },
             "url": {
-              "raw": "http://127.0.0.1:8000/api/catalog/product/9",
-              "protocol": "http",
+              "raw": "https://espinoza-api.crythion.com/api/catalog/product/9",
+              "protocol": "https",
               "host": [
-                "127",
-                "0",
-                "0",
-                "1"
+                "espinoza-api",
+                "crythion",
+                "com"
               ],
-              "port": "8000",
               "path": [
                 "api",
                 "catalog",
@@ -1139,15 +1065,13 @@
             "method": "PATCH",
             "header": [],
             "url": {
-              "raw": "http://127.0.0.1:8000/api/catalog/product/1/activate",
-              "protocol": "http",
+              "raw": "https://espinoza-api.crythion.com/api/catalog/product/1/activate",
+              "protocol": "https",
               "host": [
-                "127",
-                "0",
-                "0",
-                "1"
+                "espinoza-api",
+                "crythion",
+                "com"
               ],
-              "port": "8000",
               "path": [
                 "api",
                 "catalog",
@@ -1165,15 +1089,13 @@
             "method": "PATCH",
             "header": [],
             "url": {
-              "raw": "http://127.0.0.1:8000/api/catalog/product/1/deactivate",
-              "protocol": "http",
+              "raw": "https://espinoza-api.crythion.com/api/catalog/product/1/deactivate",
+              "protocol": "https",
               "host": [
-                "127",
-                "0",
-                "0",
-                "1"
+                "espinoza-api",
+                "crythion",
+                "com"
               ],
-              "port": "8000",
               "path": [
                 "api",
                 "catalog",
@@ -1191,15 +1113,13 @@
             "method": "DELETE",
             "header": [],
             "url": {
-              "raw": "http://127.0.0.1:8000/api/catalog/product/1",
-              "protocol": "http",
+              "raw": "https://espinoza-api.crythion.com/api/catalog/product/1",
+              "protocol": "https",
               "host": [
-                "127",
-                "0",
-                "0",
-                "1"
+                "espinoza-api",
+                "crythion",
+                "com"
               ],
-              "port": "8000",
               "path": [
                 "api",
                 "catalog",
@@ -1230,15 +1150,13 @@
               }
             },
             "url": {
-              "raw": "http://127.0.0.1:8000/api/events",
-              "protocol": "http",
+              "raw": "https://espinoza-api.crythion.com/api/events",
+              "protocol": "https",
               "host": [
-                "127",
-                "0",
-                "0",
-                "1"
+                "espinoza-api",
+                "crythion",
+                "com"
               ],
-              "port": "8000",
               "path": [
                 "api",
                 "events"
@@ -1259,15 +1177,13 @@
               }
             ],
             "url": {
-              "raw": "http://127.0.0.1:8000/api/events",
-              "protocol": "http",
+              "raw": "https://espinoza-api.crythion.com/api/events",
+              "protocol": "https",
               "host": [
-                "127",
-                "0",
-                "0",
-                "1"
+                "espinoza-api",
+                "crythion",
+                "com"
               ],
-              "port": "8000",
               "path": [
                 "api",
                 "events"
