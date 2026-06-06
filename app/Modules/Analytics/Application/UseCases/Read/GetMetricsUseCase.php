@@ -1,20 +1,21 @@
 <?php
 
+//--------------------------------------------------------------------------
+// GetMetricsUseCase: Consulta y consolidación de métricas de interacción AR
+//--------------------------------------------------------------------------
+
 namespace App\Modules\Analytics\Application\UseCases\Read;
 
 use App\Modules\Analytics\Domain\Interfaces\AnalyticsInterface;
 
 class GetMetricsUseCase
 {
-    //--------------------------------------------------------------------------
-    // CONSTRUCTOR -> Inicializa el caso de uso con el repositorio
-    //--------------------------------------------------------------------------
     public function __construct(
         private AnalyticsInterface $analyticsRepository,
     ) {}
 
     //--------------------------------------------------------------------------
-    // EJECUCIÓN -> Obtiene y unifica las métricas y top de productos
+    // Cálculo: Consolidación y procesamiento de métricas agregadas
     //--------------------------------------------------------------------------
     public function execute(?string $startDate, ?string $endDate, ?int $productId): array
     {

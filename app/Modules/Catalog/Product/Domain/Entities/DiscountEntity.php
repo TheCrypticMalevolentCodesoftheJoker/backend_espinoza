@@ -1,5 +1,9 @@
 <?php
 
+//--------------------------------------------------------------------------
+// DiscountEntity: Entidad que define la estructura y lógica de negocio de los descuentos de productos
+//--------------------------------------------------------------------------
+
 namespace App\Modules\Catalog\Product\Domain\Entities;
 
 use App\Modules\Catalog\Product\Domain\ValueObjects\Discount\DiscountAmount;
@@ -15,9 +19,6 @@ class DiscountEntity
         private bool $status,
     ) {}
 
-    //--------------------------------------------------------------------------
-    // CREACIÓN -> Instanciar un nuevo descuento
-    //--------------------------------------------------------------------------
     public static function create(
         int $productId,
         DiscountAmount $amount,
@@ -34,9 +35,6 @@ class DiscountEntity
         );
     }
 
-    //--------------------------------------------------------------------------
-    // RECONSTRUCCIÓN -> Reconstituir descuento desde base de datos
-    //--------------------------------------------------------------------------
     public static function reconstitute(
         int $id,
         int $productId,
@@ -55,9 +53,6 @@ class DiscountEntity
         );
     }
 
-    //--------------------------------------------------------------------------
-    // CONSULTAS -> Getters de la entidad
-    //--------------------------------------------------------------------------
     public function getId(): int
     {
         return $this->id;

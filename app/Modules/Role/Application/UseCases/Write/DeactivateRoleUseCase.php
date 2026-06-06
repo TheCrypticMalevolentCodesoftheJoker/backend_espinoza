@@ -1,4 +1,7 @@
 <?php
+//--------------------------------------------------------------------------
+// DeactivateRoleUseCase: Desactivación de un rol existente por su identificador.
+//--------------------------------------------------------------------------
 
 namespace App\Modules\Role\Application\UseCases\Write;
 

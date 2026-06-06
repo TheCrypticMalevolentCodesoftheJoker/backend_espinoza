@@ -1,5 +1,9 @@
 <?php
 
+//--------------------------------------------------------------------------
+// CategoryServiceProvider: Proveedor de servicios para el módulo de categorías
+//--------------------------------------------------------------------------
+
 namespace App\Modules\Catalog\Category\Infrastructure\Providers;
 
 use Illuminate\Support\ServiceProvider;
@@ -9,7 +13,7 @@ use App\Modules\Catalog\Category\Infrastructure\Persistence\Repositories\Eloquen
 class CategoryServiceProvider extends ServiceProvider
 {
     //--------------------------------------------------------------------------
-    // REGISTRO -> Enlazar dependencias del contenedor de servicios
+    // Inicialización: Registro de dependencias en el contenedor de servicios
     //--------------------------------------------------------------------------
     public function register(): void
     {
@@ -17,7 +21,7 @@ class CategoryServiceProvider extends ServiceProvider
     }
 
     //--------------------------------------------------------------------------
-    // INICIALIZACIÓN -> Cargar rutas y configuraciones del módulo
+    // Configuración: Definición de rutas y arranque del módulo
     //--------------------------------------------------------------------------
     public function boot(): void
     {

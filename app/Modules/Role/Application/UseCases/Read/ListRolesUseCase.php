@@ -1,4 +1,7 @@
 <?php
+//--------------------------------------------------------------------------
+// ListRolesUseCase: Consulta de todos los roles registrados en el sistema.
+//--------------------------------------------------------------------------
 
 namespace App\Modules\Role\Application\UseCases\Read;
 

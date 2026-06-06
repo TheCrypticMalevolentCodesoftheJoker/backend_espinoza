@@ -1,4 +1,7 @@
 <?php
+//--------------------------------------------------------------------------
+// RoleAlreadyExistsException: Excepción de negocio para conflicto de nombre duplicado (409).
+//--------------------------------------------------------------------------
 
 namespace App\Modules\Role\Domain\Exceptions;
 

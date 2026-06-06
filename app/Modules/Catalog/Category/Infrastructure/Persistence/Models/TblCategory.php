@@ -1,5 +1,9 @@
 <?php
 
+//--------------------------------------------------------------------------
+// TblCategory: Modelo Eloquent para la persistencia de categorías en base de datos
+//--------------------------------------------------------------------------
+
 namespace App\Modules\Catalog\Category\Infrastructure\Persistence\Models;
 
 use App\Modules\Catalog\Product\Infrastructure\Persistence\Models\TblProduct;
@@ -36,7 +40,7 @@ class TblCategory extends Model
 	];
 
 	//--------------------------------------------------------------------------
-	// RELACIONES -> Productos asociados a esta categoría
+	// Configuración: Relaciones del modelo con otras entidades de la base de datos
 	//--------------------------------------------------------------------------
 	public function tbl_products()
 	{

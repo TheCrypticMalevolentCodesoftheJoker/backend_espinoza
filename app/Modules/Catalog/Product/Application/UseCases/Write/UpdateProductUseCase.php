@@ -1,5 +1,9 @@
 <?php
 
+//--------------------------------------------------------------------------
+// UpdateProductUseCase: Actualización parcial o total de datos y recursos de un producto
+//--------------------------------------------------------------------------
+
 namespace App\Modules\Catalog\Product\Application\UseCases\Write;
 
 use App\Modules\Catalog\Product\Application\DTOs\Write\Product\UpdateProductDTO;
@@ -39,13 +43,10 @@ class UpdateProductUseCase
     ) {}
 
     //--------------------------------------------------------------------------
-    // EJECUTAR CASO DE USO -> Actualizar un producto existente
+    // Orquestación: Validación y actualización transaccional de los datos del producto
     //--------------------------------------------------------------------------
     public function execute(int $id, UpdateProductDTO $dto): void
     {
-        //--------------------------------------------------------------------------
-        // LÓGICA -> Obtener entidad del producto
-        //--------------------------------------------------------------------------
         $entity = $this->productInterface->findById($id);
 
         if (!$entity) {
@@ -55,9 +56,6 @@ class UpdateProductUseCase
         DB::beginTransaction();
 
         try {
-            //--------------------------------------------------------------------------
-            // LÓGICA -> Actualización de campos de la entidad
-            //--------------------------------------------------------------------------
             if ($dto->categoryId !== null) {
                 if (!$this->categoryAccessGateway->exists($dto->categoryId)) {
                     throw new InvalidCategoryException();
@@ -98,9 +96,6 @@ class UpdateProductUseCase
 
             $this->productInterface->update($entity);
 
-            //--------------------------------------------------------------------------
-            // PERSISTENCIA -> Gestión de imágenes del producto (reemplazo o adición)
-            //--------------------------------------------------------------------------
             if ($dto->replaceImages) {
                 $this->s3Gateway->deleteAll($id);
                 $this->imageInterface->deleteByProductId($id);
@@ -121,9 +116,6 @@ class UpdateProductUseCase
                 }
             }
 
-            //--------------------------------------------------------------------------
-            // PERSISTENCIA -> Registrar nuevo precio del producto (opcional)
-            //--------------------------------------------------------------------------
             if ($dto->price) {
                 $priceAmount = new PriceAmount($dto->price->amount);
                 $priceEntity = PriceEntity::create(
@@ -136,9 +128,6 @@ class UpdateProductUseCase
                 $this->priceInterface->save($priceEntity);
             }
 
-            //--------------------------------------------------------------------------
-            // PERSISTENCIA -> Registrar nuevo descuento del producto (opcional)
-            //--------------------------------------------------------------------------
             if ($dto->discount) {
                 $discountAmount = new DiscountAmount($dto->discount->amount);
                 $discountEntity = DiscountEntity::create(

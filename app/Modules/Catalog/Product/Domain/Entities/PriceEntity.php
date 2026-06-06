@@ -1,5 +1,9 @@
 <?php
 
+//--------------------------------------------------------------------------
+// PriceEntity: Entidad que define la estructura y lógica de negocio de los precios de productos
+//--------------------------------------------------------------------------
+
 namespace App\Modules\Catalog\Product\Domain\Entities;
 
 use App\Modules\Catalog\Product\Domain\ValueObjects\Price\PriceAmount;
@@ -15,9 +19,6 @@ class PriceEntity
         private bool $status,
     ) {}
 
-    //--------------------------------------------------------------------------
-    // CREACIÓN -> Instanciar un nuevo precio
-    //--------------------------------------------------------------------------
     public static function create(
         int $productId,
         PriceAmount $amount,
@@ -34,9 +35,6 @@ class PriceEntity
         );
     }
 
-    //--------------------------------------------------------------------------
-    // RECONSTRUCCIÓN -> Reconstituir precio desde base de datos
-    //--------------------------------------------------------------------------
     public static function reconstitute(
         int $id,
         int $productId,
@@ -55,9 +53,6 @@ class PriceEntity
         );
     }
 
-    //--------------------------------------------------------------------------
-    // CONSULTAS -> Getters de la entidad
-    //--------------------------------------------------------------------------
     public function getId(): int
     {
         return $this->id;

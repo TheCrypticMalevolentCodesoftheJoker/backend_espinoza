@@ -1,5 +1,9 @@
 <?php
 
+//--------------------------------------------------------------------------
+// BrandEntity: Entidad que define la estructura y lógica de dominio de las marcas
+//--------------------------------------------------------------------------
+
 namespace App\Modules\Catalog\Brand\Domain\Entities;
 
 use App\Modules\Catalog\Brand\Domain\ValueObjects\BrandName;
@@ -14,9 +18,6 @@ class BrandEntity
         private ?\DateTime $updatedAt,
     ) {}
 
-    //--------------------------------------------------------------------------
-    // CREACIÓN -> Instanciar una nueva entidad
-    //--------------------------------------------------------------------------
     public static function create(BrandName $name): self
     {
         return new self(
@@ -28,9 +29,6 @@ class BrandEntity
         );
     }
 
-    //--------------------------------------------------------------------------
-    // RECONSTRUCCIÓN -> Reconstituir entidad desde base de datos
-    //--------------------------------------------------------------------------
     public static function reconstitute(int $id, BrandName $name, bool $status, ?\DateTime $createdAt, ?\DateTime $updatedAt): self
     {
         return new self(
@@ -41,10 +39,6 @@ class BrandEntity
             updatedAt: $updatedAt,
         );
     }
-
-    //--------------------------------------------------------------------------
-    // CONSULTAS -> Getters de la entidad
-    //--------------------------------------------------------------------------
 
     public function getId(): int
     {
@@ -69,9 +63,6 @@ class BrandEntity
         return $this->updatedAt;
     }
 
-    //--------------------------------------------------------------------------
-    // COMPORTAMIENTO -> Lógica de dominio de la entidad
-    //--------------------------------------------------------------------------
     public function rename(BrandName $name): void
     {
         $this->name = $name;

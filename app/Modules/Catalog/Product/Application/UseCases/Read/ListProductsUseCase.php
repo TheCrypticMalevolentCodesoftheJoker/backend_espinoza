@@ -1,5 +1,9 @@
 <?php
 
+//--------------------------------------------------------------------------
+// ListProductsUseCase: Recuperación de la lista completa de productos del catálogo
+//--------------------------------------------------------------------------
+
 namespace App\Modules\Catalog\Product\Application\UseCases\Read;
 
 use App\Modules\Catalog\Product\Application\DTOs\Read\Product\ProductDTO;
@@ -25,7 +29,7 @@ class ListProductsUseCase
     ) {}
 
     //--------------------------------------------------------------------------
-    // EJECUTAR CASO DE USO -> Listar todos los productos con precios e imágenes
+    // Consulta: Consulta y mapeo de productos, marcas, categorías e información comercial
     //--------------------------------------------------------------------------
     public function execute(): array
     {

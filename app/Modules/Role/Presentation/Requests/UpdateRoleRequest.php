@@ -1,4 +1,7 @@
 <?php
+//--------------------------------------------------------------------------
+// UpdateRoleRequest: Validación y transformación del request HTTP para actualización de roles.
+//--------------------------------------------------------------------------
 
 namespace App\Modules\Role\Presentation\Requests;
 

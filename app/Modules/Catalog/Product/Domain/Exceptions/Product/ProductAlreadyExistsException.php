@@ -1,5 +1,9 @@
 <?php
 
+//--------------------------------------------------------------------------
+// ProductAlreadyExistsException: Excepción de negocio lanzada al intentar registrar un producto duplicado
+//--------------------------------------------------------------------------
+
 namespace App\Modules\Catalog\Product\Domain\Exceptions\Product;
 
 use App\Shared\Exceptions\BusinessAppException;

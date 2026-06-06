@@ -1,5 +1,9 @@
 <?php
 
+//--------------------------------------------------------------------------
+// StoreDiscountDTO: DTO para la creación y registro de un descuento de producto
+//--------------------------------------------------------------------------
+
 namespace App\Modules\Catalog\Product\Application\DTOs\Write\Discount;
 
 class StoreDiscountDTO

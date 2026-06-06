@@ -1,5 +1,9 @@
 <?php
 
+//--------------------------------------------------------------------------
+// EloquentDiscountRepository: Implementación Eloquent del repositorio para descuentos de productos
+//--------------------------------------------------------------------------
+
 namespace App\Modules\Catalog\Product\Infrastructure\Persistence\Repositories\Discount;
 
 use App\Modules\Catalog\Product\Domain\Entities\DiscountEntity;
@@ -10,7 +14,7 @@ use App\Modules\Catalog\Product\Infrastructure\Persistence\Models\TblDiscount;
 class EloquentDiscountRepository implements DiscountInterface
 {
     //--------------------------------------------------------------------------
-    // CONSULTA -> Obtener el descuento actual de un producto por ID
+    // Consulta: Recuperación del descuento activo de un producto
     //--------------------------------------------------------------------------
     public function findCurrentByProductId(int $productId): ?DiscountEntity
     {
@@ -27,7 +31,7 @@ class EloquentDiscountRepository implements DiscountInterface
     }
 
     //--------------------------------------------------------------------------
-    // PERSISTENCIA -> Guardar un nuevo descuento de producto
+    // Persistencia: Registro y almacenamiento de nuevos descuentos
     //--------------------------------------------------------------------------
     public function save(DiscountEntity $discountEntity): void
     {
@@ -40,9 +44,6 @@ class EloquentDiscountRepository implements DiscountInterface
         ]);
     }
 
-    //--------------------------------------------------------------------------
-    // MÉTODOS PRIVADOS -> Mapeo de persistencia a dominio
-    //--------------------------------------------------------------------------
     private function mapToEntity($model): DiscountEntity
     {
         return DiscountEntity::reconstitute(

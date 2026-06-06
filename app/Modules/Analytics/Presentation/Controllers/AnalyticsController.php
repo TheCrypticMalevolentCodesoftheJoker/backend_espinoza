@@ -1,5 +1,9 @@
 <?php
 
+//--------------------------------------------------------------------------
+// AnalyticsController: Punto de entrada HTTP para la ingesta y consulta de eventos AR
+//--------------------------------------------------------------------------
+
 namespace App\Modules\Analytics\Presentation\Controllers;
 
 use App\Modules\Analytics\Application\UseCases\Write\CreateArEventUseCase;
@@ -16,7 +20,7 @@ class AnalyticsController
     ) {}
 
     //--------------------------------------------------------------------------
-    // ESCRITURA -> Registrar un evento de interacción AR
+    // Procesamiento: Registro del evento AR y despacho de respuesta HTTP
     //--------------------------------------------------------------------------
     public function store(StoreArEventRequest $request)
     {
@@ -29,7 +33,7 @@ class AnalyticsController
     }
 
     //--------------------------------------------------------------------------
-    // LECTURA -> Obtener métricas agregadas del visualizador AR
+    // Consulta: Obtención de métricas filtradas de uso de la funcionalidad AR
     //--------------------------------------------------------------------------
     public function metrics(Request $request)
     {

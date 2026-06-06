@@ -1,5 +1,9 @@
 <?php
 
+//--------------------------------------------------------------------------
+// ActivateBrandUseCase: Modificación y habilitación de estado de una marca
+//--------------------------------------------------------------------------
+
 namespace App\Modules\Catalog\Brand\Application\UseCases\Write;
 
 use App\Modules\Catalog\Brand\Domain\Exceptions\BrandNotFoundException;
@@ -12,7 +16,7 @@ class ActivateBrandUseCase
     ) {}
 
     //--------------------------------------------------------------------------
-    // EJECUTAR CASO DE USO -> Activar una marca por ID
+    // Procesamiento: Modificación del estado del dominio y persistencia
     //--------------------------------------------------------------------------
     public function execute(int $id): void
     {

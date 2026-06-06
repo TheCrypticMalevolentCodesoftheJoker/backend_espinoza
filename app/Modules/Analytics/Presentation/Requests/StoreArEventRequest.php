@@ -1,5 +1,9 @@
 <?php
 
+//--------------------------------------------------------------------------
+// StoreArEventRequest: Validación y tipado de peticiones de registro de eventos AR
+//--------------------------------------------------------------------------
+
 namespace App\Modules\Analytics\Presentation\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
@@ -7,16 +11,13 @@ use App\Modules\Analytics\Application\DTOs\Write\StoreArEventDTO;
 
 class StoreArEventRequest extends FormRequest
 {
-    //--------------------------------------------------------------------------
-    // AUTORIZACIÓN -> Permisos del request
-    //--------------------------------------------------------------------------
     public function authorize(): bool
     {
         return true;
     }
 
     //--------------------------------------------------------------------------
-    // REGLAS -> Reglas de validación
+    // Validación: Definición de restricciones para los datos de entrada
     //--------------------------------------------------------------------------
     public function rules(): array
     {
@@ -28,9 +29,6 @@ class StoreArEventRequest extends FormRequest
         ];
     }
 
-    //--------------------------------------------------------------------------
-    // MENSAJES -> Mensajes de validación personalizados
-    //--------------------------------------------------------------------------
     public function messages(): array
     {
         return [
@@ -41,7 +39,7 @@ class StoreArEventRequest extends FormRequest
     }
 
     //--------------------------------------------------------------------------
-    // MAPEO -> Convertir a DTO de aplicación
+    // Transformación: Mapeo de parámetros validados a un DTO de negocio
     //--------------------------------------------------------------------------
     public function toDto(): StoreArEventDTO
     {

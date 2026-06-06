@@ -1,5 +1,9 @@
 <?php
 
+//--------------------------------------------------------------------------
+// EloquentBrandRepository: Acceso y mutación física de registros de marcas con Eloquent
+//--------------------------------------------------------------------------
+
 namespace App\Modules\Catalog\Brand\Infrastructure\Persistence\Repositories;
 
 use App\Modules\Catalog\Brand\Domain\Entities\BrandEntity;
@@ -10,7 +14,7 @@ use App\Modules\Catalog\Brand\Infrastructure\Persistence\Models\TblBrand;
 class EloquentBrandRepository implements BrandInterface
 {
     //--------------------------------------------------------------------------
-    // CONSULTA -> Obtener todas las marcas
+    // Consulta: Operaciones de lectura y búsqueda en base de datos
     //--------------------------------------------------------------------------
     public function findAll(): array
     {
@@ -25,9 +29,7 @@ class EloquentBrandRepository implements BrandInterface
             ->toArray();
     }
 
-    //--------------------------------------------------------------------------
-    // CONSULTA -> Obtener marcas activas
-    //--------------------------------------------------------------------------
+
     public function findActive(): array
     {
         return TblBrand::where('status', true)
@@ -42,9 +44,7 @@ class EloquentBrandRepository implements BrandInterface
             ->toArray();
     }
 
-    //--------------------------------------------------------------------------
-    // CONSULTA -> Obtener marca por ID
-    //--------------------------------------------------------------------------
+
     public function findById(int $id): ?BrandEntity
     {
         $model = TblBrand::find($id);
@@ -58,9 +58,7 @@ class EloquentBrandRepository implements BrandInterface
         ) : null;
     }
 
-    //--------------------------------------------------------------------------
-    // CONSULTA -> Obtener marca por nombre
-    //--------------------------------------------------------------------------
+
     public function findByName(string $name): ?BrandEntity
     {
         $model = TblBrand::where('name', $name)->first();
@@ -75,7 +73,7 @@ class EloquentBrandRepository implements BrandInterface
     }
 
     //--------------------------------------------------------------------------
-    // PERSISTENCIA -> Guardar una nueva marca
+    // Persistencia: Transacciones físicas de almacenamiento, actualización y eliminación
     //--------------------------------------------------------------------------
     public function save(BrandEntity $brandEntity): void
     {
@@ -85,9 +83,7 @@ class EloquentBrandRepository implements BrandInterface
         ]);
     }
 
-    //--------------------------------------------------------------------------
-    // PERSISTENCIA -> Actualizar marca existente
-    //--------------------------------------------------------------------------
+
     public function update(BrandEntity $brand): void
     {
         $model = TblBrand::findOrFail($brand->getId());
@@ -97,9 +93,7 @@ class EloquentBrandRepository implements BrandInterface
         ]);
     }
 
-    //--------------------------------------------------------------------------
-    // PERSISTENCIA -> Eliminar marca por ID
-    //--------------------------------------------------------------------------
+
     public function delete(int $id): void
     {
         TblBrand::destroy($id);

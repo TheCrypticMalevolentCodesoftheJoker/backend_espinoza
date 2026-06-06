@@ -1,4 +1,7 @@
 <?php
+//--------------------------------------------------------------------------
+// ActivateUserUseCase: Activación de un usuario existente por su identificador.
+//--------------------------------------------------------------------------
 
 namespace App\Modules\User\Application\UseCases\Write;
 

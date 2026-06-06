@@ -1,5 +1,9 @@
 <?php
 
+//--------------------------------------------------------------------------
+// ProductNotFoundException: Excepción de negocio lanzada cuando no se localiza un producto
+//--------------------------------------------------------------------------
+
 namespace App\Modules\Catalog\Product\Domain\Exceptions\Product;
 
 use App\Shared\Exceptions\BusinessAppException;

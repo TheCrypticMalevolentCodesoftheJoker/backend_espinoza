@@ -1,4 +1,7 @@
 <?php
+//--------------------------------------------------------------------------
+// RoleAccessGateway: Puerto anti-corrupción para consulta de roles desde el módulo externo.
+//--------------------------------------------------------------------------
 
 namespace App\Modules\User\Domain\Interfaces;
 

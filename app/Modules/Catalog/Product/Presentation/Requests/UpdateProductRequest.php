@@ -1,4 +1,8 @@
 <?php
+//--------------------------------------------------------------------------
+// UpdateProductRequest: Validación y transformación del request HTTP para actualización de productos.
+// Permite campos parciales (sometimes) y convierte los datos entrantes en DTOs de aplicación.
+//--------------------------------------------------------------------------
 
 namespace App\Modules\Catalog\Product\Presentation\Requests;
 

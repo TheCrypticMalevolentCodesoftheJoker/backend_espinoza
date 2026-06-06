@@ -1,5 +1,9 @@
 <?php
 
+//--------------------------------------------------------------------------
+// SessionId: Representación y validación del identificador único de sesión AR
+//--------------------------------------------------------------------------
+
 namespace App\Modules\Analytics\Domain\ValueObjects;
 
 use Illuminate\Validation\ValidationException;
@@ -9,7 +13,7 @@ class SessionId
     private string $value;
 
     //--------------------------------------------------------------------------
-    // VALIDACIÓN -> Valida que el session_id cumpla con las reglas del dominio
+    // Validación: Control de integridad del identificador de sesión
     //--------------------------------------------------------------------------
     public function __construct(string $value)
     {
@@ -24,9 +28,6 @@ class SessionId
         $this->value = $normalized;
     }
 
-    //--------------------------------------------------------------------------
-    // CONSULTA -> Retorna el valor primitivo interno
-    //--------------------------------------------------------------------------
     public function value(): string
     {
         return $this->value;

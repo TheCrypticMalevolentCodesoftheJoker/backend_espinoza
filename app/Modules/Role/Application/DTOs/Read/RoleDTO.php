@@ -1,4 +1,7 @@
 <?php
+//--------------------------------------------------------------------------
+// RoleDTO: Estructura de transferencia de datos para la representación de lectura de un rol.
+//--------------------------------------------------------------------------
 
 namespace App\Modules\Role\Application\DTOs\Read;
 

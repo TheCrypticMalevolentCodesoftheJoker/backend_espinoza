@@ -1,5 +1,9 @@
 <?php
 
+//--------------------------------------------------------------------------
+// UpdateBrandUseCase: Actualización de la información de marcas existentes
+//--------------------------------------------------------------------------
+
 namespace App\Modules\Catalog\Brand\Application\UseCases\Write;
 
 use App\Modules\Catalog\Brand\Application\DTOs\Write\UpdateBrandDTO;
@@ -15,7 +19,7 @@ class UpdateBrandUseCase
     ) {}
 
     //--------------------------------------------------------------------------
-    // EJECUTAR CASO DE USO -> Actualizar una marca existente
+    // Orquestación: Validación de colisiones de nombres y actualización de marca
     //--------------------------------------------------------------------------
     public function execute(int $id, UpdateBrandDTO $updateBrandDTO): void
     {

@@ -1,5 +1,9 @@
 <?php
 
+//--------------------------------------------------------------------------
+// TblProduct: Modelo Eloquent para la persistencia y relaciones de productos en base de datos
+//--------------------------------------------------------------------------
+
 namespace App\Modules\Catalog\Product\Infrastructure\Persistence\Models;
 
 use App\Modules\Catalog\Brand\Infrastructure\Persistence\Models\TblBrand;
@@ -63,40 +67,28 @@ class TblProduct extends Model
     ];
 
     //--------------------------------------------------------------------------
-    // RELACIONES -> Marca asociada al producto
+    // Configuración: Relaciones del modelo con marcas, categorías, precios y recursos asociados
     //--------------------------------------------------------------------------
     public function tbl_brand()
     {
         return $this->belongsTo(TblBrand::class, 'brand_id');
     }
 
-    //--------------------------------------------------------------------------
-    // RELACIONES -> Categoría asociada al producto
-    //--------------------------------------------------------------------------
     public function tbl_category()
     {
         return $this->belongsTo(TblCategory::class, 'category_id');
     }
 
-    //--------------------------------------------------------------------------
-    // RELACIONES -> Historial de descuentos del producto
-    //--------------------------------------------------------------------------
     public function tbl_discounts()
     {
         return $this->hasMany(TblDiscount::class, 'product_id');
     }
 
-    //--------------------------------------------------------------------------
-    // RELACIONES -> Galería de imágenes del producto
-    //--------------------------------------------------------------------------
     public function tbl_images()
     {
         return $this->hasMany(TblImage::class, 'product_id');
     }
 
-    //--------------------------------------------------------------------------
-    // RELACIONES -> Historial de precios del producto
-    //--------------------------------------------------------------------------
     public function tbl_prices()
     {
         return $this->hasMany(TblPrice::class, 'product_id');

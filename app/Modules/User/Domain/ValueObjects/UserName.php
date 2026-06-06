@@ -1,4 +1,7 @@
 <?php
+//--------------------------------------------------------------------------
+// UserName: Value Object con validación de formato para el nombre del usuario.
+//--------------------------------------------------------------------------
 
 namespace App\Modules\User\Domain\ValueObjects;
 

@@ -1,5 +1,9 @@
 <?php
 
+//--------------------------------------------------------------------------
+// BrandController: Controlador API para la exposición de operaciones sobre marcas
+//--------------------------------------------------------------------------
+
 namespace App\Modules\Catalog\Brand\Presentation\Controllers;
 
 use App\Modules\Catalog\Brand\Application\UseCases\Read\GetBrandByIdUseCase;
@@ -17,15 +21,9 @@ use App\Shared\Responses\ApiResponse;
 class BrandController
 {
     public function __construct(
-        //--------------------------------------------------------------------------
-        // CASOS DE USO -> Lectura de datos
-        //--------------------------------------------------------------------------
         private readonly ListBrandsUseCase $listBrandsUseCase,
         private readonly ListActiveBrandsUseCase $listActiveBrandsUseCase,
         private readonly GetBrandByIdUseCase $getBrandByIdUseCase,
-        //--------------------------------------------------------------------------
-        // CASOS DE USO -> Escritura y persistencia de datos
-        //--------------------------------------------------------------------------
         private readonly CreateBrandUseCase $createBrandUseCase,
         private readonly UpdateBrandUseCase $updateBrandUseCase,
         private readonly ActivateBrandUseCase $activateBrandUseCase,
@@ -34,7 +32,7 @@ class BrandController
     ) {}
 
     //--------------------------------------------------------------------------
-    // ACCIÓN -> Listar todas las marcas
+    // Consulta: Endpoints HTTP de lectura del catálogo de marcas
     //--------------------------------------------------------------------------
     public function index()
     {
@@ -47,9 +45,6 @@ class BrandController
         );
     }
 
-    //--------------------------------------------------------------------------
-    // ACCIÓN -> Listar marcas activas
-    //--------------------------------------------------------------------------
     public function active()
     {
         $brands = $this->listActiveBrandsUseCase->execute();
@@ -61,9 +56,6 @@ class BrandController
         );
     }
 
-    //--------------------------------------------------------------------------
-    // ACCIÓN -> Obtener marca por ID
-    //--------------------------------------------------------------------------
     public function show(int $id)
     {
         $brand = $this->getBrandByIdUseCase->execute($id);
@@ -76,7 +68,7 @@ class BrandController
     }
 
     //--------------------------------------------------------------------------
-    // ACCIÓN -> Crear una nueva marca
+    // Procesamiento: Endpoints HTTP de mutación y persistencia de marcas
     //--------------------------------------------------------------------------
     public function store(StoreBrandRequest $storeBrandRequest)
     {
@@ -88,9 +80,6 @@ class BrandController
         );
     }
 
-    //--------------------------------------------------------------------------
-    // ACCIÓN -> Actualizar marca existente
-    //--------------------------------------------------------------------------
     public function update(int $id, UpdateBrandRequest $updateBrandRequest)
     {
         $this->updateBrandUseCase->execute($id, $updateBrandRequest->toDto());
@@ -101,9 +90,6 @@ class BrandController
         );
     }
 
-    //--------------------------------------------------------------------------
-    // ACCIÓN -> Activar marca
-    //--------------------------------------------------------------------------
     public function activate(int $id)
     {
         $this->activateBrandUseCase->execute($id);
@@ -114,9 +100,6 @@ class BrandController
         );
     }
 
-    //--------------------------------------------------------------------------
-    // ACCIÓN -> Desactivar marca
-    //--------------------------------------------------------------------------
     public function deactivate(int $id)
     {
         $this->deactivateBrandUseCase->execute($id);
@@ -127,9 +110,6 @@ class BrandController
         );
     }
 
-    //--------------------------------------------------------------------------
-    // ACCIÓN -> Eliminar una marca
-    //--------------------------------------------------------------------------
     public function destroy(int $id)
     {
         $this->deleteBrandUseCase->execute($id);

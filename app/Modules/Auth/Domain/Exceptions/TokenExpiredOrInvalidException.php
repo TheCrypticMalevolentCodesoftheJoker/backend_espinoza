@@ -1,5 +1,9 @@
 <?php
 
+//--------------------------------------------------------------------------
+// TokenExpiredOrInvalidException: Excepción lanzada cuando una sesión no está activa o el token no es válido
+//--------------------------------------------------------------------------
+
 namespace App\Modules\Auth\Domain\Exceptions;
 
 use App\Shared\Exceptions\BusinessAppException;

@@ -1,4 +1,8 @@
 <?php
+//--------------------------------------------------------------------------
+// UserEntity: Agregado raíz del dominio User con estado, comportamiento y factory methods.
+// Encapsula rol, credenciales y ciclo de vida del usuario.
+//--------------------------------------------------------------------------
 
 namespace App\Modules\User\Domain\Entities;
 

@@ -1,4 +1,7 @@
 <?php
+//--------------------------------------------------------------------------
+// RoleInterface: Contrato de repositorio para consulta y persistencia de roles.
+//--------------------------------------------------------------------------
 
 namespace App\Modules\Role\Domain\Interfaces;
 

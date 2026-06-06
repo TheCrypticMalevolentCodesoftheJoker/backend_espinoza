@@ -1,5 +1,9 @@
 <?php
 
+//--------------------------------------------------------------------------
+// EloquentCategoryRepository: Implementación Eloquent del repositorio de categorías
+//--------------------------------------------------------------------------
+
 namespace App\Modules\Catalog\Category\Infrastructure\Persistence\Repositories;
 
 use App\Modules\Catalog\Category\Domain\Entities\CategoryEntity;
@@ -10,8 +14,9 @@ use App\Modules\Catalog\Category\Infrastructure\Persistence\Models\TblCategory;
 class EloquentCategoryRepository implements CategoryInterface
 {
     //--------------------------------------------------------------------------
-    // CONSULTA -> Obtener todas las categorías
+    // Consulta: Recuperación de entidades y colecciones desde la base de datos
     //--------------------------------------------------------------------------
+
     public function findAll(): array
     {
         return TblCategory::all()
@@ -25,9 +30,6 @@ class EloquentCategoryRepository implements CategoryInterface
             ->toArray();
     }
 
-    //--------------------------------------------------------------------------
-    // CONSULTA -> Obtener categorías activas
-    //--------------------------------------------------------------------------
     public function findActive(): array
     {
         return TblCategory::where('status', true)
@@ -42,9 +44,6 @@ class EloquentCategoryRepository implements CategoryInterface
             ->toArray();
     }
 
-    //--------------------------------------------------------------------------
-    // CONSULTA -> Obtener categoría por ID
-    //--------------------------------------------------------------------------
     public function findById(int $id): ?CategoryEntity
     {
         $model = TblCategory::find($id);
@@ -58,9 +57,6 @@ class EloquentCategoryRepository implements CategoryInterface
         ) : null;
     }
 
-    //--------------------------------------------------------------------------
-    // CONSULTA -> Obtener categoría por nombre
-    //--------------------------------------------------------------------------
     public function findByName(string $name): ?CategoryEntity
     {
         $model = TblCategory::where('name', $name)->first();
@@ -75,8 +71,9 @@ class EloquentCategoryRepository implements CategoryInterface
     }
 
     //--------------------------------------------------------------------------
-    // PERSISTENCIA -> Guardar una nueva categoría
+    // Persistencia: Almacenamiento, actualización y remoción de registros
     //--------------------------------------------------------------------------
+
     public function save(CategoryEntity $categoryEntity): void
     {
         TblCategory::create([
@@ -85,9 +82,6 @@ class EloquentCategoryRepository implements CategoryInterface
         ]);
     }
 
-    //--------------------------------------------------------------------------
-    // PERSISTENCIA -> Actualizar categoría existente
-    //--------------------------------------------------------------------------
     public function update(CategoryEntity $category): void
     {
         $model = TblCategory::findOrFail($category->getId());
@@ -97,9 +91,6 @@ class EloquentCategoryRepository implements CategoryInterface
         ]);
     }
 
-    //--------------------------------------------------------------------------
-    // PERSISTENCIA -> Eliminar categoría por ID
-    //--------------------------------------------------------------------------
     public function delete(int $id): void
     {
         TblCategory::destroy($id);

@@ -1,5 +1,9 @@
 <?php
 
+//--------------------------------------------------------------------------
+// PriceDTO: Objeto de transferencia de datos para la visualización de un precio de producto
+//--------------------------------------------------------------------------
+
 namespace App\Modules\Catalog\Product\Application\DTOs\Read\Price;
 
 use JsonSerializable;

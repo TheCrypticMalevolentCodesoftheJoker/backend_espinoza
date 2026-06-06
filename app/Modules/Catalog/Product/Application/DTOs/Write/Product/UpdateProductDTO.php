@@ -1,5 +1,9 @@
 <?php
 
+//--------------------------------------------------------------------------
+// UpdateProductDTO: DTO para la actualización de atributos y datos de un producto existente
+//--------------------------------------------------------------------------
+
 namespace App\Modules\Catalog\Product\Application\DTOs\Write\Product;
 
 use App\Modules\Catalog\Product\Application\DTOs\Write\Discount\StoreDiscountDTO;

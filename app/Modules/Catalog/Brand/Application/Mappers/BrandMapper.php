@@ -1,5 +1,9 @@
 <?php
 
+//--------------------------------------------------------------------------
+// BrandMapper: Transformación bidireccional entre la entidad BrandEntity y sus DTOs
+//--------------------------------------------------------------------------
+
 namespace App\Modules\Catalog\Brand\Application\Mappers;
 
 use App\Modules\Catalog\Brand\Application\DTOs\Read\BrandDTO;

@@ -1,5 +1,9 @@
 <?php
 
+//--------------------------------------------------------------------------
+// StorePriceDTO: DTO para el establecimiento y registro del precio de un producto
+//--------------------------------------------------------------------------
+
 namespace App\Modules\Catalog\Product\Application\DTOs\Write\Price;
 
 class StorePriceDTO

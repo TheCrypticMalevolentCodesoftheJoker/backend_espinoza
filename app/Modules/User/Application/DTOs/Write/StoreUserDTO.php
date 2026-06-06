@@ -1,4 +1,7 @@
 <?php
+//--------------------------------------------------------------------------
+// StoreUserDTO: Estructura de datos entrantes para la creación de un usuario.
+//--------------------------------------------------------------------------
 
 namespace App\Modules\User\Application\DTOs\Write;
 

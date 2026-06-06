@@ -1,4 +1,8 @@
 <?php
+//--------------------------------------------------------------------------
+// S3Service: Implementación del gateway de almacenamiento para archivos multimedia.
+// Gestiona la carga, conversión a WebP y eliminación de imágenes y modelos 3D.
+//--------------------------------------------------------------------------
 
 namespace App\Modules\Catalog\Product\Infrastructure\Services;
 
@@ -29,7 +33,7 @@ class S3Service implements S3Gateway
             $file->move($targetDir, $targetFilename);
 
             return [
-                'url' => asset("product/models/{$productId}/{$targetFilename}"),
+                'url' => asset("public/product/models/{$productId}/{$targetFilename}"),
                 'type' => 'glb'
             ];
         }
@@ -47,7 +51,7 @@ class S3Service implements S3Gateway
             $file->move($targetDir, $targetFilename);
 
             return [
-                'url' => asset("product/images/{$productId}/{$targetFilename}"),
+                'url' => asset("public/product/images/{$productId}/{$targetFilename}"),
                 'type' => $extension
             ];
         }
@@ -75,7 +79,7 @@ class S3Service implements S3Gateway
         imagedestroy($image);
 
         return [
-            'url' => asset("product/images/{$productId}/{$webpFilename}"),
+            'url' => asset("public/product/images/{$productId}/{$webpFilename}"),
             'type' => 'webp'
         ];
     }

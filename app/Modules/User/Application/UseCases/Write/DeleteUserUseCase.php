@@ -1,4 +1,7 @@
 <?php
+//--------------------------------------------------------------------------
+// DeleteUserUseCase: Eliminación permanente de un usuario por su identificador.
+//--------------------------------------------------------------------------
 
 namespace App\Modules\User\Application\UseCases\Write;
 

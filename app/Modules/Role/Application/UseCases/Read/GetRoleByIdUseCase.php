@@ -1,4 +1,7 @@
 <?php
+//--------------------------------------------------------------------------
+// GetRoleByIdUseCase: Obtención de un rol específico por su identificador.
+//--------------------------------------------------------------------------
 
 namespace App\Modules\Role\Application\UseCases\Read;
 

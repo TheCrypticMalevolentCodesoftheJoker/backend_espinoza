@@ -1,5 +1,9 @@
 <?php
 
+//--------------------------------------------------------------------------
+// ProductName: Objeto de valor que representa y valida el nombre de un producto
+//--------------------------------------------------------------------------
+
 namespace App\Modules\Catalog\Product\Domain\ValueObjects\Product;
 
 use Illuminate\Validation\ValidationException;
@@ -13,7 +17,7 @@ class ProductName
         $normalized = trim($name);
 
         //--------------------------------------------------------------------------
-        // REGLA DE DOMINIO -> El nombre del producto no puede estar vacío
+        // Validación: Reglas de integridad para el nombre del producto
         //--------------------------------------------------------------------------
         if ($normalized === '') {
             throw ValidationException::withMessages([
@@ -21,9 +25,6 @@ class ProductName
             ]);
         }
 
-        //--------------------------------------------------------------------------
-        // REGLA DE DOMINIO -> Solo caracteres permitidos (letras, números, espacios, guiones, guiones bajos, puntos)
-        //--------------------------------------------------------------------------
         if (!preg_match('/^[\pL\pN\s\-_.]+$/u', $normalized)) {
             throw ValidationException::withMessages([
                 'name' => 'El nombre del producto solo puede contener letras, números, espacios, guiones, guiones bajos y puntos.'

@@ -1,4 +1,8 @@
 <?php
+//--------------------------------------------------------------------------
+// EloquentRoleAccessRepository: Implementación del gateway anti-corrupción para roles.
+// Accede a TblRol del módulo externo Role para consultas de verificación y lectura.
+//--------------------------------------------------------------------------
 
 namespace App\Modules\User\Infrastructure\Persistence\Repositories;
 

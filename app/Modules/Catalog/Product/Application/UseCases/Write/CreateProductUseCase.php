@@ -1,5 +1,9 @@
 <?php
 
+//--------------------------------------------------------------------------
+// CreateProductUseCase: Creación y registro de productos con precios, descuentos e imágenes
+//--------------------------------------------------------------------------
+
 namespace App\Modules\Catalog\Product\Application\UseCases\Write;
 
 use App\Modules\Catalog\Product\Application\DTOs\Write\Product\StoreProductDTO;
@@ -40,13 +44,10 @@ class CreateProductUseCase
     ) {}
 
     //--------------------------------------------------------------------------
-    // EJECUTAR CASO DE USO -> Crear un nuevo producto
+    // Orquestación: Validación, construcción transaccional y persistencia de agregados
     //--------------------------------------------------------------------------
     public function execute(StoreProductDTO $storeProductDTO): void
     {
-        //--------------------------------------------------------------------------
-        // VALIDACIÓN -> Validar existencia de categoría y marca
-        //--------------------------------------------------------------------------
         if (!$this->categoryAccessGateway->exists($storeProductDTO->categoryId)) {
             throw new InvalidCategoryException();
         }
@@ -55,9 +56,6 @@ class CreateProductUseCase
             throw new InvalidBrandException();
         }
 
-        //--------------------------------------------------------------------------
-        // VALIDACIÓN -> Verificar duplicidad por nombre de producto
-        //--------------------------------------------------------------------------
         if ($this->productInterface->findByName($storeProductDTO->name)) {
             throw new ProductAlreadyExistsException();
         }
@@ -65,18 +63,12 @@ class CreateProductUseCase
         DB::beginTransaction();
 
         try {
-            //--------------------------------------------------------------------------
-            // LÓGICA -> Crear objetos de valor para el producto
-            //--------------------------------------------------------------------------
             $name = new ProductName($storeProductDTO->name);
             $length = new ProductLength($storeProductDTO->length);
             $width = new ProductWidth($storeProductDTO->width);
             $thickness = new ProductThickness($storeProductDTO->thickness);
             $stock = new ProductStock($storeProductDTO->stock);
 
-            //--------------------------------------------------------------------------
-            // LÓGICA -> Instanciar la entidad del producto (Aggregate Root)
-            //--------------------------------------------------------------------------
             $entity = ProductEntity::create(
                 categoryId: $storeProductDTO->categoryId,
                 brandId: $storeProductDTO->brandId,
@@ -88,32 +80,21 @@ class CreateProductUseCase
                 stock: $stock,
             );
 
-            //--------------------------------------------------------------------------
-            // PERSISTENCIA -> Guardar la entidad del producto
-            //--------------------------------------------------------------------------
             $productId = $this->productInterface->save($entity);
 
-            //--------------------------------------------------------------------------
-            // PERSISTENCIA -> Cargar y registrar imágenes en S3 (opcional)
-            //--------------------------------------------------------------------------
             foreach ($storeProductDTO->images as $imageDto) {
                 $uploadResult = $this->s3Gateway->upload($productId, $imageDto->file);
                 $type = new ImageType($uploadResult['type']);
 
-                // Crear Entidad de Imagen
                 $imageEntity = ImageEntity::create(
                     productId: $productId,
                     url: $uploadResult['url'],
                     type: $type
                 );
 
-                // Persistir
                 $this->imageInterface->save($imageEntity);
             }
 
-            //--------------------------------------------------------------------------
-            // PERSISTENCIA -> Registrar precio inicial del producto (opcional)
-            //--------------------------------------------------------------------------
             if ($storeProductDTO->price) {
                 $priceAmount = new PriceAmount($storeProductDTO->price->amount);
 
@@ -127,9 +108,6 @@ class CreateProductUseCase
                 $this->priceInterface->save($priceEntity);
             }
 
-            //--------------------------------------------------------------------------
-            // PERSISTENCIA -> Registrar descuento inicial del producto (opcional)
-            //--------------------------------------------------------------------------
             if ($storeProductDTO->discount) {
                 $discountAmount = new DiscountAmount($storeProductDTO->discount->amount);
 

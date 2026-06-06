@@ -1,5 +1,9 @@
 <?php
 
+//--------------------------------------------------------------------------
+// TblDiscount: Modelo Eloquent para la persistencia de descuentos de productos en base de datos
+//--------------------------------------------------------------------------
+
 namespace App\Modules\Catalog\Product\Infrastructure\Persistence\Models;
 
 use Carbon\Carbon;
@@ -43,7 +47,7 @@ class TblDiscount extends Model
     ];
 
     //--------------------------------------------------------------------------
-    // RELACIONES -> Producto asociado al descuento
+    // Configuración: Relaciones del modelo con otras entidades de la base de datos
     //--------------------------------------------------------------------------
     public function tbl_product()
     {

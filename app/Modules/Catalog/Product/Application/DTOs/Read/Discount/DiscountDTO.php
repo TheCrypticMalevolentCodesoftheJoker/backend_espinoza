@@ -1,5 +1,9 @@
 <?php
 
+//--------------------------------------------------------------------------
+// DiscountDTO: Objeto de transferencia de datos para la visualización de un descuento
+//--------------------------------------------------------------------------
+
 namespace App\Modules\Catalog\Product\Application\DTOs\Read\Discount;
 
 use JsonSerializable;

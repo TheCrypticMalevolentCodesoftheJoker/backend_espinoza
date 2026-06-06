@@ -1,5 +1,9 @@
 <?php
 
+//--------------------------------------------------------------------------
+// EloquentAnalyticsRepository: Acceso y agregación de datos de eventos AR en base de datos
+//--------------------------------------------------------------------------
+
 namespace App\Modules\Analytics\Infrastructure\Persistence\Repositories;
 
 use App\Modules\Analytics\Domain\Entities\ArEventEntity;
@@ -9,7 +13,7 @@ use App\Modules\Analytics\Infrastructure\Persistence\Models\TblArEvent;
 class EloquentAnalyticsRepository implements AnalyticsInterface
 {
     //--------------------------------------------------------------------------
-    // ESCRITURA -> Guardar evento de analítica
+    // Persistencia: Almacenamiento del evento en la base de datos física
     //--------------------------------------------------------------------------
     public function save(ArEventEntity $eventEntity): void
     {
@@ -22,7 +26,7 @@ class EloquentAnalyticsRepository implements AnalyticsInterface
     }
 
     //--------------------------------------------------------------------------
-    // LECTURA -> Obtener métricas agregadas
+    // Consulta: Agregación de interacciones y cálculo de tasas de conversión
     //--------------------------------------------------------------------------
     public function getMetricsSummary(?string $startDate, ?string $endDate, ?int $productId): array
     {
@@ -62,7 +66,7 @@ class EloquentAnalyticsRepository implements AnalyticsInterface
     }
 
     //--------------------------------------------------------------------------
-    // LECTURA -> Obtener ranking de productos más visualizados
+    // Consulta: Ranking de productos con mayor número de visualizaciones AR
     //--------------------------------------------------------------------------
     public function getTopProductsAr(?string $startDate, ?string $endDate, int $limit = 5): array
     {

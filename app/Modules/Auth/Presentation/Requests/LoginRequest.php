@@ -1,5 +1,9 @@
 <?php
 
+//--------------------------------------------------------------------------
+// LoginRequest: Reglas de validación HTTP para solicitudes de inicio de sesión
+//--------------------------------------------------------------------------
+
 namespace App\Modules\Auth\Presentation\Requests;
 
 use App\Modules\Auth\Application\DTOs\LoginDTO;
@@ -7,16 +11,13 @@ use Illuminate\Foundation\Http\FormRequest;
 
 class LoginRequest extends FormRequest
 {
-    //--------------------------------------------------------------------------
-    // AUTORIZACIÓN -> Permisos del request
-    //--------------------------------------------------------------------------
     public function authorize(): bool
     {
         return true;
     }
 
     //--------------------------------------------------------------------------
-    // REGLAS -> Reglas de validación
+    // Validación: Reglas de validación para la autenticación de usuarios
     //--------------------------------------------------------------------------
     public function rules(): array
     {
@@ -26,9 +27,6 @@ class LoginRequest extends FormRequest
         ];
     }
 
-    //--------------------------------------------------------------------------
-    // MENSAJES -> Mensajes de validación personalizados
-    //--------------------------------------------------------------------------
     public function messages(): array
     {
         return [
@@ -39,7 +37,7 @@ class LoginRequest extends FormRequest
     }
 
     //--------------------------------------------------------------------------
-    // MAPEO -> Convertir a DTO de aplicación
+    // Transformación: Mapeo de parámetros validados a un DTO de negocio
     //--------------------------------------------------------------------------
     public function toDto(): LoginDTO
     {

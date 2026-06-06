@@ -1,4 +1,7 @@
 <?php
+//--------------------------------------------------------------------------
+// ListActiveRolesUseCase: Consulta de todos los roles con estado activo.
+//--------------------------------------------------------------------------
 
 namespace App\Modules\Role\Application\UseCases\Read;
 

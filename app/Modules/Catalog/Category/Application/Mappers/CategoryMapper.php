@@ -1,5 +1,9 @@
 <?php
 
+//--------------------------------------------------------------------------
+// CategoryMapper: Transformación bidireccional entre la entidad CategoryEntity y sus DTOs
+//--------------------------------------------------------------------------
+
 namespace App\Modules\Catalog\Category\Application\Mappers;
 
 use App\Modules\Catalog\Category\Application\DTOs\Read\CategoryDTO;

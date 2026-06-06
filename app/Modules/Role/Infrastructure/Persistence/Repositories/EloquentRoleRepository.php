@@ -1,4 +1,8 @@
 <?php
+//--------------------------------------------------------------------------
+// EloquentRoleRepository: Implementación Eloquent del contrato de persistencia de roles.
+// Gestiona la reconstitución de entidades y las operaciones CRUD sobre tbl_rol.
+//--------------------------------------------------------------------------
 
 namespace App\Modules\Role\Infrastructure\Persistence\Repositories;
 

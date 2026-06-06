@@ -1,4 +1,7 @@
 <?php
+//--------------------------------------------------------------------------
+// RoleName: Value Object con validación de formato para el nombre del rol.
+//--------------------------------------------------------------------------
 
 namespace App\Modules\Role\Domain\ValueObjects;
 

@@ -1,5 +1,9 @@
 <?php
 
+//--------------------------------------------------------------------------
+// AuthController: Controlador que gestiona los flujos HTTP de sesión y credenciales
+//--------------------------------------------------------------------------
+
 namespace App\Modules\Auth\Presentation\Controllers;
 
 use App\Modules\Auth\Application\UseCases\LoginUseCase;
@@ -14,9 +18,9 @@ class AuthController
         private readonly LogoutUseCase $logoutUseCase
     ) {}
 
-    //----------------------------------------------------------------------------------
-    // INICIAR SESIÓN
-    //----------------------------------------------------------------------------------
+    //--------------------------------------------------------------------------
+    // Autenticación: Inicio de sesión del usuario y retorno de token API
+    //--------------------------------------------------------------------------
     public function store(LoginRequest $loginRequest)
     {
         $token = $this->loginUseCase->execute($loginRequest->toDto());
@@ -28,9 +32,9 @@ class AuthController
         );
     }
 
-    //----------------------------------------------------------------------------------
-    // CERRAR SESIÓN
-    //----------------------------------------------------------------------------------
+    //--------------------------------------------------------------------------
+    // Autenticación: Finalización y revocación de la sesión del usuario
+    //--------------------------------------------------------------------------
     public function destroy()
     {
         $this->logoutUseCase->execute();

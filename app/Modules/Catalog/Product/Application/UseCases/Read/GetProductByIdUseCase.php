@@ -1,5 +1,9 @@
 <?php
 
+//--------------------------------------------------------------------------
+// GetProductByIdUseCase: Recuperación de los detalles de un producto por identificador único
+//--------------------------------------------------------------------------
+
 namespace App\Modules\Catalog\Product\Application\UseCases\Read;
 
 use App\Modules\Catalog\Product\Application\DTOs\Read\Product\ProductDTO;
@@ -26,7 +30,7 @@ class GetProductByIdUseCase
     ) {}
 
     //--------------------------------------------------------------------------
-    // EJECUTAR CASO DE USO -> Obtener un producto por ID
+    // Consulta: Consulta detallada de producto, precios, descuentos e imágenes
     //--------------------------------------------------------------------------
     public function execute(int $id): ProductDTO
     {

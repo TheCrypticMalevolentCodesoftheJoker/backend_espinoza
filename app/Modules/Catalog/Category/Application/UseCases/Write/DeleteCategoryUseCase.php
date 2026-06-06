@@ -1,5 +1,9 @@
 <?php
 
+//--------------------------------------------------------------------------
+// DeleteCategoryUseCase: Eliminación física o remoción de una categoría
+//--------------------------------------------------------------------------
+
 namespace App\Modules\Catalog\Category\Application\UseCases\Write;
 
 use App\Modules\Catalog\Category\Domain\Exceptions\CategoryNotFoundException;
@@ -12,7 +16,7 @@ class DeleteCategoryUseCase
     ) {}
 
     //--------------------------------------------------------------------------
-    // EJECUTAR CASO DE USO -> Eliminar una categoría por ID
+    // Persistencia: Remoción de la entidad del almacenamiento persistente
     //--------------------------------------------------------------------------
     public function execute(int $id): void
     {

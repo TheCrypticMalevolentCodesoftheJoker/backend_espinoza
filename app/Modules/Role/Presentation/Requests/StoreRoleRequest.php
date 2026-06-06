@@ -1,4 +1,7 @@
 <?php
+//--------------------------------------------------------------------------
+// StoreRoleRequest: Validación y transformación del request HTTP para creación de roles.
+//--------------------------------------------------------------------------
 
 namespace App\Modules\Role\Presentation\Requests;
 

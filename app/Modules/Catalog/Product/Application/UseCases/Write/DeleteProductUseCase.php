@@ -1,5 +1,9 @@
 <?php
 
+//--------------------------------------------------------------------------
+// DeleteProductUseCase: Eliminación física de un producto y limpieza de sus recursos asociados
+//--------------------------------------------------------------------------
+
 namespace App\Modules\Catalog\Product\Application\UseCases\Write;
 
 use App\Modules\Catalog\Product\Domain\Exceptions\Product\ProductNotFoundException;
@@ -14,7 +18,7 @@ class DeleteProductUseCase
     ) {}
 
     //--------------------------------------------------------------------------
-    // EJECUTAR CASO DE USO -> Eliminar un producto por su ID
+    // Persistencia: Remoción de la entidad y depuración de almacenamiento remoto de imágenes
     //--------------------------------------------------------------------------
     public function execute(int $id): void
     {

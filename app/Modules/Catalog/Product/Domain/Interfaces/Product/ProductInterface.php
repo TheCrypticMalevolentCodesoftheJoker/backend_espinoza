@@ -1,23 +1,20 @@
 <?php
 
+//--------------------------------------------------------------------------
+// ProductInterface: Contrato del repositorio para la gestión del catálogo de productos
+//--------------------------------------------------------------------------
+
 namespace App\Modules\Catalog\Product\Domain\Interfaces\Product;
 
 use App\Modules\Catalog\Product\Domain\Entities\ProductEntity;
 
 interface ProductInterface
 {
-    //--------------------------------------------------------------------------
-    // CONSULTAS -> Métodos de lectura de productos
-    //--------------------------------------------------------------------------
     public function findAll(): array;
 
     public function findById(int $id): ?ProductEntity;
 
     public function findByName(string $name): ?ProductEntity;
-
-    //--------------------------------------------------------------------------
-    // PERSISTENCIA -> Métodos de escritura y eliminación de productos
-    //--------------------------------------------------------------------------
 
     public function save(ProductEntity $product): int;
 

@@ -1,4 +1,7 @@
 <?php
+//--------------------------------------------------------------------------
+// RoleMapper: Transformación de entidades de dominio a DTOs de presentación.
+//--------------------------------------------------------------------------
 
 namespace App\Modules\Role\Application\Mappers;
 

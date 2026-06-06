@@ -1,5 +1,9 @@
 <?php
 
+//--------------------------------------------------------------------------
+// DeactivateCategoryUseCase: Desactivación lógica de una categoría
+//--------------------------------------------------------------------------
+
 namespace App\Modules\Catalog\Category\Application\UseCases\Write;
 
 use App\Modules\Catalog\Category\Domain\Exceptions\CategoryNotFoundException;
@@ -12,7 +16,7 @@ class DeactivateCategoryUseCase
     ) {}
 
     //--------------------------------------------------------------------------
-    // EJECUTAR CASO DE USO -> Desactivar una categoría por ID
+    // Procesamiento: Modificación del estado de activación de la categoría
     //--------------------------------------------------------------------------
     public function execute(int $id): void
     {

@@ -1,5 +1,9 @@
 <?php
 
+//--------------------------------------------------------------------------
+// InvalidBrandException: Excepción de negocio para marcar un identificador de marca inválido o inactivo
+//--------------------------------------------------------------------------
+
 namespace App\Modules\Catalog\Product\Domain\Exceptions\Gateways;
 
 use App\Shared\Exceptions\BusinessAppException;

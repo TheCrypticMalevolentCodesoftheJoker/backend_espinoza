@@ -1,5 +1,9 @@
 <?php
 
+//--------------------------------------------------------------------------
+// CategoryAlreadyExistsException: Excepción de negocio lanzada al duplicar una categoría
+//--------------------------------------------------------------------------
+
 namespace App\Modules\Catalog\Category\Domain\Exceptions;
 
 use App\Shared\Exceptions\BusinessAppException;

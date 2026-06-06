@@ -1,5 +1,9 @@
 <?php
 
+//--------------------------------------------------------------------------
+// CategoryNotFoundException: Excepción de negocio lanzada cuando una categoría no existe
+//--------------------------------------------------------------------------
+
 namespace App\Modules\Catalog\Category\Domain\Exceptions;
 
 use App\Shared\Exceptions\BusinessAppException;

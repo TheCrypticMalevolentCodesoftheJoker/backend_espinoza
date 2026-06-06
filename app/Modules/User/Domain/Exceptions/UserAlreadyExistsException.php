@@ -1,4 +1,7 @@
 <?php
+//--------------------------------------------------------------------------
+// UserAlreadyExistsException: Excepción de negocio para conflicto de email duplicado (409).
+//--------------------------------------------------------------------------
 
 namespace App\Modules\User\Domain\Exceptions;
 

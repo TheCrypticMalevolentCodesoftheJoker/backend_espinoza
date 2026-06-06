@@ -1,5 +1,9 @@
 <?php
 
+//--------------------------------------------------------------------------
+// EloquentCategoryAccessRepository: Implementación Eloquent del adaptador para consultar datos de categorías
+//--------------------------------------------------------------------------
+
 namespace App\Modules\Catalog\Product\Infrastructure\Persistence\Repositories\Gateways;
 
 use App\Modules\Catalog\Category\Infrastructure\Persistence\Models\TblCategory;
@@ -8,7 +12,7 @@ use App\Modules\Catalog\Product\Domain\Interfaces\Gateways\CategoryAccessGateway
 class EloquentCategoryAccessRepository implements CategoryAccessGateway
 {
     //--------------------------------------------------------------------------
-    // CONSULTAS -> Verificación y lectura de categorías asociadas
+    // Consulta: Comprobación de existencia y obtención de información de categorías
     //--------------------------------------------------------------------------
     public function exists(int $categoryId): bool
     {

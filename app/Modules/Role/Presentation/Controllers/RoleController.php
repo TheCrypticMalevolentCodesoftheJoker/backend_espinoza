@@ -1,4 +1,8 @@
 <?php
+//--------------------------------------------------------------------------
+// RoleController: Punto de entrada HTTP para operaciones CRUD del módulo Role.
+// Delega toda la lógica de negocio a los casos de uso correspondientes.
+//--------------------------------------------------------------------------
 
 namespace App\Modules\Role\Presentation\Controllers;
 

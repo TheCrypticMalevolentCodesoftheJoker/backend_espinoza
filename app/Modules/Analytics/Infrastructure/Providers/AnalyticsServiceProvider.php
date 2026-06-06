@@ -1,5 +1,9 @@
 <?php
 
+//--------------------------------------------------------------------------
+// AnalyticsServiceProvider: Registro de bindings de dependencias y rutas del módulo
+//--------------------------------------------------------------------------
+
 namespace App\Modules\Analytics\Infrastructure\Providers;
 
 use Illuminate\Support\ServiceProvider;
@@ -9,7 +13,7 @@ use App\Modules\Analytics\Infrastructure\Persistence\Repositories\EloquentAnalyt
 class AnalyticsServiceProvider extends ServiceProvider
 {
     //--------------------------------------------------------------------------
-    // REGISTRO -> Vincular interfaces y repositorios
+    // Inicialización: Registro de implementaciones del repositorio en el contenedor
     //--------------------------------------------------------------------------
     public function register(): void
     {
@@ -17,7 +21,7 @@ class AnalyticsServiceProvider extends ServiceProvider
     }
 
     //--------------------------------------------------------------------------
-    // ARRANQUE -> Cargar rutas del módulo
+    // Configuración: Registro y definición del ruteo para los endpoints de analítica
     //--------------------------------------------------------------------------
     public function boot(): void
     {

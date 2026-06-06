@@ -1,4 +1,7 @@
 <?php
+//--------------------------------------------------------------------------
+// TblUser: Modelo Eloquent para la tabla tbl_user. Integra Sanctum para autenticación API.
+//--------------------------------------------------------------------------
 
 namespace App\Modules\User\Infrastructure\Persistence\Models;
 
@@ -8,22 +11,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Laravel\Sanctum\HasApiTokens;
 
-/**
- * Class TblUser
- * 
- * @property int $id
- * @property int $role_id
- * @property string $name
- * @property string $email
- * @property string $password
- * @property bool $status
- * @property Carbon|null $created_at
- * @property Carbon|null $updated_at
- * 
- * @property TblRol $tbl_rol
- *
- * @package App\Models
- */
+
 class TblUser extends Model
 {
     use HasApiTokens, HasFactory;

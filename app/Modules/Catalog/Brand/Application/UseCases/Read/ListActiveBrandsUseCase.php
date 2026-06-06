@@ -1,5 +1,9 @@
 <?php
 
+//--------------------------------------------------------------------------
+// ListActiveBrandsUseCase: Consulta y recuperación de marcas activas
+//--------------------------------------------------------------------------
+
 namespace App\Modules\Catalog\Brand\Application\UseCases\Read;
 
 use App\Modules\Catalog\Brand\Application\Mappers\BrandMapper;
@@ -12,7 +16,7 @@ class ListActiveBrandsUseCase
     ) {}
 
     //--------------------------------------------------------------------------
-    // EJECUTAR CASO DE USO -> Listar marcas activas
+    // Consulta: Recuperación de marcas filtradas por estado activo
     //--------------------------------------------------------------------------
     public function execute(): array
     {

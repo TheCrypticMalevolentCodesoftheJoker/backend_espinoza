@@ -1,5 +1,9 @@
 <?php
 
+//--------------------------------------------------------------------------
+// EloquentAuthRepository: Implementación Eloquent para la validación y gestión de tokens de sesión
+//--------------------------------------------------------------------------
+
 namespace App\Modules\Auth\Infrastructure\Persistence\Repositories;
 
 
@@ -12,7 +16,7 @@ use Illuminate\Support\Facades\Auth;
 class EloquentAuthRepository implements AuthInterface
 {
     //--------------------------------------------------------------------------
-    // INICIAR SESIÓN -> Generar token de acceso
+    // Autenticación: Verificación de credenciales del usuario y emisión de token
     //--------------------------------------------------------------------------
     public function login(string $email, string $password): ?string
     {
@@ -26,7 +30,7 @@ class EloquentAuthRepository implements AuthInterface
     }
 
     //--------------------------------------------------------------------------
-    // CERRAR SESIÓN -> Revocar token actual
+    // Persistencia: Revocación del token de acceso actual en la base de datos
     //--------------------------------------------------------------------------
     public function logout(): void
     {

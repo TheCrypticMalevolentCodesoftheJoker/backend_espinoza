@@ -1,5 +1,9 @@
 <?php
 
+//--------------------------------------------------------------------------
+// EventType: Representación y validación del tipo de evento de analítica AR
+//--------------------------------------------------------------------------
+
 namespace App\Modules\Analytics\Domain\ValueObjects;
 
 use Illuminate\Validation\ValidationException;
@@ -9,7 +13,7 @@ class EventType
     private string $value;
 
     //--------------------------------------------------------------------------
-    // VALIDACIÓN -> Valida que el tipo de evento cumpla con las reglas del dominio
+    // Validación: Control de integridad y formato del tipo de evento
     //--------------------------------------------------------------------------
     public function __construct(string $value)
     {
@@ -30,9 +34,6 @@ class EventType
         $this->value = $normalized;
     }
 
-    //--------------------------------------------------------------------------
-    // CONSULTA -> Retorna el valor primitivo interno
-    //--------------------------------------------------------------------------
     public function value(): string
     {
         return $this->value;

@@ -1,5 +1,9 @@
 <?php
 
+//--------------------------------------------------------------------------
+// ActivateProductUseCase: Activación lógica de un producto del catálogo
+//--------------------------------------------------------------------------
+
 namespace App\Modules\Catalog\Product\Application\UseCases\Write;
 
 use App\Modules\Catalog\Product\Domain\Exceptions\Product\ProductNotFoundException;
@@ -12,7 +16,7 @@ class ActivateProductUseCase
     ) {}
 
     //--------------------------------------------------------------------------
-    // EJECUTAR CASO DE USO -> Activar un producto por su ID
+    // Procesamiento: Modificación del estado de activación del producto
     //--------------------------------------------------------------------------
     public function execute(int $id): void
     {

@@ -1,4 +1,8 @@
 <?php
+//--------------------------------------------------------------------------
+// ProductServiceProvider: Registro de dependencias y configuración del módulo Product.
+// Enlaza interfaces de dominio con implementaciones de infraestructura y carga las rutas.
+//--------------------------------------------------------------------------
 
 namespace App\Modules\Catalog\Product\Infrastructure\Providers;
 

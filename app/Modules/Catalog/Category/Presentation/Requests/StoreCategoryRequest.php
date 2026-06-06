@@ -1,5 +1,9 @@
 <?php 
 
+//--------------------------------------------------------------------------
+// StoreCategoryRequest: Solicitud de creación de categoría con reglas de validación HTTP
+//--------------------------------------------------------------------------
+
 namespace App\Modules\Catalog\Category\Presentation\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
@@ -7,16 +11,13 @@ use App\Modules\Catalog\Category\Application\DTOs\Write\StoreCategoryDTO;
 
 class StoreCategoryRequest extends FormRequest
 {
-    //--------------------------------------------------------------------------
-    // AUTORIZACIÓN -> Permisos del request
-    //--------------------------------------------------------------------------
     public function authorize(): bool
     {
         return true;
     }
 
     //--------------------------------------------------------------------------
-    // REGLAS -> Reglas de validación
+    // Validación: Reglas de validación HTTP y mensajes personalizados
     //--------------------------------------------------------------------------
     public function rules(): array
     {
@@ -25,9 +26,6 @@ class StoreCategoryRequest extends FormRequest
         ];
     }
 
-    //--------------------------------------------------------------------------
-    // MENSAJES -> Mensajes de validación personalizados
-    //--------------------------------------------------------------------------
     public function messages(): array
     {
         return [
@@ -36,7 +34,7 @@ class StoreCategoryRequest extends FormRequest
     }
 
     //--------------------------------------------------------------------------
-    // MAPEO -> Convertir a DTO de aplicación
+    // Transformación: Conversión de la solicitud validada a un DTO de escritura
     //--------------------------------------------------------------------------
     public function toDto(): StoreCategoryDTO
     {

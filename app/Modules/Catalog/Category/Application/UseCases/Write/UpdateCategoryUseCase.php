@@ -1,5 +1,9 @@
 <?php
 
+//--------------------------------------------------------------------------
+// UpdateCategoryUseCase: Actualización del nombre y datos de una categoría
+//--------------------------------------------------------------------------
+
 namespace App\Modules\Catalog\Category\Application\UseCases\Write;
 
 use App\Modules\Catalog\Category\Application\DTOs\Write\UpdateCategoryDTO;
@@ -15,7 +19,7 @@ class UpdateCategoryUseCase
     ) {}
 
     //--------------------------------------------------------------------------
-    // EJECUTAR CASO DE USO -> Actualizar una categoría existente
+    // Orquestación: Validación de unicidad de nombre y actualización de la entidad
     //--------------------------------------------------------------------------
     public function execute(int $id, UpdateCategoryDTO $updateCategoryDTO): void
     {

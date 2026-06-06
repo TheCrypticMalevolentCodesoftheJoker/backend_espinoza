@@ -1,5 +1,9 @@
 <?php
 
+//--------------------------------------------------------------------------
+// StoreProductDTO: DTO para la creación y registro completo de un nuevo producto
+//--------------------------------------------------------------------------
+
 namespace App\Modules\Catalog\Product\Application\DTOs\Write\Product;
 
 use App\Modules\Catalog\Product\Application\DTOs\Write\Discount\StoreDiscountDTO;

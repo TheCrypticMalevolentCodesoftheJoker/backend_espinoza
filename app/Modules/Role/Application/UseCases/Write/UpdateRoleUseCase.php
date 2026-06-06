@@ -1,4 +1,7 @@
 <?php
+//--------------------------------------------------------------------------
+// UpdateRoleUseCase: Actualización de un rol con validación de nombre único.
+//--------------------------------------------------------------------------
 
 namespace App\Modules\Role\Application\UseCases\Write;
 

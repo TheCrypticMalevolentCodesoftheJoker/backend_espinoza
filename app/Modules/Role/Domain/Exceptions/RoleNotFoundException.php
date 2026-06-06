@@ -1,4 +1,7 @@
 <?php
+//--------------------------------------------------------------------------
+// RoleNotFoundException: Excepción de negocio cuando el rol solicitado no existe (404).
+//--------------------------------------------------------------------------
 
 namespace App\Modules\Role\Domain\Exceptions;
 

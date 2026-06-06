@@ -1,5 +1,9 @@
 <?php
 
+//--------------------------------------------------------------------------
+// ProductLength: Objeto de valor que representa y valida la longitud de un producto
+//--------------------------------------------------------------------------
+
 namespace App\Modules\Catalog\Product\Domain\ValueObjects\Product;
 
 use Illuminate\Validation\ValidationException;
@@ -13,7 +17,7 @@ class ProductLength
         $normalized = trim($length);
 
         //--------------------------------------------------------------------------
-        // REGLA DE DOMINIO -> El largo del producto no puede estar vacío
+        // Validación: Reglas de integridad para el largo del producto
         //--------------------------------------------------------------------------
         if ($normalized === '') {
             throw ValidationException::withMessages([

@@ -1,5 +1,9 @@
 <?php
 
+//--------------------------------------------------------------------------
+// UpdateBrandRequest: Validación HTTP para la actualización de una marca
+//--------------------------------------------------------------------------
+
 namespace App\Modules\Catalog\Brand\Presentation\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
@@ -7,16 +11,13 @@ use App\Modules\Catalog\Brand\Application\DTOs\Write\UpdateBrandDTO;
 
 class UpdateBrandRequest extends FormRequest
 {
-    //--------------------------------------------------------------------------
-    // AUTORIZACIÓN -> Permisos del request
-    //--------------------------------------------------------------------------
     public function authorize(): bool
     {
         return true;
     }
 
     //--------------------------------------------------------------------------
-    // REGLAS -> Reglas de validación
+    // Validación: Restricciones aplicadas a los datos de actualización de marcas
     //--------------------------------------------------------------------------
     public function rules(): array
     {
@@ -25,9 +26,6 @@ class UpdateBrandRequest extends FormRequest
         ];
     }
 
-    //--------------------------------------------------------------------------
-    // MENSAJES -> Mensajes de validación personalizados
-    //--------------------------------------------------------------------------
     public function messages(): array
     {
         return [
@@ -36,7 +34,7 @@ class UpdateBrandRequest extends FormRequest
     }
 
     //--------------------------------------------------------------------------
-    // MAPEO -> Convertir a DTO de aplicación
+    // Transformación: Mapeo de parámetros validados a un DTO de negocio
     //--------------------------------------------------------------------------
     public function toDto(): UpdateBrandDTO
     {

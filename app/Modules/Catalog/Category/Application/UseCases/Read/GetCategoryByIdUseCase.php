@@ -1,5 +1,9 @@
 <?php
 
+//--------------------------------------------------------------------------
+// GetCategoryByIdUseCase: Consulta y obtención de una categoría específica por su ID
+//--------------------------------------------------------------------------
+
 namespace App\Modules\Catalog\Category\Application\UseCases\Read;
 
 use App\Modules\Catalog\Category\Application\DTOs\Read\CategoryDTO;
@@ -14,7 +18,7 @@ class GetCategoryByIdUseCase
     ) {}
 
     //--------------------------------------------------------------------------
-    // EJECUTAR CASO DE USO -> Obtener una categoría por ID
+    // Consulta: Búsqueda de la categoría por ID en persistencia
     //--------------------------------------------------------------------------
     public function execute(int $id): CategoryDTO
     {

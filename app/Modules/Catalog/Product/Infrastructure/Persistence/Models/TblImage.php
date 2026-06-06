@@ -1,5 +1,9 @@
 <?php
 
+//--------------------------------------------------------------------------
+// TblImage: Modelo Eloquent para la persistencia de imágenes de productos en base de datos
+//--------------------------------------------------------------------------
+
 namespace App\Modules\Catalog\Product\Infrastructure\Persistence\Models;
 
 use Illuminate\Database\Eloquent\Model;
@@ -34,7 +38,7 @@ class TblImage extends Model
     ];
 
     //--------------------------------------------------------------------------
-    // RELACIONES -> Producto asociado a la imagen
+    // Configuración: Relaciones del modelo con otras entidades de la base de datos
     //--------------------------------------------------------------------------
     public function tbl_product()
     {

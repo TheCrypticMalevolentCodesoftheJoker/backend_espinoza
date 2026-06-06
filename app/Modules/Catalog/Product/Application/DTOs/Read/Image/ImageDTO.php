@@ -1,5 +1,9 @@
 <?php
 
+//--------------------------------------------------------------------------
+// ImageDTO: Objeto de transferencia de datos para la visualización de una imagen de producto
+//--------------------------------------------------------------------------
+
 namespace App\Modules\Catalog\Product\Application\DTOs\Read\Image;
 
 use JsonSerializable;

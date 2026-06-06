@@ -390,4 +390,4 @@ DB_PASSWORD=?</code></pre>
     </script>
 </body>
 
-</html><?php /**PATH D:\Proyectos\Espinoza\backend\resources\views\dashboard.blade.php ENDPATH**/ ?>
+</html><?php /**PATH D:\Proyectos\Espinoza\backend\resources\views/dashboard.blade.php ENDPATH**/ ?>

@@ -1,5 +1,9 @@
 <?php
 
+//--------------------------------------------------------------------------
+// GetBrandByIdUseCase: Consulta y obtención de una marca específica por su ID
+//--------------------------------------------------------------------------
+
 namespace App\Modules\Catalog\Brand\Application\UseCases\Read;
 
 use App\Modules\Catalog\Brand\Application\DTOs\Read\BrandDTO;
@@ -15,7 +19,7 @@ class GetBrandByIdUseCase
     ) {}
 
     //--------------------------------------------------------------------------
-    // EJECUTAR CASO DE USO -> Obtener una marca por ID
+    // Consulta: Búsqueda de la marca por ID en persistencia
     //--------------------------------------------------------------------------
     public function execute(int $id): BrandDTO
     {

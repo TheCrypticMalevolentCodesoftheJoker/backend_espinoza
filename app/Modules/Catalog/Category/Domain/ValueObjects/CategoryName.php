@@ -1,5 +1,9 @@
 <?php
 
+//--------------------------------------------------------------------------
+// CategoryName: Objeto de valor para el nombre validado de una categoría
+//--------------------------------------------------------------------------
+
 namespace App\Modules\Catalog\Category\Domain\ValueObjects;
 
 use Illuminate\Validation\ValidationException;
@@ -13,7 +17,7 @@ class CategoryName
         $normalized = trim($name);
 
         //--------------------------------------------------------------------------
-        // REGLA DE DOMINIO -> No puede estar vacío
+        // Validación: Reglas de integridad para el nombre de la categoría
         //--------------------------------------------------------------------------
         if ($normalized === '') {
             throw ValidationException::withMessages([
@@ -21,9 +25,6 @@ class CategoryName
             ]);
         }
 
-        //--------------------------------------------------------------------------
-        // REGLA DE DOMINIO -> Solo caracteres válidos
-        //--------------------------------------------------------------------------
         if (!preg_match('/^[\pL\s\-_]+$/u', $normalized)) {
             throw ValidationException::withMessages([
                 'name' => 'El nombre de la categoría solo puede contener letras, espacios, guiones y guiones bajos.'

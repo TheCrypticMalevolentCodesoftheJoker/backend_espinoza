@@ -1,5 +1,9 @@
 <?php
 
+//--------------------------------------------------------------------------
+// BrandDTO: Estructura de datos para la visualización de detalles de una marca
+//--------------------------------------------------------------------------
+
 namespace App\Modules\Catalog\Brand\Application\DTOs\Read;
 
 class BrandDTO

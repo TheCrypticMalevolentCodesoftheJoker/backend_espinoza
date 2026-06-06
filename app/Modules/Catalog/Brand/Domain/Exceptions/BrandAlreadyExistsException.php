@@ -1,5 +1,9 @@
 <?php
 
+//--------------------------------------------------------------------------
+// BrandAlreadyExistsException: Excepción lanzada por conflicto de nombres de marca duplicados
+//--------------------------------------------------------------------------
+
 namespace App\Modules\Catalog\Brand\Domain\Exceptions;
 
 use App\Shared\Exceptions\BusinessAppException;

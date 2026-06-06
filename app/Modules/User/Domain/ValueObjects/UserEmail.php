@@ -1,4 +1,7 @@
 <?php
+//--------------------------------------------------------------------------
+// UserEmail: Value Object con validación de formato para el email del usuario.
+//--------------------------------------------------------------------------
 
 namespace App\Modules\User\Domain\ValueObjects;
 

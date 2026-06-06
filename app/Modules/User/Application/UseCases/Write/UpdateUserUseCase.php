@@ -1,4 +1,8 @@
 <?php
+//--------------------------------------------------------------------------
+// UpdateUserUseCase: Actualización de usuario con validación de rol, unicidad de email
+// y cambio opcional de contraseña.
+//--------------------------------------------------------------------------
 
 namespace App\Modules\User\Application\UseCases\Write;
 

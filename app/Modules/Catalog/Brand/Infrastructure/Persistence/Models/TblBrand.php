@@ -1,5 +1,9 @@
 <?php
 
+//--------------------------------------------------------------------------
+// TblBrand: Modelo Eloquent correspondiente a la tabla física tbl_brand
+//--------------------------------------------------------------------------
+
 namespace App\Modules\Catalog\Brand\Infrastructure\Persistence\Models;
 
 use App\Modules\Catalog\Product\Infrastructure\Persistence\Models\TblProduct;
@@ -35,9 +39,6 @@ class TblBrand extends Model
         'status'
     ];
 
-    //--------------------------------------------------------------------------
-    // RELACIONES -> Productos asociados a esta marca
-    //--------------------------------------------------------------------------
     public function tbl_products()
     {
         return $this->hasMany(TblProduct::class, 'brand_id');

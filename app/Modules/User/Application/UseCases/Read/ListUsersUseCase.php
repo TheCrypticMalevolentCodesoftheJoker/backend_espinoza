@@ -1,4 +1,7 @@
 <?php
+//--------------------------------------------------------------------------
+// ListUsersUseCase: Consulta de todos los usuarios con resolución batch de roles.
+//--------------------------------------------------------------------------
 
 namespace App\Modules\User\Application\UseCases\Read;
 

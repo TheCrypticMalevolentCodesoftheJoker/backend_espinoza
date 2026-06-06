@@ -1,5 +1,9 @@
 <?php
 
+//--------------------------------------------------------------------------
+// StoreBrandRequest: Validación HTTP para la creación de una marca
+//--------------------------------------------------------------------------
+
 namespace App\Modules\Catalog\Brand\Presentation\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
@@ -7,16 +11,13 @@ use App\Modules\Catalog\Brand\Application\DTOs\Write\StoreBrandDTO;
 
 class StoreBrandRequest extends FormRequest
 {
-    //--------------------------------------------------------------------------
-    // AUTORIZACIÓN -> Permisos del request
-    //--------------------------------------------------------------------------
     public function authorize(): bool
     {
         return true;
     }
 
     //--------------------------------------------------------------------------
-    // REGLAS -> Reglas de validación
+    // Validación: Restricciones aplicadas a los datos de creación de marcas
     //--------------------------------------------------------------------------
     public function rules(): array
     {
@@ -25,9 +26,6 @@ class StoreBrandRequest extends FormRequest
         ];
     }
 
-    //--------------------------------------------------------------------------
-    // MENSAJES -> Mensajes de validación personalizados
-    //--------------------------------------------------------------------------
     public function messages(): array
     {
         return [
@@ -36,7 +34,7 @@ class StoreBrandRequest extends FormRequest
     }
 
     //--------------------------------------------------------------------------
-    // MAPEO -> Convertir a DTO de aplicación
+    // Transformación: Mapeo de parámetros validados a un DTO de negocio
     //--------------------------------------------------------------------------
     public function toDto(): StoreBrandDTO
     {

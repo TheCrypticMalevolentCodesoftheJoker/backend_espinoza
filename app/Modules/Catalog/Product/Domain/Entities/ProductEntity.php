@@ -1,5 +1,9 @@
 <?php
 
+//--------------------------------------------------------------------------
+// ProductEntity: Entidad principal (Aggregate Root) que define la estructura y comportamiento de un producto
+//--------------------------------------------------------------------------
+
 namespace App\Modules\Catalog\Product\Domain\Entities;
 
 use Illuminate\Support\Str;
@@ -27,9 +31,6 @@ class ProductEntity
         private ?\DateTime $updatedAt,
     ) {}
 
-    //--------------------------------------------------------------------------
-    // COMPORTAMIENTO -> Generar código único de producto
-    //--------------------------------------------------------------------------
     public static function generateCode(int $id): string
     {
         $random = strtoupper(Str::random(8));
@@ -37,9 +38,7 @@ class ProductEntity
 
         return "PRD{$date}{$random}";
     }
-    //--------------------------------------------------------------------------
-    // CREACIÓN -> Instanciar un nuevo producto
-    //--------------------------------------------------------------------------
+
     public static function create(
         int $categoryId,
         int $brandId,
@@ -67,9 +66,6 @@ class ProductEntity
         );
     }
 
-    //--------------------------------------------------------------------------
-    // RECONSTRUCCIÓN -> Reconstituir producto desde base de datos
-    //--------------------------------------------------------------------------
     public static function reconstitute(
         int $id,
         string $code,
@@ -102,9 +98,6 @@ class ProductEntity
         );
     }
 
-    //--------------------------------------------------------------------------
-    // CONSULTAS -> Getters de la entidad
-    //--------------------------------------------------------------------------
     public function getId(): int
     {
         return $this->id;
@@ -158,9 +151,6 @@ class ProductEntity
         return $this->updatedAt;
     }
 
-    //--------------------------------------------------------------------------
-    // COMPORTAMIENTO -> Lógica de negocio y cambios de estado de la entidad
-    //--------------------------------------------------------------------------
     public function changeCode(string $code): void
     {
         $this->code = $code;

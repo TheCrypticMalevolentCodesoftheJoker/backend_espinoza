@@ -1,4 +1,8 @@
 <?php
+//--------------------------------------------------------------------------
+// UserServiceProvider: Registro de dependencias y configuración de rutas del módulo User.
+// Incluye binding del gateway anti-corrupción para acceso al módulo Role.
+//--------------------------------------------------------------------------
 
 namespace App\Modules\User\Infrastructure\Providers;
 

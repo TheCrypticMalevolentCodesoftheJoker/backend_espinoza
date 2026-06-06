@@ -1,5 +1,9 @@
 <?php
 
+//--------------------------------------------------------------------------
+// InvalidCategoryException: Excepción de negocio para marcar un identificador de categoría inválido o inactivo
+//--------------------------------------------------------------------------
+
 namespace App\Modules\Catalog\Product\Domain\Exceptions\Gateways;
 
 use App\Shared\Exceptions\BusinessAppException;

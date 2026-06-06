@@ -1,5 +1,9 @@
 <?php
 
+//--------------------------------------------------------------------------
+// ListBrandsUseCase: Consulta y recuperación del catálogo completo de marcas
+//--------------------------------------------------------------------------
+
 namespace App\Modules\Catalog\Brand\Application\UseCases\Read;
 
 use App\Modules\Catalog\Brand\Application\Mappers\BrandMapper;
@@ -12,7 +16,7 @@ class ListBrandsUseCase
     ) {}
 
     //--------------------------------------------------------------------------
-    // EJECUTAR CASO DE USO -> Listar todas las marcas
+    // Consulta: Recuperación total de marcas registradas en el sistema
     //--------------------------------------------------------------------------
     public function execute(): array
     {

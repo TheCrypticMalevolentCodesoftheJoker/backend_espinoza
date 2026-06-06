@@ -1,5 +1,9 @@
 <?php
 
+//--------------------------------------------------------------------------
+// ImageType: Objeto de valor que representa y clasifica el tipo/extensión de una imagen de producto
+//--------------------------------------------------------------------------
+
 namespace App\Modules\Catalog\Product\Domain\ValueObjects\Image;
 
 use Illuminate\Validation\ValidationException;
@@ -25,7 +29,7 @@ class ImageType
         }
 
         //--------------------------------------------------------------------------
-        // REGLA DE DOMINIO -> La extensión debe ser una de las permitidas (png, jpg, webp, glb)
+        // Validación: Reglas de validación para tipos de archivo permitidos
         //--------------------------------------------------------------------------
         if (!in_array($normalized, self::VALID_EXTENSIONS, true)) {
             throw ValidationException::withMessages([

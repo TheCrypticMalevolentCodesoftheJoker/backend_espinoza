@@ -1,4 +1,8 @@
 <?php
+//--------------------------------------------------------------------------
+// router: Definición de endpoints REST del módulo Product.
+// Separa rutas públicas de lectura y rutas protegidas de escritura con Sanctum.
+//--------------------------------------------------------------------------
 
 use Illuminate\Support\Facades\Route;
 use App\Modules\Catalog\Product\Presentation\Controllers\ProductController;

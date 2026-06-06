@@ -1,5 +1,9 @@
 <?php
 
+//--------------------------------------------------------------------------
+// ActivateCategoryUseCase: Modificación y habilitación de estado de una categoría
+//--------------------------------------------------------------------------
+
 namespace App\Modules\Catalog\Category\Application\UseCases\Write;
 
 use App\Modules\Catalog\Category\Domain\Exceptions\CategoryNotFoundException;
@@ -12,7 +16,7 @@ class ActivateCategoryUseCase
     ) {}
 
     //--------------------------------------------------------------------------
-    // EJECUTAR CASO DE USO -> Activar una categoría por ID
+    // Procesamiento: Modificación del estado del dominio y persistencia
     //--------------------------------------------------------------------------
     public function execute(int $id): void
     {

@@ -1,5 +1,9 @@
 <?php
 
+//--------------------------------------------------------------------------
+// CreateCategoryUseCase: Creación y registro de categorías válidas
+//--------------------------------------------------------------------------
+
 namespace App\Modules\Catalog\Category\Application\UseCases\Write;
 
 use App\Modules\Catalog\Category\Application\DTOs\Write\StoreCategoryDTO;
@@ -15,7 +19,7 @@ class CreateCategoryUseCase
     ) {}
 
     //--------------------------------------------------------------------------
-    // EJECUTAR CASO DE USO -> Crear una nueva categoría
+    // Orquestación: Validación de nombre, instanciación de entidad y almacenamiento
     //--------------------------------------------------------------------------
     public function execute(StoreCategoryDTO $storeCategoryDTO): void
     {

@@ -1,4 +1,8 @@
 <?php
+//--------------------------------------------------------------------------
+// UpdateUserRequest: Validación y transformación del request HTTP para actualización de usuarios.
+// La contraseña es nullable para permitir actualización sin cambio de credenciales.
+//--------------------------------------------------------------------------
 
 namespace App\Modules\User\Presentation\Requests;
 

@@ -1,4 +1,7 @@
 <?php
+//--------------------------------------------------------------------------
+// UserNotFoundException: Excepción de negocio cuando el usuario solicitado no existe (404).
+//--------------------------------------------------------------------------
 
 namespace App\Modules\User\Domain\Exceptions;
 

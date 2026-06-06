@@ -1,4 +1,7 @@
 <?php
+//--------------------------------------------------------------------------
+// StoreUserRequest: Validación y transformación del request HTTP para creación de usuarios.
+//--------------------------------------------------------------------------
 
 namespace App\Modules\User\Presentation\Requests;
 

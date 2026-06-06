@@ -1,4 +1,8 @@
 <?php
+//--------------------------------------------------------------------------
+// ProductController: Punto de entrada HTTP para operaciones CRUD del módulo Product.
+// Delega toda la lógica de negocio a los casos de uso correspondientes.
+//--------------------------------------------------------------------------
 
 namespace App\Modules\Catalog\Product\Presentation\Controllers;
 

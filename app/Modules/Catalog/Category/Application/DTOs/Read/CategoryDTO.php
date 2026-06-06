@@ -1,5 +1,9 @@
 <?php
 
+//--------------------------------------------------------------------------
+// CategoryDTO: Estructura de datos para la visualización de detalles de una categoría
+//--------------------------------------------------------------------------
+
 namespace App\Modules\Catalog\Category\Application\DTOs\Read;
 
 class CategoryDTO

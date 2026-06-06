@@ -1,5 +1,9 @@
 <?php
 
+//--------------------------------------------------------------------------
+// InvalidCredentialsException: Excepción de negocio lanzada por credenciales no válidas
+//--------------------------------------------------------------------------
+
 namespace App\Modules\Auth\Domain\Exceptions;
 
 use App\Shared\Exceptions\BusinessAppException;

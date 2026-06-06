@@ -1,4 +1,7 @@
 <?php
+//--------------------------------------------------------------------------
+// GetUserByIdUseCase: Obtención de un usuario con resolución de rol vía RoleAccessGateway.
+//--------------------------------------------------------------------------
 
 namespace App\Modules\User\Application\UseCases\Read;
 

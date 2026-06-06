@@ -1,5 +1,9 @@
 <?php
 
+//--------------------------------------------------------------------------
+// BrandNotFoundException: Excepción lanzada cuando una marca solicitada no existe
+//--------------------------------------------------------------------------
+
 namespace App\Modules\Catalog\Brand\Domain\Exceptions;
 
 use App\Shared\Exceptions\BusinessAppException;

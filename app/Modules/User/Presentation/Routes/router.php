@@ -1,4 +1,8 @@
 <?php
+//--------------------------------------------------------------------------
+// router: Definición de endpoints REST del módulo User.
+// Todas las rutas requieren autenticación Sanctum.
+//--------------------------------------------------------------------------
 
 use Illuminate\Support\Facades\Route;
 use App\Modules\User\Presentation\Controllers\UserController;

@@ -1,5 +1,9 @@
 <?php
 
+//--------------------------------------------------------------------------
+// ProductDTO: Objeto de transferencia de datos para la visualización detallada de un producto
+//--------------------------------------------------------------------------
+
 namespace App\Modules\Catalog\Product\Application\DTOs\Read\Product;
 
 use App\Modules\Catalog\Product\Application\DTOs\Read\Discount\DiscountDTO;

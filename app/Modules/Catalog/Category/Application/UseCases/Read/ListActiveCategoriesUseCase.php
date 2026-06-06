@@ -1,5 +1,9 @@
 <?php
 
+//--------------------------------------------------------------------------
+// ListActiveCategoriesUseCase: Consulta y recuperación de categorías activas
+//--------------------------------------------------------------------------
+
 namespace App\Modules\Catalog\Category\Application\UseCases\Read;
 
 use App\Modules\Catalog\Category\Application\Mappers\CategoryMapper;
@@ -12,7 +16,7 @@ class ListActiveCategoriesUseCase
     ) {}
 
     //--------------------------------------------------------------------------
-    // EJECUTAR CASO DE USO -> Listar categorías activas
+    // Consulta: Recuperación de categorías filtradas por estado activo
     //--------------------------------------------------------------------------
     public function execute(): array
     {

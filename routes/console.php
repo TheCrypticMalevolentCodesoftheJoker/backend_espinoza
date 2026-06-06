@@ -10,23 +10,39 @@ Artisan::command('borrarCache', function () {
     $this->newLine();
     $this->info('🚀 Iniciando optimización del sistema...');
 
-    // --------------------------------------------------
-    // CLEAR
-    // --------------------------------------------------
+    //----------------------------------------------------------------------
+    // Limpieza de cachés y archivos optimizados
+    //----------------------------------------------------------------------
     $this->info('🧹 Limpiando caches antiguas...');
 
-    $this->call('optimize:clear');
+    try {
 
-    // --------------------------------------------------
-    // CONFIG
-    // --------------------------------------------------
+        $this->call('optimize:clear');
+    } catch (Throwable $e) {
+
+        $this->error('❌ Error durante optimize:clear');
+        $this->line($e->getMessage());
+
+        return;
+    }
+
+    //----------------------------------------------------------------------
+    // Generación de caché de configuración
+    //----------------------------------------------------------------------
     $this->info('⚙ Generando config cache...');
 
-    $this->call('config:cache');
+    try {
 
-    // --------------------------------------------------
-    // ROUTES
-    // --------------------------------------------------
+        $this->call('config:cache');
+    } catch (Throwable $e) {
+
+        $this->warn('⚠ Error al generar config cache');
+        $this->line($e->getMessage());
+    }
+
+    //----------------------------------------------------------------------
+    // Generación de caché de rutas
+    //----------------------------------------------------------------------
     $this->info('🛣 Generando route cache...');
 
     try {
@@ -34,48 +50,55 @@ Artisan::command('borrarCache', function () {
         $this->call('route:cache');
     } catch (Throwable $e) {
 
-        $this->warn('⚠ Error route cache');
+        $this->warn('⚠ Error al generar route cache');
         $this->line($e->getMessage());
     }
 
-    // --------------------------------------------------
-    // VIEWS
-    // --------------------------------------------------
+    //----------------------------------------------------------------------
+    // Generación de caché de vistas Blade
+    //----------------------------------------------------------------------
     $this->info('🖼 Generando view cache...');
-
-    $this->call('view:cache');
-
-    // --------------------------------------------------
-    // EVENTS
-    // --------------------------------------------------
-    $this->info('📦 Generando event cache...');
-
-    $this->call('event:cache');
-
-    // --------------------------------------------------
-    // APPLICATION CACHE
-    // --------------------------------------------------
-    $this->info('💾 Limpiando application cache...');
 
     try {
 
-        $this->call('cache:clear');
+        $this->call('view:cache');
     } catch (Throwable $e) {
 
-        $this->warn('⚠ Error cache clear');
+        $this->warn('⚠ Error al generar view cache');
         $this->line($e->getMessage());
     }
 
-    // --------------------------------------------------
-    // PACKAGE DISCOVERY
-    // --------------------------------------------------
+    //----------------------------------------------------------------------
+    // Generación de caché de eventos
+    //----------------------------------------------------------------------
+    $this->info('📦 Generando event cache...');
+
+    try {
+
+        $this->call('event:cache');
+    } catch (Throwable $e) {
+
+        $this->warn('⚠ Error al generar event cache');
+        $this->line($e->getMessage());
+    }
+
+    //----------------------------------------------------------------------
+    // Descubrimiento de paquetes
+    //----------------------------------------------------------------------
     $this->info('🔍 Descubriendo paquetes...');
 
-    $this->call('package:discover');
+    try {
 
-    // --------------------------------------------------
-    // FINAL
-    // --------------------------------------------------
+        $this->call('package:discover');
+    } catch (Throwable $e) {
+
+        $this->warn('⚠ Error durante package discovery');
+        $this->line($e->getMessage());
+    }
+
+    //----------------------------------------------------------------------
+    // Resumen final
+    //----------------------------------------------------------------------
     $this->newLine();
 
     $this->warn('👉 Ejecuta si es necesario:');
@@ -90,7 +113,7 @@ Artisan::command('borrarCache', function () {
     }
 
     $this->info('✅ Sistema optimizado correctamente.');
-})->purpose('Optimiza y limpia caches');
+})->purpose('Optimiza y reconstruye los componentes cacheados de la aplicación');
 
 // ======================================================
 // RESET DATABASE
@@ -131,7 +154,7 @@ Artisan::command('cargarData', function () {
 // ======================================================
 // FULL RESET
 // ======================================================
-Artisan::command('reiniciarSistema', function () {
+Artisan::command('rebuild', function () {
 
     $this->newLine();
 
@@ -141,19 +164,29 @@ Artisan::command('reiniciarSistema', function () {
         return;
     }
 
-    $this->info('🚀 Reiniciando sistema completo...');
+    $this->info('🚀 Iniciando reconstrucción completa del sistema...');
 
     // --------------------------------------------------
     // MIGRATIONS
     // --------------------------------------------------
-    $this->call('migrate:fresh');
+    $this->info('⚙ Creando tablas desde cero (migrate:fresh)...');
+    $this->call('migrate:fresh', [
+        '--force' => true,
+    ]);
 
     // --------------------------------------------------
     // SEEDERS
     // --------------------------------------------------
+    $this->info('🌱 Alimentando la base de datos (db:seed)...');
     $this->call('db:seed', [
         '--force' => true,
     ]);
+
+    // --------------------------------------------------
+    // MODELS GENERATION
+    // --------------------------------------------------
+    $this->info('🤖 Generando modelos de Eloquent (code:models)...');
+    $this->call('code:models');
 
     // --------------------------------------------------
     // CACHE
@@ -162,5 +195,5 @@ Artisan::command('reiniciarSistema', function () {
 
     $this->newLine();
 
-    $this->info('🎉 Sistema reiniciado correctamente.');
-})->purpose('Reinicia DB, seeders y cache');
+    $this->info('🎉 Sistema reconstruido y modelos actualizados con éxito.');
+})->purpose('Reconstruye base de datos, ejecuta seeders, autogenera modelos y limpia caches');

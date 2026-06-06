@@ -1,5 +1,9 @@
 <?php
 
+//--------------------------------------------------------------------------
+// DeactivateBrandUseCase: Modificación y desactivación de estado de una marca
+//--------------------------------------------------------------------------
+
 namespace App\Modules\Catalog\Brand\Application\UseCases\Write;
 
 use App\Modules\Catalog\Brand\Domain\Exceptions\BrandNotFoundException;
@@ -12,7 +16,7 @@ class DeactivateBrandUseCase
     ) {}
 
     //--------------------------------------------------------------------------
-    // EJECUTAR CASO DE USO -> Desactivar una marca por ID
+    // Procesamiento: Inhabilitación del estado de dominio y persistencia
     //--------------------------------------------------------------------------
     public function execute(int $id): void
     {

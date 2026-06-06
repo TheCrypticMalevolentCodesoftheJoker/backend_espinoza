@@ -1,4 +1,7 @@
 <?php
+//--------------------------------------------------------------------------
+// RoleServiceProvider: Registro de dependencias y configuración de rutas del módulo Role.
+//--------------------------------------------------------------------------
 
 namespace App\Modules\Role\Infrastructure\Providers;
 

@@ -1,5 +1,9 @@
 <?php
 
+//--------------------------------------------------------------------------
+// EloquentBrandAccessRepository: Implementación Eloquent del adaptador para consultar datos de marcas
+//--------------------------------------------------------------------------
+
 namespace App\Modules\Catalog\Product\Infrastructure\Persistence\Repositories\Gateways;
 
 use App\Modules\Catalog\Brand\Infrastructure\Persistence\Models\TblBrand;
@@ -8,7 +12,7 @@ use App\Modules\Catalog\Product\Domain\Interfaces\Gateways\BrandAccessGateway;
 class EloquentBrandAccessRepository implements BrandAccessGateway
 {
     //--------------------------------------------------------------------------
-    // CONSULTAS -> Verificación y lectura de marcas asociadas
+    // Consulta: Comprobación de existencia y obtención de información de marcas
     //--------------------------------------------------------------------------
     public function exists(int $brandId): bool
     {

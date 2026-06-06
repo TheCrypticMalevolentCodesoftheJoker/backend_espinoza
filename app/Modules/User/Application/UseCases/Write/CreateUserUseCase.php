@@ -1,4 +1,7 @@
 <?php
+//--------------------------------------------------------------------------
+// CreateUserUseCase: Creación de usuario con validación de rol y unicidad de email.
+//--------------------------------------------------------------------------
 
 namespace App\Modules\User\Application\UseCases\Write;
 

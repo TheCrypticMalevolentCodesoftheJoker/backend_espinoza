@@ -1,5 +1,9 @@
 <?php
 
+//--------------------------------------------------------------------------
+// TblArEvent: Mapeo de Eloquent para la persistencia del histórico de eventos AR
+//--------------------------------------------------------------------------
+
 namespace App\Modules\Analytics\Infrastructure\Persistence\Models;
 
 use Carbon\Carbon;

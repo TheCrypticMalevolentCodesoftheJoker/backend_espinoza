@@ -1,5 +1,9 @@
 <?php
 
+//--------------------------------------------------------------------------
+// CategoryEntity: Entidad que define la estructura y lógica de dominio de las categorías
+//--------------------------------------------------------------------------
+
 namespace App\Modules\Catalog\Category\Domain\Entities;
 
 use App\Modules\Catalog\Category\Domain\ValueObjects\CategoryName;
@@ -14,9 +18,6 @@ class CategoryEntity
         private ?\DateTime $updatedAt,
     ) {}
 
-    //--------------------------------------------------------------------------
-    // CREACIÓN -> Instanciar una nueva entidad
-    //--------------------------------------------------------------------------
     public static function create(CategoryName $name): self
     {
         return new self(
@@ -28,9 +29,6 @@ class CategoryEntity
         );
     }
 
-    //--------------------------------------------------------------------------
-    // RECONSTRUCCIÓN -> Reconstituir entidad desde base de datos
-    //--------------------------------------------------------------------------
     public static function reconstitute(int $id, CategoryName $name, bool $status, ?\DateTime $createdAt, ?\DateTime $updatedAt): self
     {
         return new self(
@@ -41,10 +39,6 @@ class CategoryEntity
             updatedAt: $updatedAt,
         );
     }
-
-    //--------------------------------------------------------------------------
-    // CONSULTAS -> Getters de la entidad
-    //--------------------------------------------------------------------------
 
     public function getId(): int
     {
@@ -69,9 +63,6 @@ class CategoryEntity
         return $this->updatedAt;
     }
 
-    //--------------------------------------------------------------------------
-    // COMPORTAMIENTO -> Lógica de dominio de la entidad
-    //--------------------------------------------------------------------------
     public function rename(CategoryName $name): void
     {
         $this->name = $name;

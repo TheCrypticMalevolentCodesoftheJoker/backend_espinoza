@@ -1,4 +1,8 @@
 <?php
+//--------------------------------------------------------------------------
+// StoreProductRequest: Validación y transformación del request HTTP para creación de productos.
+// Aplica reglas de validación y convierte los datos entrantes en DTOs de aplicación.
+//--------------------------------------------------------------------------
 
 namespace App\Modules\Catalog\Product\Presentation\Requests;
 

@@ -1,4 +1,7 @@
 <?php
+//--------------------------------------------------------------------------
+// ActivateRoleUseCase: Activación de un rol existente por su identificador.
+//--------------------------------------------------------------------------
 
 namespace App\Modules\Role\Application\UseCases\Write;
 

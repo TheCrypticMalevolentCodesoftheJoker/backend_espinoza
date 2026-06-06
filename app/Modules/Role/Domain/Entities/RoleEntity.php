@@ -1,4 +1,7 @@
 <?php
+//--------------------------------------------------------------------------
+// RoleEntity: Agregado raíz del dominio Role con estado, comportamiento y factory methods.
+//--------------------------------------------------------------------------
 
 namespace App\Modules\Role\Domain\Entities;
 

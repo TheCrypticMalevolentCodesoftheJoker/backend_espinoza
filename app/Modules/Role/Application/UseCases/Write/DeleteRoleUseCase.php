@@ -1,4 +1,7 @@
 <?php
+//--------------------------------------------------------------------------
+// DeleteRoleUseCase: Eliminación permanente de un rol por su identificador.
+//--------------------------------------------------------------------------
 
 namespace App\Modules\Role\Application\UseCases\Write;
 

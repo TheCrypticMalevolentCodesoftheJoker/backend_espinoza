@@ -1,4 +1,7 @@
 <?php
+//--------------------------------------------------------------------------
+// InvalidRoleException: Excepción de negocio cuando el rol asignado no existe (404).
+//--------------------------------------------------------------------------
 
 namespace App\Modules\User\Domain\Exceptions;
 

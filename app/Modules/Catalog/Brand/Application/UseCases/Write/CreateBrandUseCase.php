@@ -1,5 +1,9 @@
 <?php
 
+//--------------------------------------------------------------------------
+// CreateBrandUseCase: Creación y registro de marcas válidas
+//--------------------------------------------------------------------------
+
 namespace App\Modules\Catalog\Brand\Application\UseCases\Write;
 
 use App\Modules\Catalog\Brand\Application\DTOs\Write\StoreBrandDTO;
@@ -15,7 +19,7 @@ class CreateBrandUseCase
     ) {}
 
     //--------------------------------------------------------------------------
-    // EJECUTAR CASO DE USO -> Crear una nueva marca
+    // Orquestación: Validación de nombre, instanciación de entidad y almacenamiento
     //--------------------------------------------------------------------------
     public function execute(StoreBrandDTO $storeBrandDTO): void
     {

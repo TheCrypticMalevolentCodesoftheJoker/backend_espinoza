@@ -1,4 +1,7 @@
 <?php
+//--------------------------------------------------------------------------
+// UserRoleMapper: Transformación de arrays de rol a DTOs de presentación.
+//--------------------------------------------------------------------------
 
 namespace App\Modules\User\Application\Mappers;
 

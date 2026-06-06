@@ -1,4 +1,8 @@
 <?php
+//--------------------------------------------------------------------------
+// EloquentUserRepository: Implementación Eloquent del contrato de persistencia de usuarios.
+// Gestiona la reconstitución de entidades y las operaciones CRUD sobre tbl_user.
+//--------------------------------------------------------------------------
 
 namespace App\Modules\User\Infrastructure\Persistence\Repositories;
 

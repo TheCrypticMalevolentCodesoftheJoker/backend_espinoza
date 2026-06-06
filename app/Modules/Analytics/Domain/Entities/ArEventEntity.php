@@ -1,5 +1,9 @@
 <?php
 
+//--------------------------------------------------------------------------
+// ArEventEntity: Entidad que modela la lógica y propiedades de un evento AR
+//--------------------------------------------------------------------------
+
 namespace App\Modules\Analytics\Domain\Entities;
 
 use App\Modules\Analytics\Domain\ValueObjects\SessionId;
@@ -17,9 +21,6 @@ class ArEventEntity
         private ?\DateTime $updatedAt,
     ) {}
 
-    //--------------------------------------------------------------------------
-    // MÉTODOS DE CREACIÓN -> Construye una nueva entidad
-    //--------------------------------------------------------------------------
     public static function create(
         SessionId $sessionId,
         int $productId,
@@ -37,9 +38,6 @@ class ArEventEntity
         );
     }
 
-    //--------------------------------------------------------------------------
-    // MÉTODOS DE RECONSTRUCCIÓN -> Reconstruye una entidad desde persistencia
-    //--------------------------------------------------------------------------
     public static function reconstitute(
         int $id,
         SessionId $sessionId,
@@ -60,9 +58,6 @@ class ArEventEntity
         );
     }
 
-    //--------------------------------------------------------------------------
-    // MÉTODOS DE CONSULTA -> Getters de la entidad de dominio
-    //--------------------------------------------------------------------------
     public function getId(): int
     {
         return $this->id;

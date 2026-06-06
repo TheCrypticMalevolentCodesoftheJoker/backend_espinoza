@@ -1,4 +1,8 @@
 <?php
+//--------------------------------------------------------------------------
+// UserPassword: Value Object con validación de complejidad para la contraseña.
+// Requiere mayúscula, minúscula, número y símbolo.
+//--------------------------------------------------------------------------
 
 namespace App\Modules\User\Domain\ValueObjects;
 

@@ -1,4 +1,7 @@
 <?php
+//--------------------------------------------------------------------------
+// UserInterface: Contrato de repositorio para consulta y persistencia de usuarios.
+//--------------------------------------------------------------------------
 
 namespace App\Modules\User\Domain\Interfaces;
 

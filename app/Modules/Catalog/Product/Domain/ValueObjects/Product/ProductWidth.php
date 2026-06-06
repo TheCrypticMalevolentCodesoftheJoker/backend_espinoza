@@ -1,5 +1,9 @@
 <?php
 
+//--------------------------------------------------------------------------
+// ProductWidth: Objeto de valor que representa y valida el ancho de un producto
+//--------------------------------------------------------------------------
+
 namespace App\Modules\Catalog\Product\Domain\ValueObjects\Product;
 
 use Illuminate\Validation\ValidationException;
@@ -13,7 +17,7 @@ class ProductWidth
         $normalized = trim($width);
 
         //--------------------------------------------------------------------------
-        // REGLA DE DOMINIO -> El ancho del producto no puede estar vacío
+        // Validación: Reglas de integridad para el ancho del producto
         //--------------------------------------------------------------------------
         if ($normalized === '') {
             throw ValidationException::withMessages([

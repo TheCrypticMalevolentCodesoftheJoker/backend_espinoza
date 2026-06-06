@@ -1,4 +1,7 @@
 <?php
+//--------------------------------------------------------------------------
+// UserRoleId: Value Object con validación de identificador positivo para el rol asignado.
+//--------------------------------------------------------------------------
 
 namespace App\Modules\User\Domain\ValueObjects;
 

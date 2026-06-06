@@ -1,4 +1,7 @@
 <?php
+//--------------------------------------------------------------------------
+// CreateRoleUseCase: Creación de un nuevo rol con validación de nombre único.
+//--------------------------------------------------------------------------
 
 namespace App\Modules\Role\Application\UseCases\Write;
 

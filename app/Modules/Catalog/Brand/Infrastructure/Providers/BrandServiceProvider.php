@@ -1,5 +1,9 @@
 <?php
 
+//--------------------------------------------------------------------------
+// BrandServiceProvider: Registra bindings y define el ruteo del catálogo de marcas
+//--------------------------------------------------------------------------
+
 namespace App\Modules\Catalog\Brand\Infrastructure\Providers;
 
 use Illuminate\Support\ServiceProvider;
@@ -9,7 +13,7 @@ use App\Modules\Catalog\Brand\Infrastructure\Persistence\Repositories\EloquentBr
 class BrandServiceProvider extends ServiceProvider
 {
     //--------------------------------------------------------------------------
-    // REGISTRO -> Enlazar dependencias del contenedor de servicios
+    // Inicialización: Registro de dependencias e interfaces en el contenedor
     //--------------------------------------------------------------------------
     public function register(): void
     {
@@ -17,7 +21,7 @@ class BrandServiceProvider extends ServiceProvider
     }
 
     //--------------------------------------------------------------------------
-    // INICIALIZACIÓN -> Cargar rutas y configuraciones del módulo
+    // Configuración: Registro y definición de las rutas para el catálogo de marcas
     //--------------------------------------------------------------------------
     public function boot(): void
     {
