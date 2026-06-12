@@ -13,6 +13,7 @@ Route::prefix('product')->group(function () {
     // CONSULTAS -> Rutas de lectura de productos
     //--------------------------------------------------------------------------
     Route::get('/', [ProductController::class, 'index'])->name('product.index');
+    Route::get('/active', [ProductController::class, 'active'])->name('product.active');
     Route::get('/{id}', [ProductController::class, 'show'])->name('product.show');
 
     //--------------------------------------------------------------------------

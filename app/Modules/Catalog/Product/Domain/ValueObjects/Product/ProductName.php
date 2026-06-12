@@ -25,9 +25,9 @@ class ProductName
             ]);
         }
 
-        if (!preg_match('/^[\pL\pN\s\-_.]+$/u', $normalized)) {
+        if (!preg_match('/^[\pL\s\-_.]+$/u', $normalized)) {
             throw ValidationException::withMessages([
-                'name' => 'El nombre del producto solo puede contener letras, números, espacios, guiones, guiones bajos y puntos.'
+                'name' => 'El nombre del producto solo puede contener letras, espacios, guiones, guiones bajos y puntos.'
             ]);
         }
 

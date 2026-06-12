@@ -83,7 +83,7 @@ class CreateProductUseCase
             $productId = $this->productInterface->save($entity);
 
             foreach ($storeProductDTO->images as $imageDto) {
-                $uploadResult = $this->s3Gateway->upload($productId, $imageDto->file);
+                $uploadResult = $this->s3Gateway->upload($productId, $imageDto->file->value());
                 $type = new ImageType($uploadResult['type']);
 
                 $imageEntity = ImageEntity::create(

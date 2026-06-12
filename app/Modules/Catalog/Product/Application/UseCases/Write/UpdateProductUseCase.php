@@ -103,7 +103,7 @@ class UpdateProductUseCase
 
             if (!empty($dto->images)) {
                 foreach ($dto->images as $imageDto) {
-                    $uploadResult = $this->s3Gateway->upload($id, $imageDto->file);
+                    $uploadResult = $this->s3Gateway->upload($id, $imageDto->file->value());
                     $type = new ImageType($uploadResult['type']);
 
                     $imageEntity = ImageEntity::create(

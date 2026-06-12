@@ -12,6 +12,7 @@ use App\Modules\Catalog\Product\Application\DTOs\Write\Discount\StoreDiscountDTO
 use App\Modules\Catalog\Product\Application\DTOs\Write\Image\StoreImageDTO;
 use App\Modules\Catalog\Product\Application\DTOs\Write\Price\StorePriceDTO;
 use App\Modules\Catalog\Product\Application\DTOs\Write\Product\StoreProductDTO;
+use App\Modules\Catalog\Product\Domain\ValueObjects\Image\ProductFile;
 
 class StoreProductRequest extends FormRequest
 {
@@ -84,7 +85,7 @@ class StoreProductRequest extends FormRequest
         foreach ($files as $index => $item) {
             $file = $item['file'] ?? null;
             if ($file instanceof UploadedFile) {
-                $images[] = new StoreImageDTO(file: $file);
+                $images[] = new StoreImageDTO(file: new ProductFile($file));
             }
         }
 

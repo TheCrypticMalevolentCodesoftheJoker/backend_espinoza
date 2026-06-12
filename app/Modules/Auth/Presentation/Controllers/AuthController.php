@@ -23,12 +23,12 @@ class AuthController
     //--------------------------------------------------------------------------
     public function store(LoginRequest $loginRequest)
     {
-        $token = $this->loginUseCase->execute($loginRequest->toDto());
+        $data = $this->loginUseCase->execute($loginRequest->toDto());
 
         return ApiResponse::success(
             statusCode: 200,
             message: 'Inicio de sesión exitoso.',
-            data: $token
+            data: $data
         );
     }
 

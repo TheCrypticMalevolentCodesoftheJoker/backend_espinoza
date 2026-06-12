@@ -6,11 +6,11 @@
 
 namespace App\Modules\Catalog\Product\Application\DTOs\Write\Image;
 
-use Illuminate\Http\UploadedFile;
+use App\Modules\Catalog\Product\Domain\ValueObjects\Image\ProductFile;
 
 class StoreImageDTO
 {
     public function __construct(
-        public UploadedFile $file,
+        public ProductFile $file,
     ) {}
 }

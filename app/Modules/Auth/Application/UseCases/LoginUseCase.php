@@ -19,14 +19,14 @@ class LoginUseCase
     //--------------------------------------------------------------------------
     // Autenticación: Validación de credenciales y generación del token de acceso
     //--------------------------------------------------------------------------
-    public function execute(LoginDTO $loginDTO): string
+    public function execute(LoginDTO $loginDTO): array
     {
-        $token = $this->authInterface->login($loginDTO->email, $loginDTO->password);
+        $data = $this->authInterface->login($loginDTO->email, $loginDTO->password);
 
-        if (!$token) {
+        if (!$data) {
             throw new InvalidCredentialsException();
         }
 
-        return $token;
+        return $data;
     }
 }

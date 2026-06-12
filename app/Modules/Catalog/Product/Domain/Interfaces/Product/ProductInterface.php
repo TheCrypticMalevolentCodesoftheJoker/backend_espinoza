@@ -12,6 +12,8 @@ interface ProductInterface
 {
     public function findAll(): array;
 
+    public function findActive(): array;
+
     public function findById(int $id): ?ProductEntity;
 
     public function findByName(string $name): ?ProductEntity;

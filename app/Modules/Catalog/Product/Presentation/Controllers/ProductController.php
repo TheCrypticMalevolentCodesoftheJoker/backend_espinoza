@@ -7,6 +7,7 @@
 namespace App\Modules\Catalog\Product\Presentation\Controllers;
 
 use App\Modules\Catalog\Product\Application\UseCases\Read\GetProductByIdUseCase;
+use App\Modules\Catalog\Product\Application\UseCases\Read\ListActiveProductsUseCase;
 use App\Modules\Catalog\Product\Application\UseCases\Read\ListProductsUseCase;
 use App\Modules\Catalog\Product\Application\UseCases\Write\ActivateProductUseCase;
 use App\Modules\Catalog\Product\Application\UseCases\Write\CreateProductUseCase;
@@ -24,6 +25,7 @@ class ProductController
         // CASOS DE USO -> Lectura de datos
         //--------------------------------------------------------------------------
         private readonly ListProductsUseCase $listProductsUseCase,
+        private readonly ListActiveProductsUseCase $listActiveProductsUseCase,
         private readonly GetProductByIdUseCase $getProductByIdUseCase,
         //--------------------------------------------------------------------------
         // CASOS DE USO -> Escritura y persistencia de datos
@@ -45,6 +47,20 @@ class ProductController
         return ApiResponse::success(
             statusCode: 200,
             message: 'Productos listados correctamente',
+            data: $products
+        );
+    }
+
+    //--------------------------------------------------------------------------
+    // ACCIÓN -> Listar productos activos
+    //--------------------------------------------------------------------------
+    public function active()
+    {
+        $products = $this->listActiveProductsUseCase->execute();
+
+        return ApiResponse::success(
+            statusCode: 200,
+            message: 'Productos activos listados correctamente',
             data: $products
         );
     }

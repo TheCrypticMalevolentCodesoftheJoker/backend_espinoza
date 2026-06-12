@@ -25,6 +25,17 @@ class EloquentProductRepository implements ProductInterface
     }
 
     //--------------------------------------------------------------------------
+    // CONSULTA -> Obtener productos activos
+    //--------------------------------------------------------------------------
+    public function findActive(): array
+    {
+        return TblProduct::where('status', true)
+            ->get()
+            ->map(fn($model) => $this->mapToEntity($model))
+            ->toArray();
+    }
+
+    //--------------------------------------------------------------------------
     // CONSULTA -> Obtener producto por ID
     //--------------------------------------------------------------------------
     public function findById(int $id): ?ProductEntity

@@ -18,7 +18,7 @@ class EloquentAuthRepository implements AuthInterface
     //--------------------------------------------------------------------------
     // Autenticación: Verificación de credenciales del usuario y emisión de token
     //--------------------------------------------------------------------------
-    public function login(string $email, string $password): ?string
+    public function login(string $email, string $password): ?array
     {
         $user = TblUser::where('email', $email)->first();
 
@@ -26,7 +26,11 @@ class EloquentAuthRepository implements AuthInterface
             return null;
         }
 
-        return $user->createToken('auth_token')->plainTextToken;
+        return [
+            'token' => $user->createToken('auth_token')->plainTextToken,
+            'id' => $user->id,
+            'name' => $user->name,
+        ];
     }
 
     //--------------------------------------------------------------------------
